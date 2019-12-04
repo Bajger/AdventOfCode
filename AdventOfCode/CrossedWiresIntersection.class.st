@@ -15,6 +15,11 @@ L1002,D658,L695,U170,L117,U93,R700,D960,L631,U483,L640,D699,R865,U886,L59,D795,R
 ]
 
 { #category : #execution }
+CrossedWiresIntersection >> addIntersection: aPointOrNil to: resultColl [
+	aPointOrNil 	ifNotNil: [ :intPoint | resultColl add: intPoint ] 
+]
+
+{ #category : #execution }
 CrossedWiresIntersection >> addMovesForWire: aWire withSteps: aWireStepAssocs [
 	aWireStepAssocs do: [:wireAssocMovement |
 		wireAssocMovement key = #U ifTrue: [ self moveUp: wireAssocMovement value on: aWire ].
@@ -45,16 +50,16 @@ CrossedWiresIntersection >> firstWire: anObject [
 
 { #category : #execution }
 CrossedWiresIntersection >> getIntersections [
-	|intersections|
+	| intersections |
 	intersections := OrderedCollection new.
-	self firstWire segmentsDo: [:first1 :first2 |
-		|firstWireSegment|
-		 firstWireSegment := LineSegment from: first1 to: first2.
-		self secondWire segmentsDo: [:second1 :second2 |
-			 (firstWireSegment intersectionWith: (LineSegment from: second1 to: second2)) ifNotNil: [:intPoint | intersections add: intPoint ]
-			]		
-		 ].
-	^ intersections 
+	self segmentsDo: [ :firstWireSegment | 
+		self segmentsDo: [ :secondWireSegment | 
+			self 
+				addIntersection: (firstWireSegment intersectionWith: secondWireSegment)
+				to: intersections 
+		] on: self secondWire 
+	] on: self firstWire.
+	^ intersections
 ]
 
 { #category : #initialize }
@@ -117,4 +122,12 @@ CrossedWiresIntersection >> secondWire [
 { #category : #accessing }
 CrossedWiresIntersection >> secondWire: anObject [
 	secondWire := anObject
+]
+
+{ #category : #execution }
+CrossedWiresIntersection >> segmentsDo: aBlock on: aWire [
+
+^ aWire segmentsDo: [:point1 :point2 |
+		aBlock value: (LineSegment from: point1 to: point2).
+ ]
 ]
