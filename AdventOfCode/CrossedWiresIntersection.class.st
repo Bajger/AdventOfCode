@@ -43,6 +43,20 @@ CrossedWiresIntersection >> firstWire: anObject [
 	firstWire := anObject
 ]
 
+{ #category : #execution }
+CrossedWiresIntersection >> getIntersections [
+	|intersections|
+	intersections := OrderedCollection new.
+	self firstWire segmentsDo: [:first1 :first2 |
+		|firstWireSegment|
+		 firstWireSegment := LineSegment from: first1 to: first2.
+		self secondWire segmentsDo: [:second1 :second2 |
+			 (firstWireSegment intersectionWith: (LineSegment from: second1 to: second2)) ifNotNil: [:intPoint | intersections add: intPoint ]
+			]		
+		 ].
+	^ intersections 
+]
+
 { #category : #initialize }
 CrossedWiresIntersection >> getNewWire [
 
