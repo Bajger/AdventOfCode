@@ -35,7 +35,7 @@ CrossedWiresIntersection >> compute [
 	wireStrings := self input substrings.
 	self addMovesForWire: self firstWire withSteps: (self getWireSteps: wireStrings first).
 	self addMovesForWire: self secondWire withSteps: (self getWireSteps: wireStrings last).
-	self
+	^ self getClosestDistance: self getIntersections.
 ]
 
 { #category : #accessing }
@@ -46,6 +46,12 @@ CrossedWiresIntersection >> firstWire [
 { #category : #accessing }
 CrossedWiresIntersection >> firstWire: anObject [
 	firstWire := anObject
+]
+
+{ #category : #execution }
+CrossedWiresIntersection >> getClosestDistance: intersections [
+
+	^ (intersections allButFirst collect: [ :aPoint |  aPoint abs x + aPoint abs y]) min
 ]
 
 { #category : #execution }
