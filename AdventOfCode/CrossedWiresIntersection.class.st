@@ -20,6 +20,13 @@ CrossedWiresIntersection >> addIntersection: aPointOrNil to: resultColl [
 ]
 
 { #category : #execution }
+CrossedWiresIntersection >> addIntersectionBetween: firstWireSegment and: secondWireSegment to: resultColl [
+	| aPointOrNil |
+	aPointOrNil := firstWireSegment intersectionWith: secondWireSegment.
+	aPointOrNil 	ifNotNil: [ :intPoint | resultColl add: intPoint ] 
+]
+
+{ #category : #execution }
 CrossedWiresIntersection >> addMovesForWire: aWire withSteps: aWireStepAssocs [
 	aWireStepAssocs do: [:wireAssocMovement |
 		wireAssocMovement key = #U ifTrue: [ self moveUp: wireAssocMovement value on: aWire ].
@@ -36,6 +43,12 @@ CrossedWiresIntersection >> compute [
 	self addMovesForWire: self firstWire withSteps: (self getWireSteps: wireStrings first).
 	self addMovesForWire: self secondWire withSteps: (self getWireSteps: wireStrings last).
 	^ self getClosestDistance: self getIntersections.
+]
+
+{ #category : #execution }
+CrossedWiresIntersection >> doSegmentAction: aBlock lineSegment: aSegment on: aWire [
+
+	^ aBlock value: aSegment
 ]
 
 { #category : #accessing }
@@ -61,7 +74,8 @@ CrossedWiresIntersection >> getIntersections [
 	self segmentsDo: [ :firstWireSegment | 
 		self segmentsDo: [ :secondWireSegment | 
 			self 
-				addIntersection: (firstWireSegment intersectionWith: secondWireSegment)
+				addIntersectionBetween:firstWireSegment 
+				and: secondWireSegment
 				to: intersections 
 		] on: self secondWire 
 	] on: self firstWire.
@@ -134,6 +148,6 @@ CrossedWiresIntersection >> secondWire: anObject [
 CrossedWiresIntersection >> segmentsDo: aBlock on: aWire [
 
 ^ aWire segmentsDo: [:point1 :point2 |
-		aBlock value: (LineSegment from: point1 to: point2).
+		self doSegmentAction: aBlock lineSegment: (LineSegment from: point1 to: point2) on: aWire
  ]
 ]
