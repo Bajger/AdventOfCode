@@ -15,11 +15,6 @@ L1002,D658,L695,U170,L117,U93,R700,D960,L631,U483,L640,D699,R865,U886,L59,D795,R
 ]
 
 { #category : #execution }
-CrossedWiresIntersection >> addIntersection: aPointOrNil to: resultColl [
-	aPointOrNil 	ifNotNil: [ :intPoint | resultColl add: intPoint ] 
-]
-
-{ #category : #execution }
 CrossedWiresIntersection >> addIntersectionBetween: firstWireSegment and: secondWireSegment to: resultColl [
 	| aPointOrNil |
 	aPointOrNil := firstWireSegment intersectionWith: secondWireSegment.
@@ -37,11 +32,18 @@ CrossedWiresIntersection >> addMovesForWire: aWire withSteps: aWireStepAssocs [
 ]
 
 { #category : #execution }
-CrossedWiresIntersection >> compute [ 
+CrossedWiresIntersection >> addMovesForWires [
 	| wireStrings |
 	wireStrings := self input substrings.
 	self addMovesForWire: self firstWire withSteps: (self getWireSteps: wireStrings first).
 	self addMovesForWire: self secondWire withSteps: (self getWireSteps: wireStrings last).
+
+]
+
+{ #category : #execution }
+CrossedWiresIntersection >> compute [ 
+
+	self addMovesForWires.
 	^ self getClosestDistance: self getIntersections.
 ]
 

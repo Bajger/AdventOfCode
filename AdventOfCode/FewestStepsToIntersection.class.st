@@ -12,8 +12,19 @@ FewestStepsToIntersection >> addIntersectionBetween: firstWireSegment and: secon
 	| aPointOrNil |
 	aPointOrNil := firstWireSegment intersectionWith: secondWireSegment.
 	aPointOrNil 	ifNotNil: [ :intPoint | 
-			self getDistanceToIntersection: intPoint firstWireEnd: firstWireSegment end secondWireEnd: secondWireSegment end.
-			resultColl add: intPoint ]
+			|distances|
+			distances := self 
+				getWireDistancesToIntersection: intPoint 
+				firstWireEnd: firstWireSegment end 
+				secondWireEnd: secondWireSegment end.
+			resultColl add: {intPoint. distances first + (distances last).} ]
+]
+
+{ #category : #execution }
+FewestStepsToIntersection >> compute [ 
+
+	self addMovesForWires.
+	^ self getClosestLengthOfWires: self getIntersections.
 ]
 
 { #category : #private }
@@ -23,11 +34,26 @@ FewestStepsToIntersection >> doSegmentAction: aBlock lineSegment: aSegment on: a
 	^ super doSegmentAction: aBlock lineSegment: aSegment on: aWire
 ]
 
+{ #category : #private }
+FewestStepsToIntersection >> getClosestLengthOfWires: intersections [
+
+	^ (intersections allButFirst collect: [ :aPointColl |  aPointColl second + aPointColl last]) min
+]
+
 { #category : #initialize }
 FewestStepsToIntersection >> getWireDistance: aWire [
 
 	^ self wireDistance at: aWire
 	
+]
+
+{ #category : #private }
+FewestStepsToIntersection >> getWireDistancesToIntersection: intPoint firstWireEnd: firstWireSegmentEnd secondWireEnd: secondWireSegmentEnd [ 
+	^ 
+	{  
+	(self getWireDistance: self firstWire) - (intPoint distanceTo: firstWireSegmentEnd).
+	(self getWireDistance: self secondWire) - (intPoint distanceTo: secondWireSegmentEnd).
+	}
 ]
 
 { #category : #initialize }
