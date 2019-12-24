@@ -12,12 +12,12 @@ FewestStepsToIntersection >> addIntersectionBetween: firstWireSegment and: secon
 	| aPointOrNil |
 	aPointOrNil := firstWireSegment intersectionWith: secondWireSegment.
 	aPointOrNil 	ifNotNil: [ :intPoint | 
-			|distances|
-			distances := self 
+			|wireDistances|
+			wireDistances := self 
 				getWireDistancesToIntersection: intPoint 
 				firstWireEnd: firstWireSegment end 
 				secondWireEnd: secondWireSegment end.
-			resultColl add: {intPoint. distances first + (distances last).} ]
+			resultColl add: {intPoint. wireDistances first.  wireDistances last.} ]
 ]
 
 { #category : #execution }
