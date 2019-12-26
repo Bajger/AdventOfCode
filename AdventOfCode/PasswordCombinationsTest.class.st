@@ -52,6 +52,56 @@ self assert: self passInstance adjacentDigitsDecreasing.
 ]
 
 { #category : #running }
+PasswordCombinationsTest >> testCompute [
+
+	self passInstance input: '123455-123456'.
+	self assert: self passInstance compute equals: 1.
+
+	self passInstance input: '113455-113465'.
+	self assert: self passInstance compute equals: 5.
+	
+	self passInstance input: '113455-113466'.
+	self assert: self passInstance compute equals: 6.
+
+	self passInstance input: '113455-113455'.
+	self assert: self passInstance compute equals: 1.
+
+	self passInstance input: '113455-111111'.
+	self assert: self passInstance compute equals: 0.
+]
+
+{ #category : #running }
+PasswordCombinationsTest >> testCurrentDigit [
+
+self passInstance evaluatedNumber: 123456.
+self passInstance currentDigitIndex: 6.
+self assert: self passInstance currentDigit equals: 1.
+
+self passInstance currentDigitIndex: 2.
+self assert: self passInstance currentDigit equals: 5.
+]
+
+{ #category : #running }
+PasswordCombinationsTest >> testGetPasswordInterval [
+
+self passInstance input: '111111-666666'.
+self assert: self passInstance getPasswordInterval equals: (Interval from: 111111 to: 666666).
+
+
+]
+
+{ #category : #running }
+PasswordCombinationsTest >> testNextDigit [
+
+self passInstance evaluatedNumber: 123456.
+self passInstance currentDigitIndex: 6.
+self assert: self passInstance nextDigit equals: 2.
+
+self passInstance currentDigitIndex: 2.
+self assert: self passInstance nextDigit equals: 6.
+]
+
+{ #category : #running }
 PasswordCombinationsTest >> testNumberMeetsPasswordCriteria [
 
 self passInstance evaluatedNumber: 111111.

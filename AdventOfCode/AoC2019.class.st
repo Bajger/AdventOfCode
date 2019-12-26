@@ -5,46 +5,26 @@ Class {
 }
 
 { #category : #executing }
-AoC2019 class >> day1 [
-	^ Array with: self day1Part1  with: self day1Part2 
+AoC2019 class >> aocSolutionClasses [
+	^ 
+	{	SumOfFuel. SumOfFuelWithAddedFuel.
+		RestoreIntcodeProgram. FindNounAndVerb.
+		CrossedWiresIntersection. FewestStepsToIntersection.
+		PasswordCombinations.
+	}
 ]
 
 { #category : #executing }
-AoC2019 class >> day1Part1 [
-	^ SumOfFuel new compute
+AoC2019 class >> day: adventDay [
+	^ Array with: (self day: adventDay part: 1)  with:  (self day: adventDay part: 2)
 ]
 
 { #category : #executing }
-AoC2019 class >> day1Part2 [
-	^ SumOfFuelWithAddedFuel new compute
-]
+AoC2019 class >> day: adventDay part: partNumber [
+ 	|aocSolutionClass| 
+	aocSolutionClass := self aocSolutionClasses 
+		at: adventDay - 1 * 2 + partNumber 
+		ifAbsent: [ self error: 'AoC 2019 - solution not found for day: ', (adventDay asString), ' part: ', (partNumber asString), '.'].
 
-{ #category : #executing }
-AoC2019 class >> day2 [
-	^ Array with: self day2Part1  with: self day2Part2
-]
-
-{ #category : #executing }
-AoC2019 class >> day2Part1 [
-	^ RestoreIntcodeProgram new compute
-]
-
-{ #category : #executing }
-AoC2019 class >> day2Part2 [
-	^ FindNounAndVerb new compute
-]
-
-{ #category : #executing }
-AoC2019 class >> day3 [
-	^ Array with: self day3Part1  with: self day3Part2
-]
-
-{ #category : #executing }
-AoC2019 class >> day3Part1 [
-	^ CrossedWiresIntersection new compute
-]
-
-{ #category : #executing }
-AoC2019 class >> day3Part2 [
-	^ FewestStepsToIntersection new compute
+	^ aocSolutionClass new compute
 ]

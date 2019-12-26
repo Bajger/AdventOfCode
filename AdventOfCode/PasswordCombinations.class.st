@@ -28,12 +28,10 @@ PasswordCombinations >> adjacentDigitsDecreasing [
 
 { #category : #private }
 PasswordCombinations >> compute [
-	|validPasswords|
-	validPasswords := 	self getPasswordInterval select: [:currentNumber |
-		self evaluatedNumber: currentNumber.
-		self numberMeetsPasswordCriteria
-	].
-	^ validPasswords size
+ 	^ self getPasswordInterval count: [:currentNumber |
+			self evaluatedNumber: currentNumber.
+			self numberMeetsPasswordCriteria
+	]
 ]
 
 { #category : #accessing }
