@@ -44,13 +44,13 @@ CrossedWiresIntersection >> addMovesForWires [
 CrossedWiresIntersection >> compute [ 
 
 	self addMovesForWires.
-	^ self getClosestDistance: self getIntersections.
+	^ self getClosestDistance: (self handleIntersectionBug:  self getIntersections)
 ]
 
 { #category : #execution }
-CrossedWiresIntersection >> doSegmentAction: aBlock lineSegment: aSegment on: aWire [
+CrossedWiresIntersection >> doSegmentAction: aBlock  lineSegment: aSegment on: aWire [
 
-	^ aBlock value: aSegment
+	^ aBlock  value: aSegment
 ]
 
 { #category : #accessing }
@@ -66,7 +66,16 @@ CrossedWiresIntersection >> firstWire: anObject [
 { #category : #execution }
 CrossedWiresIntersection >> getClosestDistance: intersections [
 
-	^ (intersections allButFirst collect: [ :aPoint |  aPoint abs x + aPoint abs y]) min
+	^ (intersections collect: [ :aPoint |  aPoint abs x + aPoint abs y]) min
+]
+
+{ #category : #private }
+CrossedWiresIntersection >> getFirstIntersection: intersectionsColl [
+
+	intersectionsColl ifNotEmpty: [ 
+		^ intersectionsColl first 
+		 ].
+	^ nil 
 ]
 
 { #category : #execution }
@@ -81,6 +90,7 @@ CrossedWiresIntersection >> getIntersections [
 				to: intersections 
 		] on: self secondWire 
 	] on: self firstWire.
+
 	^ intersections
 ]
 
@@ -98,6 +108,15 @@ CrossedWiresIntersection >> getWireSteps: aWireString [
 	^ (aWireString substrings: ',') collect: [:wireStepString |
 		wireStepString first asSymbol -> wireStepString asInteger 
 		 ]
+]
+
+{ #category : #private }
+CrossedWiresIntersection >> handleIntersectionBug: intersections [
+
+"this is because of bug in LineSegment>>intersectionWith: method, which returns nil (no intersection), if line segments overlap in same direction"
+
+		(self getFirstIntersection: intersections) = (0@0) ifTrue: [ ^ intersections allButFirst  ].
+	^ intersections 
 ]
 
 { #category : #initialize }
@@ -150,6 +169,6 @@ CrossedWiresIntersection >> secondWire: anObject [
 CrossedWiresIntersection >> segmentsDo: aBlock on: aWire [
 
 ^ aWire segmentsDo: [:point1 :point2 |
-		self doSegmentAction: aBlock lineSegment: (LineSegment from: point1 to: point2) on: aWire
+		self doSegmentAction: aBlock  lineSegment: (LineSegment from: point1 to: point2) on: aWire
  ]
 ]

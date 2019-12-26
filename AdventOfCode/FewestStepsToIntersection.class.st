@@ -24,20 +24,29 @@ FewestStepsToIntersection >> addIntersectionBetween: firstWireSegment and: secon
 FewestStepsToIntersection >> compute [ 
 
 	self addMovesForWires.
-	^ self getClosestLengthOfWires: self getIntersections.
+	^ self getClosestLengthOfWires: (self handleIntersectionBug: self getIntersections).
 ]
 
 { #category : #private }
-FewestStepsToIntersection >> doSegmentAction: aBlock lineSegment: aSegment on: aWire [
+FewestStepsToIntersection >> doSegmentAction: aBlock  lineSegment: aSegment on: aWire [
 
 	self updateWireDistance: aWire byStep: aSegment length.
-	^ super doSegmentAction: aBlock lineSegment: aSegment on: aWire
+	^ super doSegmentAction: aBlock  lineSegment: aSegment on: aWire
 ]
 
 { #category : #private }
 FewestStepsToIntersection >> getClosestLengthOfWires: intersections [
 
-	^ (intersections allButFirst collect: [ :aPointColl |  aPointColl second + aPointColl last]) min
+	^ (intersections collect: [ :aPointColl |  aPointColl second + aPointColl last]) min
+]
+
+{ #category : #private }
+FewestStepsToIntersection >> getFirstIntersection: intersectionsColl [
+
+	intersectionsColl ifNotEmpty: [ 
+		^ intersectionsColl first first
+		 ].
+	^ nil 
 ]
 
 { #category : #initialize }

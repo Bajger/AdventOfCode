@@ -25,6 +25,12 @@ CrossedWiresIntersectionTest >> setUp [
 ]
 
 { #category : #test }
+CrossedWiresIntersectionTest >> testCompute [
+
+	self assert: (self crossedWiresInstance compute) equals: 529
+]
+
+{ #category : #test }
 CrossedWiresIntersectionTest >> testDistanceForInput1 [
 
 	self assert: (self crossedWiresInstance input: 'R75,D30,R83,U83,L12,D49,R71,U7,L72
@@ -49,7 +55,7 @@ CrossedWiresIntersectionTest >> testEmptyIntersection [
 { #category : #test }
 CrossedWiresIntersectionTest >> testGetClosestDistance [
 
-	self assert: (self crossedWiresInstance getClosestDistance: { 0@0. 3@3. 2@2. -5@5}) equals: 4
+	self assert: (self crossedWiresInstance getClosestDistance: { 3@3. 2@2. -5@5}) equals: 4
 ]
 
 { #category : #tests }
