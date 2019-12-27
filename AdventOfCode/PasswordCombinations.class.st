@@ -3,7 +3,8 @@ Class {
 	#superclass : #AoC2019,
 	#instVars : [
 		'evaluatedNumber',
-		'currentDigitIndex'
+		'currentDigitIndex',
+		'adjacentAreSame'
 	],
 	#category : #AdventOfCode
 }
@@ -12,6 +13,16 @@ Class {
 PasswordCombinations class >> getInputString [
 
 	^ '359282-820401'
+]
+
+{ #category : #accessing }
+PasswordCombinations >> adjacentAreSame [
+	^ adjacentAreSame
+]
+
+{ #category : #accessing }
+PasswordCombinations >> adjacentAreSame: anObject [
+	adjacentAreSame := anObject
 ]
 
 { #category : #private }
@@ -78,12 +89,19 @@ PasswordCombinations >> nextDigit [
 
 { #category : #private }
 PasswordCombinations >> numberMeetsPasswordCriteria [
-	|adjacentAreSame|
-	adjacentAreSame := false.
+	
+	self adjacentAreSame: false.
 	self evaluatedNumber decimalDigitLength to:  2 by: -1 do: [: digitIndex |
 		self currentDigitIndex: digitIndex. 
 		self adjacentDigitsDecreasing ifTrue: [ ^ false ].
-		adjacentAreSame := adjacentAreSame or: [ self adjacentDigitsAreSame].
+		self setAdjacentAreSame.
 	].
 	^ adjacentAreSame
+]
+
+{ #category : #private }
+PasswordCombinations >> setAdjacentAreSame [
+		
+	self adjacentAreSame: (self adjacentAreSame or: [ self adjacentDigitsAreSame])
+
 ]

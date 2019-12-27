@@ -20,7 +20,7 @@ PasswordCombinationsTest >> passInstance: anObject [
 { #category : #running }
 PasswordCombinationsTest >> setUp [ 
 	super setUp.
-	self passInstance:  PasswordCombinations new.
+	self passInstance:  self testingClass new.
 	
 ]
 
@@ -112,4 +112,10 @@ self deny: self passInstance numberMeetsPasswordCriteria.
 
 self passInstance evaluatedNumber: 123789.
 self deny: self passInstance numberMeetsPasswordCriteria.
+]
+
+{ #category : #private }
+PasswordCombinationsTest >> testingClass [ 
+	
+	^ PasswordCombinations
 ]
