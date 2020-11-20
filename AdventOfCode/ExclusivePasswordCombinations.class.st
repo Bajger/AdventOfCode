@@ -1,7 +1,7 @@
 Class {
 	#name : #ExclusivePasswordCombinations,
 	#superclass : #PasswordCombinations,
-	#category : #AdventOfCode
+	#category : #'AdventOfCode-AoC2019'
 }
 
 { #category : #private }

@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'wireDistance'
 	],
-	#category : #AdventOfCode
+	#category : #'AdventOfCode-AoC2019'
 }
 
 { #category : #private }

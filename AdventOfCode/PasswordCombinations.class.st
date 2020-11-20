@@ -6,7 +6,7 @@ Class {
 		'currentDigitIndex',
 		'adjacentAreSame'
 	],
-	#category : #AdventOfCode
+	#category : #'AdventOfCode-AoC2019'
 }
 
 { #category : #'private-constants' }

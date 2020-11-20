@@ -1,7 +1,7 @@
 Class {
 	#name : #AoC2019,
 	#superclass : #AoC,
-	#category : #AdventOfCode
+	#category : #'AdventOfCode-AoC2019'
 }
 
 { #category : #executing }
