@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'evaluatedNumber',
 		'currentDigitIndex',
-		'adjacentAreSame'
+		'adjacentAlreadySame'
 	],
 	#category : #'AdventOfCode-AoC2019'
 }
@@ -16,13 +16,13 @@ PasswordCombinations class >> getInputString [
 ]
 
 { #category : #accessing }
-PasswordCombinations >> adjacentAreSame [
-	^ adjacentAreSame
+PasswordCombinations >> adjacentAlreadySame [
+	^ adjacentAlreadySame
 ]
 
 { #category : #accessing }
-PasswordCombinations >> adjacentAreSame: anObject [
-	adjacentAreSame := anObject
+PasswordCombinations >> adjacentAlreadySame: anObject [
+	adjacentAlreadySame := anObject
 ]
 
 { #category : #private }
@@ -61,6 +61,12 @@ PasswordCombinations >> currentDigitIndex: anObject [
 	currentDigitIndex := anObject
 ]
 
+{ #category : #private }
+PasswordCombinations >> evaluateAdjacentCriteria [
+
+	self setAdjacentAreSame.
+]
+
 { #category : #accessing }
 PasswordCombinations >> evaluatedNumber [
 	^ evaluatedNumber
@@ -81,6 +87,12 @@ PasswordCombinations >> getPasswordInterval [
 
 ]
 
+{ #category : #private }
+PasswordCombinations >> meetsAdjacentCriteria [
+
+	^ self adjacentAlreadySame
+]
+
 { #category : #accessing }
 PasswordCombinations >> nextDigit [
 
@@ -90,18 +102,24 @@ PasswordCombinations >> nextDigit [
 { #category : #private }
 PasswordCombinations >> numberMeetsPasswordCriteria [
 	
-	self adjacentAreSame: false.
+	self resetAdjacentCriteria.
 	self evaluatedNumber decimalDigitLength to:  2 by: -1 do: [: digitIndex |
 		self currentDigitIndex: digitIndex. 
 		self adjacentDigitsDecreasing ifTrue: [ ^ false ].
-		self setAdjacentAreSame.
+		self evaluateAdjacentCriteria.
 	].
-	^ adjacentAreSame
+	^ self meetsAdjacentCriteria.
+]
+
+{ #category : #private }
+PasswordCombinations >> resetAdjacentCriteria [
+
+	self adjacentAlreadySame: false.
 ]
 
 { #category : #private }
 PasswordCombinations >> setAdjacentAreSame [
 		
-	self adjacentAreSame: (self adjacentAreSame or: [ self adjacentDigitsAreSame])
+	self adjacentAlreadySame: (self adjacentAlreadySame or: [ self adjacentDigitsAreSame])
 
 ]
