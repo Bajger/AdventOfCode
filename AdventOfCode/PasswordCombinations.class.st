@@ -4,7 +4,8 @@ Class {
 	#instVars : [
 		'evaluatedNumber',
 		'currentDigitIndex',
-		'adjacentAlreadySame'
+		'adjacentAlreadySame',
+		'bagOfSameDigits'
 	],
 	#category : #'AdventOfCode-AoC2019'
 }
@@ -13,6 +14,12 @@ Class {
 PasswordCombinations class >> getInputString [
 
 	^ '359282-820401'
+]
+
+{ #category : #private }
+PasswordCombinations >> addCurrentToBag [
+
+	self bagOfSameDigits add: self currentDigit
 ]
 
 { #category : #accessing }
@@ -28,13 +35,29 @@ PasswordCombinations >> adjacentAlreadySame: anObject [
 { #category : #private }
 PasswordCombinations >> adjacentDigitsAreSame [
 
-	^ self currentDigit = self nextDigit 
+	^ self bagOfSameDigits size > 1
 ]
 
 { #category : #private }
 PasswordCombinations >> adjacentDigitsDecreasing [
+	^ self bagOfSameDigits isNotEmpty
+		and: [ self currentDigit < self bagOfSameDigits anyOne ]
+]
 
-		^ self currentDigit > self nextDigit
+{ #category : #accessing }
+PasswordCombinations >> bagOfSameDigits [
+	^ bagOfSameDigits
+]
+
+{ #category : #accessing }
+PasswordCombinations >> bagOfSameDigits: anObject [
+	bagOfSameDigits := anObject
+]
+
+{ #category : #private }
+PasswordCombinations >> canAddSameToBag [
+	^ self bagOfSameDigits isEmpty
+		or: [ self bagOfSameDigits anyOne = self currentDigit ]
 ]
 
 { #category : #private }
@@ -45,7 +68,7 @@ PasswordCombinations >> compute [
 	]
 ]
 
-{ #category : #accessing }
+{ #category : #private }
 PasswordCombinations >> currentDigit [
 
 	^ self evaluatedNumber decimalDigitAt: self currentDigitIndex
@@ -64,7 +87,14 @@ PasswordCombinations >> currentDigitIndex: anObject [
 { #category : #private }
 PasswordCombinations >> evaluateAdjacentCriteria [
 
-	self setAdjacentAreSame.
+	self canAddSameToBag ifFalse: [
+			self setAdjacentAlreadySame.		
+			self resetBag.
+	].
+	self addCurrentToBag.
+	self currentDigitIndex = 1 ifTrue: [ self setAdjacentAlreadySame  ].
+
+
 ]
 
 { #category : #accessing }
@@ -88,37 +118,33 @@ PasswordCombinations >> getPasswordInterval [
 ]
 
 { #category : #private }
-PasswordCombinations >> meetsAdjacentCriteria [
-
-	^ self adjacentAlreadySame
-]
-
-{ #category : #accessing }
-PasswordCombinations >> nextDigit [
-
-	^ self evaluatedNumber decimalDigitAt: self currentDigitIndex - 1
-]
-
-{ #category : #private }
 PasswordCombinations >> numberMeetsPasswordCriteria [
 	
 	self resetAdjacentCriteria.
-	self evaluatedNumber decimalDigitLength to:  2 by: -1 do: [: digitIndex |
+	self evaluatedNumber decimalDigitLength to: 1 by: -1 do: [: digitIndex |
 		self currentDigitIndex: digitIndex. 
 		self adjacentDigitsDecreasing ifTrue: [ ^ false ].
 		self evaluateAdjacentCriteria.
 	].
-	^ self meetsAdjacentCriteria.
+	^ self adjacentAlreadySame
 ]
 
 { #category : #private }
 PasswordCombinations >> resetAdjacentCriteria [
 
 	self adjacentAlreadySame: false.
+	self resetBag.
+	
 ]
 
 { #category : #private }
-PasswordCombinations >> setAdjacentAreSame [
+PasswordCombinations >> resetBag [
+
+	self bagOfSameDigits: Bag new
+]
+
+{ #category : #private }
+PasswordCombinations >> setAdjacentAlreadySame [
 		
 	self adjacentAlreadySame: (self adjacentAlreadySame or: [ self adjacentDigitsAreSame])
 

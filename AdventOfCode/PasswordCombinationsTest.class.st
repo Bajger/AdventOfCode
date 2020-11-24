@@ -27,26 +27,41 @@ PasswordCombinationsTest >> setUp [
 { #category : #running }
 PasswordCombinationsTest >> testAdjacentDigitsAreSame [
 
-self passInstance evaluatedNumber: 12.
-self passInstance currentDigitIndex: 2.
-self deny: self passInstance adjacentDigitsAreSame.
+	self passInstance resetAdjacentCriteria.
+	self passInstance evaluatedNumber: 12.
+	self passInstance currentDigitIndex: 2.
+	self passInstance evaluateAdjacentCriteria.
+	self passInstance currentDigitIndex: 1.
+	self passInstance evaluateAdjacentCriteria.
 
-self passInstance evaluatedNumber: 22.
-self assert: self passInstance adjacentDigitsAreSame.
+	self deny: self passInstance adjacentDigitsAreSame.
+
+
+	self passInstance resetAdjacentCriteria.
+	self passInstance evaluatedNumber: 22.
+	self passInstance currentDigitIndex: 2.
+	self passInstance evaluateAdjacentCriteria.
+	self passInstance currentDigitIndex: 1.
+	self passInstance evaluateAdjacentCriteria.
+	self assert: self passInstance adjacentDigitsAreSame.
 ]
 
 { #category : #running }
 PasswordCombinationsTest >> testAdjacentDigitsDecreasing [
 
-
+self passInstance resetAdjacentCriteria.
 self passInstance evaluatedNumber: 12.
-self passInstance currentDigitIndex: 2.
+self passInstance numberMeetsPasswordCriteria.
 self deny: self passInstance adjacentDigitsDecreasing.
 
+self passInstance resetAdjacentCriteria.
 self passInstance evaluatedNumber: 22.
+self passInstance numberMeetsPasswordCriteria.
 self deny: self passInstance adjacentDigitsDecreasing.
 
+self passInstance resetAdjacentCriteria.
 self passInstance evaluatedNumber: 32.
+self passInstance numberMeetsPasswordCriteria.
 self assert: self passInstance adjacentDigitsDecreasing.
 
 ]
@@ -88,17 +103,6 @@ self passInstance input: '111111-666666'.
 self assert: self passInstance getPasswordInterval equals: (Interval from: 111111 to: 666666).
 
 
-]
-
-{ #category : #running }
-PasswordCombinationsTest >> testNextDigit [
-
-self passInstance evaluatedNumber: 123456.
-self passInstance currentDigitIndex: 6.
-self assert: self passInstance nextDigit equals: 2.
-
-self passInstance currentDigitIndex: 2.
-self assert: self passInstance nextDigit equals: 6.
 ]
 
 { #category : #running }

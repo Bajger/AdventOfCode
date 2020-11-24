@@ -10,7 +10,7 @@ AoC2019 class >> aocSolutionClasses [
 	{	SumOfFuel. SumOfFuelWithAddedFuel.
 		RestoreIntcodeProgram. FindNounAndVerb.
 		CrossedWiresIntersection. FewestStepsToIntersection.
-		PasswordCombinations.
+		PasswordCombinations. ExclusivePasswordCombinations.
 	}
 ]
 
