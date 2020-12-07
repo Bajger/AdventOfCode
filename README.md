@@ -1,6 +1,16 @@
 # AdventOfCode
 My own implemented solutions using [Pharo](https://pharo.org) Smalltalk for [Advent of Code](https://adventofcode.com) coding challenge.
 
+## How to load
+You can load this project into stable Pharo 8.0 (P9 untested) image using: 
+```
+Metacello new
+	repository: 'github://Bajger/AdventOfCode/src';
+	baseline: 'AdventOfCode';
+	load
+```
+
+
 ## How to execute
 Each year is represented by `AoC<year nr.>` class, like this: `AoC2019`.  
 To get result for given day and part of Advent of Code, just simply execute (inspect/print it) in Pharo Playground:  
