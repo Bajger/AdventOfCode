@@ -9,8 +9,5 @@ BaselineOfAdventOfCode >> baseline: spec [
 	<baseline>
 	spec
 		for: #common
-		do: [
-			spec 
-				package: 'AdventOfCode'].
-		] 
+		do: [spec package: 'AdventOfCode'] 
 ]
