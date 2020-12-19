@@ -7,7 +7,5 @@ Class {
 { #category : #baseline }
 BaselineOfAdventOfCode >> baseline: spec [
 	<baseline>
-	spec
-		for: #common
-		do: [spec package: 'AdventOfCode'] 
+	spec for: #common do: [ spec package: 'AdventOfCode' ]
 ]
