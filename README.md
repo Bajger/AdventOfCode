@@ -5,7 +5,7 @@ My own implemented solutions using [Pharo](https://pharo.org) Smalltalk for [Adv
 You can load this project into stable Pharo 8.0 (P9 untested) image using: 
 ```
 Metacello new
-	repository: 'github://Bajger/AdventOfCode:main/src';
+	repository: 'github://Bajger/AdventOfCode/src';
 	baseline: 'AdventOfCode';
 	load
 ```
