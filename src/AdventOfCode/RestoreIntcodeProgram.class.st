@@ -22,14 +22,9 @@ RestoreIntcodeProgram >> compute [
 ]
 
 { #category : #'private ' }
-RestoreIntcodeProgram >> doOperation: opcode [
+RestoreIntcodeProgram >> generateOpcode [
 
-	| firstNr secondNr|
-	firstNr := self intcodeProgram at: self indexOfFirstNr.
-	secondNr := self intcodeProgram at: self indexOfSecondNr.
-	
-	opcode == 1 ifTrue: [ self intcodeProgram at: self indexOfResult put: (firstNr + secondNr)].
-	opcode == 2 ifTrue: [ self intcodeProgram at: self indexOfResult put: (firstNr * secondNr)].
+	^ OpCode on: self
 ]
 
 { #category : #'private ' }
@@ -38,36 +33,9 @@ RestoreIntcodeProgram >> goToEnd [
 ]
 
 { #category : #'private ' }
-RestoreIntcodeProgram >> goToNextOpcode [
+RestoreIntcodeProgram >> goToNextOpcode: aStep [
 
-	self sequenceIndex: self sequenceIndex + 4
-	
-]
-
-{ #category : #'private ' }
-RestoreIntcodeProgram >> indexOfFirstNr [
-	
-	^ self indexOfNr: 1
-]
-
-{ #category : #'private ' }
-RestoreIntcodeProgram >> indexOfNr: increment [
-	
-	^ (self intcodeProgram at: (self sequenceIndex + increment)) + 1
-	
-]
-
-{ #category : #'private ' }
-RestoreIntcodeProgram >> indexOfResult [
-	
-	^ self indexOfNr: 3
-	
-]
-
-{ #category : #'private ' }
-RestoreIntcodeProgram >> indexOfSecondNr [
-	
-	^ self indexOfNr: 2
+	self sequenceIndex: self sequenceIndex + aStep
 	
 ]
 
@@ -92,19 +60,21 @@ RestoreIntcodeProgram >> isAtTheEnd [
 RestoreIntcodeProgram >> processOpcode [
 
 	|opcode |
-	opcode := self intcodeProgram at: self sequenceIndex.
-	(self shouldHalt: opcode) ifTrue: [ ^ self goToEnd ].
-	self doOperation: opcode. 
+	opcode := self generateOpcode.
+	opcode shouldHalt ifTrue: [ ^ self goToEnd ].
+	opcode doOperation.
+	^ opcode 
 ]
 
 { #category : #'private ' }
 RestoreIntcodeProgram >> processOpcodesOfProgram [
-
 	self sequenceIndex: 1.
-	[ self processOpcode.
-	self goToNextOpcode ]
-		doWhileFalse: [ self isAtTheEnd].
-	^ self intcodeProgram 
+	[ | opcode |
+		opcode := self processOpcode.
+		self goToNextOpcode: opcode stepForNextCode 
+	]
+	doWhileFalse: [ self isAtTheEnd ].
+	^ self intcodeProgram
 ]
 
 { #category : #'private ' }
@@ -128,9 +98,4 @@ RestoreIntcodeProgram >> sequenceIndex: anObject [
 RestoreIntcodeProgram >> setIntcodeProgram [
 	
 	self intcodeProgram:  ((self input substrings: ',') collect: #asNumber)
-]
-
-{ #category : #'private ' }
-RestoreIntcodeProgram >> shouldHalt: opcode [
-	^ opcode = 99
 ]

@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'input'
 	],
-	#category : #AdventOfCode
+	#category : #'AdventOfCode-common'
 }
 
 { #category : #initialization }
