@@ -53,7 +53,7 @@ RestoreIntcodeProgram >> intcodeProgram: anObject [
 { #category : #'private ' }
 RestoreIntcodeProgram >> isAtTheEnd [
 	
-	^ self sequenceIndex > (self intcodeProgram size - 3)
+	^ self sequenceIndex >= self intcodeProgram size
 ]
 
 { #category : #'private ' }
@@ -61,7 +61,6 @@ RestoreIntcodeProgram >> processOpcode [
 
 	|opcode |
 	opcode := self generateOpcode.
-	opcode shouldHalt ifTrue: [ ^ self goToEnd ].
 	opcode doOperation.
 	^ opcode 
 ]
@@ -70,10 +69,11 @@ RestoreIntcodeProgram >> processOpcode [
 RestoreIntcodeProgram >> processOpcodesOfProgram [
 	self sequenceIndex: 1.
 	[ | opcode |
-		opcode := self processOpcode.
-		self goToNextOpcode: opcode stepForNextCode 
-	]
-	doWhileFalse: [ self isAtTheEnd ].
+	opcode := self processOpcode.
+	opcode shouldHalt
+		ifTrue: [ self goToEnd ]
+		ifFalse: [ self goToNextOpcode: opcode stepForNextCode ] ]
+		doWhileFalse: [ self isAtTheEnd ].
 	^ self intcodeProgram
 ]
 

@@ -40,13 +40,6 @@ OpCode >> firstParameter [
 
 ]
 
-{ #category : #private }
-OpCode >> indexOfNr: aParameter [
-	
-	^ (self codeComputer intcodeProgram at: (self codeComputer sequenceIndex + aParameter)) + 1
-	
-]
-
 { #category : #accessing }
 OpCode >> opcode [
 	^ opcode
@@ -60,7 +53,7 @@ OpCode >> opcode: aNumber [
 { #category : #private }
 OpCode >> parameterAt: index [
 
-	^ self codeComputer intcodeProgram at: (self indexOfNr: index)
+	^ self codeComputer intcodeProgram at: (self rawValueOf: index) + 1
 ]
 
 { #category : #'api actions' }
@@ -68,6 +61,13 @@ OpCode >> performOperation [
 
 	self opcode == 1 ifTrue: [ 	self storeResult: self firstParameter + self secondParameter].
 	self opcode == 2 ifTrue: [ 	self storeResult: self firstParameter * self secondParameter].
+]
+
+{ #category : #private }
+OpCode >> rawValueOf: aParameter [
+	
+	^ (self codeComputer intcodeProgram at: (self codeComputer sequenceIndex + aParameter))
+	
 ]
 
 { #category : #private }
@@ -96,6 +96,13 @@ OpCode >> stepForNextCode [
 
 { #category : #private }
 OpCode >> storeResult: aResult [
+	
+	"3rd parameter of opcode is where result should be stored"
+	 self storeResultAt: 3 put: aResult
+]
 
-	 self codeComputer intcodeProgram at: (self indexOfNr: 3) put: aResult	
+{ #category : #private }
+OpCode >> storeResultAt: aParameter put: aResult [
+	
+	 self codeComputer intcodeProgram at: (self rawValueOf: aParameter) + 1 put: aResult
 ]
