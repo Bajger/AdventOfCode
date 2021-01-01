@@ -32,6 +32,7 @@ AoC2019 class >> aocSolutionClasses [
 		RestoreIntcodeProgram. FindNounAndVerb.
 		CrossedWiresIntersection. FewestStepsToIntersection.
 		PasswordCombinations. ExclusivePasswordCombinations.
+		TESTDiagnostic. 
 	}
 ]
 

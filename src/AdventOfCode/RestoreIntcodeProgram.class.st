@@ -33,10 +33,9 @@ RestoreIntcodeProgram >> goToEnd [
 ]
 
 { #category : #'private ' }
-RestoreIntcodeProgram >> goToNextOpcode: aStep [
+RestoreIntcodeProgram >> goToNextOpcodeFrom: previousOpcode [
 
-	self sequenceIndex: self sequenceIndex + aStep
-	
+	self sequenceIndex: self sequenceIndex + previousOpcode stepForNextCode
 ]
 
 { #category : #accessing }
@@ -72,7 +71,7 @@ RestoreIntcodeProgram >> processOpcodesOfProgram [
 	opcode := self processOpcode.
 	opcode shouldHalt
 		ifTrue: [ self goToEnd ]
-		ifFalse: [ self goToNextOpcode: opcode stepForNextCode ] ]
+		ifFalse: [ self goToNextOpcodeFrom: opcode] ]
 		doWhileFalse: [ self isAtTheEnd ].
 	^ self intcodeProgram
 ]
