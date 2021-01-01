@@ -34,6 +34,12 @@ TESTDiagnostic >> generateOpcode [
 	^ TESTOpCode on: self
 ]
 
+{ #category : #private }
+TESTDiagnostic >> goToNextOpcodeFrom: previousOpcode [
+
+	previousOpcode alreadyModifiedPointer ifFalse: [ super goToNextOpcodeFrom: previousOpcode ]
+]
+
 { #category : #initialization }
 TESTDiagnostic >> initialize [ 
 	super initialize.
