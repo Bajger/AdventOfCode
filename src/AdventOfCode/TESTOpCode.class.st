@@ -71,7 +71,7 @@ TESTOpCode >> setIntructionPointer: instructionAddress [
 { #category : #'api - accessing' }
 TESTOpCode >> stepForNextCode [
 		
-	((1 to: 2) includes: self opcode) ifTrue: [ ^ super stepForNextCode].
+	(#(1 2 7 8) includes: self opcode) ifTrue: [ ^ super stepForNextCode].
 	^ 2
 ]
 
