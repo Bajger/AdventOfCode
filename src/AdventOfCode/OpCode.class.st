@@ -85,7 +85,7 @@ OpCode >> setupOpcode [
 { #category : #'api - accessing' }
 OpCode >> shouldHalt [
 
-	^ self opcode == 99
+	^ self opcode = 99
 ]
 
 { #category : #'api - accessing' }
@@ -104,5 +104,7 @@ OpCode >> storeResult: aResult [
 { #category : #private }
 OpCode >> storeResultAt: aParameter put: aResult [
 	
-	 self codeComputer intcodeProgram at: (self rawValueOf: aParameter) + 1 put: aResult
+	self codeComputer intcodeProgram at: (self rawValueOf: aParameter) + 1 put: aResult.
+
+	
 ]

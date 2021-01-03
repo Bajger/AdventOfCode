@@ -28,6 +28,22 @@ TESTDiagnosticTest >> testInputToOutputInstruction [
 ]
 
 { #category : #tests }
+TESTDiagnosticTest >> testProgramOutputHaltWhenError [
+	| aProgram |
+	aProgram := TESTDiagnostic new
+		input: '3,0,4,0,99';
+		programInput: 666;
+		programOutput: 1;
+		yourself.
+	self should: [ aProgram compute ] raise: Error.
+
+	aProgram
+		programOutput: 0;
+		setIntcodeProgram.
+	self assert: aProgram compute equals: 666.
+]
+
+{ #category : #tests }
 TESTDiagnosticTest >> testPuzzleInputInstruction [
 
 	self assert: (TESTDiagnostic new compute) equals: 15259545.

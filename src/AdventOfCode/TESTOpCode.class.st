@@ -1,13 +1,24 @@
 Class {
 	#name : #TESTOpCode,
 	#superclass : #OpCode,
+	#instVars : [
+		'stepForNextOpcode'
+	],
 	#category : #'AdventOfCode-AoC2019'
 }
 
-{ #category : #'api - accessing' }
-TESTOpCode >> alreadyModifiedPointer [
-	^ (self opcode = 5 and: [ self firstParameter isZero not ])
-		or: [ self opcode = 6 and: [ self firstParameter isZero ] ]
+{ #category : #private }
+TESTOpCode >> implicitStepForNextCode [
+
+	(#(1 2 7 8) includes: self opcode) ifTrue: [ ^ super stepForNextCode].
+	(#(5 6) includes: self opcode) ifTrue: [ ^ 3].
+	^ 2
+]
+
+{ #category : #initialize }
+TESTOpCode >> initialize [
+	super initialize.
+	self stepForNextCode: 0.
 ]
 
 { #category : #private }
@@ -28,7 +39,8 @@ DE - two-digit opcode,      02 == opcode 2
 { #category : #private }
 TESTOpCode >> jumpIf: aBool [
 	aBool
-		ifTrue: [ self setIntructionPointer: self secondParameter ]
+		ifFalse: [ ^ self ].
+	self setStepForNextCode
 ]
 
 { #category : #private }
@@ -53,7 +65,7 @@ TESTOpCode >> performOperation [
 
 	super performOperation.
 	self opcode = 3 ifTrue: [ 	self storeResult: self codeComputer programInput].
-	self opcode = 4 ifTrue: [ 	self codeComputer programOutput: self firstParameter].
+	self opcode = 4 ifTrue: [ 	self codeComputer setProgramOutput: self firstParameter].
 		
 	"part B"
 	self opcode = 5 ifTrue: [ 	self jumpIf: self firstParameter isZero not].
@@ -62,17 +74,29 @@ TESTOpCode >> performOperation [
 	self opcode = 8 ifTrue: [ 	self storeResult: (self firstParameter = self secondParameter) asBit].
 ]
 
+{ #category : #'api - accessing' }
+TESTOpCode >> setStepForNextCode [
+
+	self stepForNextCode: (self secondParameter + 1 - (self codeComputer sequenceIndex))
+]
+
 { #category : #private }
-TESTOpCode >> setIntructionPointer: instructionAddress [
-	
-	self codeComputer sequenceIndex: instructionAddress + 1
+TESTOpCode >> shouldHalt [ 
+
+	^ super shouldHalt or: [ self opcode = 4 and: [self codeComputer programOutput isZero not ]]
 ]
 
 { #category : #'api - accessing' }
 TESTOpCode >> stepForNextCode [
-		
-	(#(1 2 7 8) includes: self opcode) ifTrue: [ ^ super stepForNextCode].
-	^ 2
+
+	stepForNextOpcode isZero ifTrue: [ ^ self implicitStepForNextCode  ].
+	^ stepForNextOpcode 
+]
+
+{ #category : #private }
+TESTOpCode >> stepForNextCode: aStep [
+
+	stepForNextOpcode := aStep
 ]
 
 { #category : #private }
