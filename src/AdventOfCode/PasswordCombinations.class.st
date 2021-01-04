@@ -7,7 +7,7 @@ Class {
 		'adjacentAlreadySame',
 		'bagOfSameDigits'
 	],
-	#category : #'AdventOfCode-AoC2019'
+	#category : #'AdventOfCode-day4'
 }
 
 { #category : #'private-constants' }

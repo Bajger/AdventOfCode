@@ -1,7 +1,7 @@
 Class {
 	#name : #TESTDiagnosticThermalRadiators,
 	#superclass : #TESTDiagnostic,
-	#category : #'AdventOfCode-AoC2019'
+	#category : #'AdventOfCode-day5'
 }
 
 { #category : #initialization }

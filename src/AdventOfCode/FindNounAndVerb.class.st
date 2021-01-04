@@ -5,7 +5,7 @@ Class {
 		'noun',
 		'verb'
 	],
-	#category : #'AdventOfCode-AoC2019'
+	#category : #'AdventOfCode-day2'
 }
 
 { #category : #accessing }

@@ -5,7 +5,7 @@ Class {
 		'programInput',
 		'programOutput'
 	],
-	#category : #'AdventOfCode-AoC2019'
+	#category : #'AdventOfCode-day5'
 }
 
 { #category : #'private-constants' }

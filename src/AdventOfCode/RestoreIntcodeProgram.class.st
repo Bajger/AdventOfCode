@@ -5,7 +5,7 @@ Class {
 		'sequenceIndex',
 		'intcodeProgram'
 	],
-	#category : #'AdventOfCode-AoC2019'
+	#category : #'AdventOfCode-day2'
 }
 
 { #category : #'private-constants' }

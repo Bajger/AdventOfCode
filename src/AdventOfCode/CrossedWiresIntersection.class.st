@@ -5,7 +5,7 @@ Class {
 		'firstWire',
 		'secondWire'
 	],
-	#category : #'AdventOfCode-AoC2019'
+	#category : #'AdventOfCode-day3'
 }
 
 { #category : #'private-constants' }

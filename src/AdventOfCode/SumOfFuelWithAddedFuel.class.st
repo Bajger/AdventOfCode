@@ -1,7 +1,7 @@
 Class {
 	#name : #SumOfFuelWithAddedFuel,
 	#superclass : #SumOfFuel,
-	#category : #'AdventOfCode-AoC2019'
+	#category : #'AdventOfCode-day1'
 }
 
 { #category : #private }

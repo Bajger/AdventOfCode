@@ -5,7 +5,7 @@ Class {
 		'codeComputer',
 		'opcode'
 	],
-	#category : #'AdventOfCode-AoC2019'
+	#category : #'AdventOfCode-day2'
 }
 
 { #category : #'instance creation' }
