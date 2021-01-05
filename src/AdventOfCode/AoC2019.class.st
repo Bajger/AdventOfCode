@@ -33,6 +33,7 @@ AoC2019 class >> aocSolutionClasses [
 		CrossedWiresIntersection. FewestStepsToIntersection.
 		PasswordCombinations. ExclusivePasswordCombinations.
 		TESTDiagnostic. TESTDiagnosticThermalRadiators.
+		UniversalOrbitMap. OrbitalTransfers.
 	}
 ]
 
