@@ -3,7 +3,8 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'orbits',
-		'name'
+		'name',
+		'orbitHops'
 	],
 	#category : #'AdventOfCode-day6'
 }
@@ -15,22 +16,44 @@ ObjectInSpace class >> named: aName [
 ]
 
 { #category : #'api - accessing' }
+ObjectInSpace >> allOrbitHops [
+	
+	|hops| 
+	hops := OrderedCollection new.
+	self orbitsRecursivelyDo: self orbitHopsBlock from: hops.
+	^ hops
+]
+
+{ #category : #'api - accessing' }
 ObjectInSpace >> amountOfAllOrbits [
 	
-	^ self amountOfOrbitsRecursivelyFrom: 0
+	^ self orbitsRecursivelyDo: self amountOfOrbitsBlock from: 0
 ]
 
 { #category : #'private ' }
-ObjectInSpace >> amountOfOrbitsRecursivelyFrom: initialAmount [
+ObjectInSpace >> amountOfOrbitsBlock [
 
+	^ [ :amount | amount + 1 ]
 
-	self orbits ifNil: [ ^ initialAmount  ].
-	^ self orbits amountOfOrbitsRecursivelyFrom: initialAmount + 1
+	
+]
+
+{ #category : #'api - accessing' }
+ObjectInSpace >> findCommonOrbitAncestorOf: anotherObject [
+
+	^ self orbitHops at: (self orbitHops indexOfAnyOf: anotherObject orbitHops) ifAbsent: [ nil ]
+	
 ]
 
 { #category : #comparing }
 ObjectInSpace >> hash [
 	^ self name hash
+]
+
+{ #category : #'api - accessing' }
+ObjectInSpace >> hopsToObject: anAncestorObject [
+
+	^ self orbitHops indexOf: anAncestorObject
 ]
 
 { #category : #accessing }
@@ -44,6 +67,25 @@ ObjectInSpace >> name: anObject [
 ]
 
 { #category : #accessing }
+ObjectInSpace >> orbitHops [
+
+	orbitHops ifNil: [ self orbitHops: self allOrbitHops  ].
+	^orbitHops 
+]
+
+{ #category : #accessing }
+ObjectInSpace >> orbitHops: aColl [
+
+	orbitHops := aColl
+]
+
+{ #category : #'private ' }
+ObjectInSpace >> orbitHopsBlock [
+
+	^ [ :collOfObjects :aObject| collOfObjects add: aObject; yourself]
+]
+
+{ #category : #accessing }
 ObjectInSpace >> orbits [
 	^ orbits
 ]
@@ -51,6 +93,14 @@ ObjectInSpace >> orbits [
 { #category : #accessing }
 ObjectInSpace >> orbits: anObject [
 	orbits := anObject
+]
+
+{ #category : #'private ' }
+ObjectInSpace >> orbitsRecursivelyDo: aBlock from: aParameter [
+
+
+	self orbits ifNil: [ ^ aParameter].
+	^ self orbits orbitsRecursivelyDo: aBlock from: (aBlock cull: aParameter cull: self orbits)
 ]
 
 { #category : #printing }
