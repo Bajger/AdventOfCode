@@ -2,13 +2,28 @@ Class {
 	#name : #ThrustAmplifier,
 	#superclass : #Object,
 	#instVars : [
-		'phaseSetting',
-		'inputSignal',
-		'outputSignal',
+		'codeProgram',
 		'id'
 	],
 	#category : #'AdventOfCode-day7'
 }
+
+{ #category : #'instance creation' }
+ThrustAmplifier class >> withId: anAmpId [
+	^ self new
+		id: anAmpId;
+		yourself
+]
+
+{ #category : #accessing }
+ThrustAmplifier >> codeProgram [
+	^ codeProgram
+]
+
+{ #category : #accessing }
+ThrustAmplifier >> codeProgram: anObject [
+	codeProgram := anObject
+]
 
 { #category : #accessing }
 ThrustAmplifier >> id [
@@ -22,30 +37,53 @@ ThrustAmplifier >> id: anObject [
 
 { #category : #accessing }
 ThrustAmplifier >> inputSignal [
-	^ inputSignal
+	^ self codeProgram rawProgramInput
 ]
 
-{ #category : #accessing }
-ThrustAmplifier >> inputSignal: anObject [
-	inputSignal := anObject
+{ #category : #testing }
+ThrustAmplifier >> isLast [
+
+	^ self id = $E
 ]
 
 { #category : #accessing }
 ThrustAmplifier >> outputSignal [
-	^ outputSignal
-]
 
-{ #category : #accessing }
-ThrustAmplifier >> outputSignal: anObject [
-	outputSignal := anObject
+	^ self codeProgram programOutput 
 ]
 
 { #category : #accessing }
 ThrustAmplifier >> phaseSetting [
-	^ phaseSetting
+	^ self codeProgram phaseSetting
 ]
 
-{ #category : #accessing }
-ThrustAmplifier >> phaseSetting: anObject [
-	phaseSetting := anObject
+{ #category : #'actions api' }
+ThrustAmplifier >> runAmpProgram [
+
+	self codeProgram compute
+]
+
+{ #category : #'actions api' }
+ThrustAmplifier >> setInputSignal: aSignal [
+
+	self codeProgram programInput: aSignal
+	
+]
+
+{ #category : #'actions api' }
+ThrustAmplifier >> setInputSignalForNextAmp: nextAmp [
+
+	nextAmp setInputSignal: self outputSignal
+]
+
+{ #category : #'actions api' }
+ThrustAmplifier >> setPhaseSetting: aSetting [
+	
+	self codeProgram phaseSetting: aSetting
+]
+
+{ #category : #'actions api' }
+ThrustAmplifier >> setProgram: aCodeProgram [
+
+	self codeProgram intcodeProgram: aCodeProgram
 ]
