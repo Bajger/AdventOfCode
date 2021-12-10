@@ -2012,7 +2012,7 @@ SonarSweep class >> getInputString [
 
 { #category : #'api actions' }
 SonarSweep >> compute [ 
-	^ self input substrings overlappingPairsCollect: [ :fst :snd |
-		fst < snd 
-		]
+	^ (self input substrings overlappingPairsCollect: [ :fst :snd |
+		fst asNumber < snd asNumber 
+		]) count: #value
 ]
