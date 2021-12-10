@@ -25,17 +25,17 @@ forward 2
 { #category : #tests }
 DiveTest >> testSubmarineCommands [
 	
-	|aSonarSweep|
-	aSonarSweep := Dive new.
-	aSonarSweep input: 'forward 5
+	|aDive|
+	aDive := Dive new.
+	aDive input: 'forward 5
 down 5
 forward 8
 up 3
 down 8
 forward 2
 '.
-	self assert: aSonarSweep getSubmarineCommands size equals: 6.
-	self assert: (aSonarSweep getSubmarineCommands allSatisfy: [ :assoc |
+	self assert: aDive getSubmarineCommands size equals: 6.
+	self assert: (aDive getSubmarineCommands allSatisfy: [ :assoc |
 		assoc key isString and: [ assoc value isNumber ]
 		 ])
 		

@@ -1040,22 +1040,33 @@ Dive >> depth: anObject [
 { #category : #'api actions' }
 Dive >> executeCommand: cmdString with: unitValue [
 
-	cmdString = 'up' ifTrue: [self depth: self depth - unitValue].
-	cmdString = 'down' ifTrue: [self depth: self depth + unitValue].
-	cmdString = 'forward' ifTrue: [self position: self position + unitValue].
-]
-
-{ #category : #'api actions' }
-Dive >> getCommandBlock: cmdString [
-
-	cmdString = 'up' ifTrue: [ ^ [:unit | self depth: self depth - unit ] ].
-	cmdString = 'down' ifTrue: [ ^ [:unit | self depth: self depth + unit ] ].
+	cmdString = 'up' ifTrue: [self goUp: unitValue].
+	cmdString = 'down' ifTrue: [self goDown: unitValue].
+	cmdString = 'forward' ifTrue: [self goForward: unitValue].
 ]
 
 { #category : #'api actions' }
 Dive >> getSubmarineCommands [ 
 	^ self input substrings pairsCollect: [:cmd :unit | 
 		cmd -> unit asNumber  ]
+]
+
+{ #category : #'private ' }
+Dive >> goDown: unitValue [
+
+	self depth: self depth + unitValue
+]
+
+{ #category : #'private ' }
+Dive >> goForward: unitValue [
+
+	self position: self position + unitValue
+]
+
+{ #category : #'private ' }
+Dive >> goUp: unitValue [
+
+	self depth: self depth - unitValue
 ]
 
 { #category : #initialization }
