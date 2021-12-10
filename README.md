@@ -2,7 +2,7 @@
 My own implemented solutions using [Pharo](https://pharo.org) Smalltalk for [Advent of Code](https://adventofcode.com) coding challenge.
 
 ## How to load
-You can load this project into stable Pharo 8.0 (P9 untested) image using: 
+You can load this project into [stable Pharo 9.0](https://pharo.org/download) (P8 tested as well) image using: 
 ```
 Metacello new
 	repository: 'github://Bajger/AdventOfCode/src';
@@ -10,6 +10,9 @@ Metacello new
 	load
 ```
 
+## Currently implemented
+AoC2019 - day 1 to 7  
+AoC2021 - day 1 to 2
 
 ## How to execute
 Each year is represented by `AoC<year nr.>` class, like this: `AoC2019`.  
@@ -17,7 +20,7 @@ To get result for given day and part of Advent of Code, just simply execute (ins
 ```
 AoC2019 day: 1 part: 1
 ```
-and you get result.  
+and you get result (based on input associated with my AoC account).  
 Not yet implemented/completed solutions will throw error, e.g.: `"AoC 2019 - solution not found for day: 20 part: 2." `
 
 ## Completed Exercises
