@@ -1078,5 +1078,15 @@ BinaryDiagnostic >> initialize [
 { #category : #private }
 BinaryDiagnostic >> mostCommonBitAt: bitPos from: aNumbers [
 
-	^ ((aNumbers count: [:aNumber | (aNumber bitAt: bitPos) = 1]) > (aNumbers size / 2)) asBit
+	^ self mostCommonBitAt: bitPos from: aNumbers whenEqual: 0
+]
+
+{ #category : #private }
+BinaryDiagnostic >> mostCommonBitAt: bitPos from: aNumbers whenEqual: aBitValue [
+	|bitCount |
+	bitCount := aNumbers count: [:aNumber | (aNumber bitAt: bitPos) = 1].
+	"when zero and one count is equal, use default bit value"
+	((bitCount * 2) = aNumbers size) ifTrue: [ ^ aBitValue ].
+	
+	^ (bitCount > (aNumbers size / 2)) asBit
 ]
