@@ -1,3 +1,6 @@
+"
+AoC 2021 solutions
+"
 Class {
 	#name : #AoC2021,
 	#superclass : #AoC,
@@ -7,6 +10,6 @@ Class {
 { #category : #executing }
 AoC2021 class >> aocSolutionClasses [
 	^ 
-	{	SonarSweep. 
+	{	SonarSweep. SonarSweep3measures.
 	}
 ]

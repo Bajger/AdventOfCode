@@ -1,3 +1,6 @@
+"
+AoC 2021 - day 1 part 1
+"
 Class {
 	#name : #SonarSweep,
 	#superclass : #AoC2021,
@@ -2012,7 +2015,13 @@ SonarSweep class >> getInputString [
 
 { #category : #'api actions' }
 SonarSweep >> compute [ 
-	^ (self input substrings overlappingPairsCollect: [ :fst :snd |
-		fst asNumber < snd asNumber 
+	^ (self getSonarData overlappingPairsCollect: [ :fst :snd |
+		fst < snd  
 		]) count: #value
+]
+
+{ #category : #'private ' }
+SonarSweep >> getSonarData [
+
+	^ self input substrings collect: #asNumber
 ]
