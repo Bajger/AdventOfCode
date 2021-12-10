@@ -11,5 +11,6 @@ Class {
 AoC2021 class >> aocSolutionClasses [
 	^ 
 	{	SonarSweep. SonarSweep3measures.
+		Dive. DiveWithAim.
 	}
 ]
