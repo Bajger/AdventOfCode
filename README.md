@@ -12,7 +12,7 @@ Metacello new
 
 ## Currently implemented
 AoC2019 - day 1 to 7  
-AoC2021 - day 1 to 2
+AoC2021 - day 1 to 3
 
 ## How to execute
 Each year is represented by `AoC<year nr.>` class, like this: `AoC2019`.  
