@@ -86,20 +86,7 @@ BinaryDiagnosticTest >> testMostCommonBitAtFromWhenEqual [
 	1
 	0
 	0'.
-	"if count of bits are equal use 0"
-	self assert: (binaryDiagnostic mostCommonBitAt: 1 from: binaryDiagnostic diagnosticNumbers) equals: 0.
+	"if count of bits are equal use 1"
+	self assert: (binaryDiagnostic mostCommonBitAt: 1 from: binaryDiagnostic diagnosticNumbers) equals: 1.
 	
-]
-
-{ #category : #tests }
-BinaryDiagnosticTest >> testMostCommonBitAtFromWhenEqual1or0 [
-	|binaryDiagnostic|
-	binaryDiagnostic := BinaryDiagnostic new.
-	binaryDiagnostic input: '1
-	1
-	0
-	0'.
-	"if count of bits are equal use 0"
-	self assert: (binaryDiagnostic mostCommonBitAt: 1 from: binaryDiagnostic diagnosticNumbers whenEqual: 0) equals: 0.
-		self assert: (binaryDiagnostic mostCommonBitAt: 1 from: binaryDiagnostic diagnosticNumbers whenEqual: 1) equals: 1.
 ]

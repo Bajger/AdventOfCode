@@ -1028,6 +1028,13 @@ BinaryDiagnostic >> compute [
 ]
 
 { #category : #private }
+BinaryDiagnostic >> countOfOnesIn: aNumbers bitAt: bitPos [
+	
+	^ aNumbers count: [:aNumber | (aNumber bitAt: bitPos) = 1]
+	
+]
+
+{ #category : #private }
 BinaryDiagnostic >> cummulatedGammaAt: bitPos from: aNumbers [
 	
 		^ self gamma bitOr: (0 bitAt: bitPos put: (self mostCommonBitAt: bitPos from: aNumbers))
@@ -1077,16 +1084,11 @@ BinaryDiagnostic >> initialize [
 
 { #category : #private }
 BinaryDiagnostic >> mostCommonBitAt: bitPos from: aNumbers [
-
-	^ self mostCommonBitAt: bitPos from: aNumbers whenEqual: 0
-]
-
-{ #category : #private }
-BinaryDiagnostic >> mostCommonBitAt: bitPos from: aNumbers whenEqual: aBitValue [
 	|bitCount |
-	bitCount := aNumbers count: [:aNumber | (aNumber bitAt: bitPos) = 1].
+	"count ones in sequence of numbers at a bit position"
+	bitCount := self countOfOnesIn: aNumbers  bitAt: bitPos.
 	"when zero and one count is equal, use default bit value"
-	((bitCount * 2) = aNumbers size) ifTrue: [ ^ aBitValue ].
+	((bitCount * 2) = aNumbers size) ifTrue: [ ^ 1 ].
 	
 	^ (bitCount > (aNumbers size / 2)) asBit
 ]
