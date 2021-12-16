@@ -1,8 +1,11 @@
+"
+AoC2021 - day 7: Amplifier for Amplification circuit
+"
 Class {
 	#name : #ThrustAmplifier,
 	#superclass : #Object,
 	#instVars : [
-		'codeProgram',
+		'programComputer',
 		'id'
 	],
 	#category : #'AdventOfCode-day7'
@@ -13,16 +16,6 @@ ThrustAmplifier class >> withId: anAmpId [
 	^ self new
 		id: anAmpId;
 		yourself
-]
-
-{ #category : #accessing }
-ThrustAmplifier >> codeProgram [
-	^ codeProgram
-]
-
-{ #category : #accessing }
-ThrustAmplifier >> codeProgram: anObject [
-	codeProgram := anObject
 ]
 
 { #category : #accessing }
@@ -37,7 +30,7 @@ ThrustAmplifier >> id: anObject [
 
 { #category : #accessing }
 ThrustAmplifier >> inputSignal [
-	^ self codeProgram rawProgramInput
+	^ self programComputer rawProgramInput
 ]
 
 { #category : #testing }
@@ -49,24 +42,37 @@ ThrustAmplifier >> isLast [
 { #category : #accessing }
 ThrustAmplifier >> outputSignal [
 
-	^ self codeProgram programOutput 
+	^ self programComputer programOutput 
 ]
 
 { #category : #accessing }
 ThrustAmplifier >> phaseSetting [
-	^ self codeProgram phaseSetting
+	^ self programComputer phaseSetting
+]
+
+{ #category : #accessing }
+ThrustAmplifier >> programComputer [
+	^ programComputer ifNil: [programComputer := AmpComputer new ]
+]
+
+{ #category : #'actions api' }
+ThrustAmplifier >> resetAmpWith: codeProgramString [
+	"set up-to-date input from circuit input to all amp's computers"
+	self programComputer input: codeProgramString.
+	self programComputer setIntcodeProgram.
+	self programComputer resetInOut.
 ]
 
 { #category : #'actions api' }
 ThrustAmplifier >> runAmpProgram [
 
-	self codeProgram compute
+	self programComputer compute
 ]
 
-{ #category : #'actions api' }
+{ #category : #accessing }
 ThrustAmplifier >> setInputSignal: aSignal [
 
-	self codeProgram programInput: aSignal
+	self programComputer programInput: aSignal
 	
 ]
 
@@ -76,14 +82,20 @@ ThrustAmplifier >> setInputSignalForNextAmp: nextAmp [
 	nextAmp setInputSignal: self outputSignal
 ]
 
-{ #category : #'actions api' }
+{ #category : #accessing }
 ThrustAmplifier >> setPhaseSetting: aSetting [
 	
-	self codeProgram phaseSetting: aSetting
+	self programComputer phaseSetting: aSetting
 ]
 
-{ #category : #'actions api' }
-ThrustAmplifier >> setProgram: aCodeProgram [
+{ #category : #'private ' }
+ThrustAmplifier >> setProgramComputer: aCodeProgramString [
 
-	self codeProgram intcodeProgram: aCodeProgram
+	self programComputer input: aCodeProgramString 
+]
+
+{ #category : #accessing }
+ThrustAmplifier >> setProgramOutput: aValue [
+	
+	self programComputer programOutput: aValue
 ]

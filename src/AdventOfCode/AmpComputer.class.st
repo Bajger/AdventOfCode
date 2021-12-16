@@ -1,8 +1,12 @@
+"
+AoC2021 - day 7: Modification of original intcode computer
+ - uses phase setting as input #1 
+ - uses program input as input #2
+"
 Class {
-	#name : #AmpProgram,
+	#name : #AmpComputer,
 	#superclass : #TESTDiagnostic,
 	#instVars : [
-		'amplifier',
 		'phaseConsumed',
 		'phaseSetting'
 	],
@@ -10,51 +14,40 @@ Class {
 }
 
 { #category : #'instance creation' }
-AmpProgram class >> newWith: anAmp [
+AmpComputer class >> newWith: inputStringProgram [
 	^ self basicNew
-		initializeWith: anAmp;
+		initializeWith: inputStringProgram;
 		yourself
 ]
 
-{ #category : #accessing }
-AmpProgram >> amplifier [
-	^ amplifier
-]
-
-{ #category : #accessing }
-AmpProgram >> amplifier: anObject [
-	amplifier := anObject
-]
-
 { #category : #initialize }
-AmpProgram >> initializeWith: anAmplifier [
-	self initialize.
-	self amplifier: anAmplifier.
+AmpComputer >> initialize [
+	super initialize.
 	self phaseConsumed: false.
 ]
 
 { #category : #accessing }
-AmpProgram >> phaseConsumed [
+AmpComputer >> phaseConsumed [
 	^ phaseConsumed
 ]
 
 { #category : #accessing }
-AmpProgram >> phaseConsumed: anObject [
+AmpComputer >> phaseConsumed: anObject [
 	phaseConsumed := anObject
 ]
 
 { #category : #accessing }
-AmpProgram >> phaseSetting [
+AmpComputer >> phaseSetting [
 	^ phaseSetting
 ]
 
 { #category : #accessing }
-AmpProgram >> phaseSetting: anObject [
+AmpComputer >> phaseSetting: anObject [
 	phaseSetting := anObject
 ]
 
 { #category : #accessing }
-AmpProgram >> programInput [ 
+AmpComputer >> programInput [ 
 
 	self phaseConsumed ifTrue: [ ^ self rawProgramInput ].
 	self phaseConsumed: true.
@@ -63,7 +56,16 @@ AmpProgram >> programInput [
 ]
 
 { #category : #accessing }
-AmpProgram >> rawProgramInput [ 
+AmpComputer >> rawProgramInput [ 
 
  ^ super programInput
+]
+
+{ #category : #'private ' }
+AmpComputer >> resetInOut [
+	
+	self phaseConsumed: false.
+	self programInput: 0.
+	self programOutput: 0.
+	
 ]

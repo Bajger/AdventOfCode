@@ -28,6 +28,12 @@ AoC class >> day: adventDay part: partNumber [
 	^ aocSolutionClass new compute
 ]
 
+{ #category : #'private-constants' }
+AoC class >> getInputString [
+	"empty by default"
+	^ ''
+]
+
 { #category : #initialization }
 AoC >> initialize [ 
 	self input: self class getInputString 
