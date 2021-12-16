@@ -5,7 +5,7 @@ Class {
 }
 
 { #category : #tests }
-AmplificationCircuitTest >> testAoCSample1 [
+AmplificationCircuitTest >> testAoCSample [
 
 	|aCircuit | 
 	aCircuit := AmplificationCircuit new 
@@ -27,4 +27,6 @@ AmplificationCircuitTest >> testAoCSample1 [
 
 { #category : #tests }
 AmplificationCircuitTest >> testCompute [
+
+	self assert: (AmplificationCircuit new compute) equals: 51679
 ]

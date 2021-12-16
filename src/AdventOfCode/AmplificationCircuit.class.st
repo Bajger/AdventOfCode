@@ -31,10 +31,9 @@ AmplificationCircuit >> amplifiers: anObject [
 { #category : #'actions api' }
 AmplificationCircuit >> compute [
 
-	self variationsOf: 5 usingRange: (0 to: 4) do: [:aSettingArray |
+	(0 to: 4) permutationsDo: [:aSettingArray |
 		self runCircuitForPhaseSettings: aSettingArray.
 		self setMaxThrusterSignal: self lastAmpOutput.
-		self traceCr: ((Character space join: aSettingArray) , ' => ', (self lastAmpOutput asString)).
 		self resetAmps.
 	 ].
 	^ self maxThrusterSignal 
