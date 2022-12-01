@@ -1,7 +1,10 @@
+"
+2019 - day 6 part 2
+"
 Class {
 	#name : #OrbitalTransfers,
 	#superclass : #UniversalOrbitMap,
-	#category : #'AdventOfCode-day6'
+	#category : #'AdventOfCode-AoC2019'
 }
 
 { #category : #'api actions' }

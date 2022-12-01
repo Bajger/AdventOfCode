@@ -1,3 +1,6 @@
+"
+2019 - day 2 part 1
+"
 Class {
 	#name : #RestoreIntcodeProgram,
 	#superclass : #AoC2019,
@@ -5,7 +8,7 @@ Class {
 		'sequenceIndex',
 		'intcodeProgram'
 	],
-	#category : #'AdventOfCode-day2'
+	#category : #'AdventOfCode-AoC2019'
 }
 
 { #category : #'private-constants' }

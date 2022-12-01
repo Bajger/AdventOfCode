@@ -8,7 +8,7 @@ Class {
 		'amplifiers',
 		'maxThrusterSignal'
 	],
-	#category : #'AdventOfCode-day7'
+	#category : #'AdventOfCode-AoC2019'
 }
 
 { #category : #'private-constants' }

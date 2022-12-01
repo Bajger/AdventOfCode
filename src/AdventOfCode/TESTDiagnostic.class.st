@@ -1,3 +1,6 @@
+"
+2019 - day 5 part 1
+"
 Class {
 	#name : #TESTDiagnostic,
 	#superclass : #RestoreIntcodeProgram,
@@ -5,7 +8,7 @@ Class {
 		'programInput',
 		'programOutput'
 	],
-	#category : #'AdventOfCode-day5'
+	#category : #'AdventOfCode-AoC2019'
 }
 
 { #category : #'private-constants' }

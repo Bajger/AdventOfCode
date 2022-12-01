@@ -7,3 +7,10 @@ Class {
 	#superclass : #AoC,
 	#category : #'AdventOfCode-AoC2022'
 }
+
+{ #category : #executing }
+AoC2022 class >> aocSolutionClasses [
+	^ 
+	{	ElfCalories. ElfCaloriesTopThree.
+	}
+]

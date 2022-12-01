@@ -1,10 +1,13 @@
+"
+2019 - day 5 - OP code class
+"
 Class {
 	#name : #TESTOpCode,
 	#superclass : #OpCode,
 	#instVars : [
 		'stepForNextOpcode'
 	],
-	#category : #'AdventOfCode-day5'
+	#category : #'AdventOfCode-AoC2019'
 }
 
 { #category : #private }

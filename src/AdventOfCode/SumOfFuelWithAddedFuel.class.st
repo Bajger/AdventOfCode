@@ -1,7 +1,10 @@
+"
+2019 - day 1 part 2
+"
 Class {
 	#name : #SumOfFuelWithAddedFuel,
 	#superclass : #SumOfFuel,
-	#category : #'AdventOfCode-day1'
+	#category : #'AdventOfCode-AoC2019'
 }
 
 { #category : #private }

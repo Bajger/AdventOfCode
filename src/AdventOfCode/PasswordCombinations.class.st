@@ -1,3 +1,6 @@
+"
+2019 - day 4 part 1
+"
 Class {
 	#name : #PasswordCombinations,
 	#superclass : #AoC2019,
@@ -7,7 +10,7 @@ Class {
 		'adjacentAlreadySame',
 		'bagOfSameDigits'
 	],
-	#category : #'AdventOfCode-day4'
+	#category : #'AdventOfCode-AoC2019'
 }
 
 { #category : #'private-constants' }

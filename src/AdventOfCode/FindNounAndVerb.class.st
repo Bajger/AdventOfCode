@@ -1,3 +1,6 @@
+"
+2019 - day 2 part 2
+"
 Class {
 	#name : #FindNounAndVerb,
 	#superclass : #RestoreIntcodeProgram,
@@ -5,7 +8,7 @@ Class {
 		'noun',
 		'verb'
 	],
-	#category : #'AdventOfCode-day2'
+	#category : #'AdventOfCode-AoC2019'
 }
 
 { #category : #accessing }

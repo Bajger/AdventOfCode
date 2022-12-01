@@ -1,3 +1,6 @@
+"
+2019 - day 6 - Object in Space
+"
 Class {
 	#name : #ObjectInSpace,
 	#superclass : #Object,
@@ -6,7 +9,7 @@ Class {
 		'name',
 		'orbitHops'
 	],
-	#category : #'AdventOfCode-day6'
+	#category : #'AdventOfCode-AoC2019'
 }
 
 { #category : #'instance creation' }

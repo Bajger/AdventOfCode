@@ -1,7 +1,10 @@
+"
+2019 - day 5 part 2
+"
 Class {
 	#name : #TESTDiagnosticThermalRadiators,
 	#superclass : #TESTDiagnostic,
-	#category : #'AdventOfCode-day5'
+	#category : #'AdventOfCode-AoC2019'
 }
 
 { #category : #initialization }

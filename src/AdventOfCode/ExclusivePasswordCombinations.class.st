@@ -1,7 +1,10 @@
+"
+2019 - day 4 part 2
+"
 Class {
 	#name : #ExclusivePasswordCombinations,
 	#superclass : #PasswordCombinations,
-	#category : #'AdventOfCode-day4'
+	#category : #'AdventOfCode-AoC2019'
 }
 
 { #category : #accessing }

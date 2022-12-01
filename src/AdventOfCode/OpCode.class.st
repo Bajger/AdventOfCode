@@ -1,3 +1,6 @@
+"
+2019 - day 2 - class for handling operation codes
+"
 Class {
 	#name : #OpCode,
 	#superclass : #Object,
@@ -5,7 +8,7 @@ Class {
 		'codeComputer',
 		'opcode'
 	],
-	#category : #'AdventOfCode-day2'
+	#category : #'AdventOfCode-AoC2019'
 }
 
 { #category : #'instance creation' }

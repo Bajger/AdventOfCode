@@ -8,7 +8,7 @@ Class {
 		'programComputer',
 		'id'
 	],
-	#category : #'AdventOfCode-day7'
+	#category : #'AdventOfCode-AoC2019'
 }
 
 { #category : #'instance creation' }

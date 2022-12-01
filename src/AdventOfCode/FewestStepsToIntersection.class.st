@@ -1,10 +1,13 @@
+"
+2019 - day 3 part 2
+"
 Class {
 	#name : #FewestStepsToIntersection,
 	#superclass : #CrossedWiresIntersection,
 	#instVars : [
 		'wireDistance'
 	],
-	#category : #'AdventOfCode-day3'
+	#category : #'AdventOfCode-AoC2019'
 }
 
 { #category : #private }

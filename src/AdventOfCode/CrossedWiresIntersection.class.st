@@ -1,3 +1,6 @@
+"
+2019 - day 3 part 1
+"
 Class {
 	#name : #CrossedWiresIntersection,
 	#superclass : #AoC2019,
@@ -5,7 +8,7 @@ Class {
 		'firstWire',
 		'secondWire'
 	],
-	#category : #'AdventOfCode-day3'
+	#category : #'AdventOfCode-AoC2019'
 }
 
 { #category : #'private-constants' }

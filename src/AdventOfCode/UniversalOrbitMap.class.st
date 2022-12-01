@@ -1,10 +1,13 @@
+"
+2019 - day 6 part 1
+"
 Class {
 	#name : #UniversalOrbitMap,
 	#superclass : #AoC2019,
 	#instVars : [
 		'objectsInSpace'
 	],
-	#category : #'AdventOfCode-day6'
+	#category : #'AdventOfCode-AoC2019'
 }
 
 { #category : #'private-constants' }
