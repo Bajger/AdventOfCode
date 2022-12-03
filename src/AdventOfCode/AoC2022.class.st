@@ -13,5 +13,6 @@ AoC2022 class >> aocSolutionClasses [
 	^ 
 	{	ElfCalories. ElfCaloriesTopThree.
 		RockPaperScissors. FindAShape.
+		RucksackItems. ThreeElfItems.
 	}
 ]

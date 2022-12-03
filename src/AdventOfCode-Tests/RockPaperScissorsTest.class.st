@@ -26,7 +26,7 @@ C Z'.
 	self assert: rpc compute equals: 15.
 ]
 
-{ #category : #test }
+{ #category : #tests }
 RockPaperScissorsTest >> testRoundScoreForAnd [
 
 	|rpc|

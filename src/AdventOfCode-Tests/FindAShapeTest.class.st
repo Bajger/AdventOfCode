@@ -28,7 +28,7 @@ C Z'.
 	self assert: findShape compute equals: 12.
 ]
 
-{ #category : #test }
+{ #category : #tests }
 FindAShapeTest >> testFindMatchingShapeForAnd [
 
 	|shapeFind|
