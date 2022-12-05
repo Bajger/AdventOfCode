@@ -15,5 +15,6 @@ AoC2022 class >> aocSolutionClasses [
 		RockPaperScissors. FindAShape.
 		RucksackItems. ThreeElfItems.
 		CampCleanup. RangesOverlap.
+		SupplyStacks. MultipleCratesAtOnce.
 	}
 ]
