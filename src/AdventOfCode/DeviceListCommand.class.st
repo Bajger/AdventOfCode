@@ -1,3 +1,6 @@
+"
+AoC 2022 - Day 7 part 1 - device command to list directory contents
+"
 Class {
 	#name : #DeviceListCommand,
 	#superclass : #DeviceCommand,

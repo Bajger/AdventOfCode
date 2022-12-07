@@ -17,5 +17,6 @@ AoC2022 class >> aocSolutionClasses [
 		CampCleanup. RangesOverlap.
 		SupplyStacks. MultipleCratesAtOnce.
 		PacketMarker. LongPacketMarker.
+		DeviceDirectorySize. DirectorySizeToRunUpdate.
 	}
 ]
