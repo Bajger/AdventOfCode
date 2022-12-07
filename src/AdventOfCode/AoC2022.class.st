@@ -16,5 +16,6 @@ AoC2022 class >> aocSolutionClasses [
 		RucksackItems. ThreeElfItems.
 		CampCleanup. RangesOverlap.
 		SupplyStacks. MultipleCratesAtOnce.
+		PacketMarker. LongPacketMarker.
 	}
 ]
