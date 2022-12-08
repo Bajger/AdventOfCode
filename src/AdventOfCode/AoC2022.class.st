@@ -18,5 +18,6 @@ AoC2022 class >> aocSolutionClasses [
 		SupplyStacks. MultipleCratesAtOnce.
 		PacketMarker. LongPacketMarker.
 		DeviceDirectorySize. DirectorySizeToRunUpdate.
+		TreeVisibility. ScenicScore.
 	}
 ]
