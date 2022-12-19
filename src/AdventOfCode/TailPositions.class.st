@@ -1,3 +1,6 @@
+"
+AoC 2022 - Day 9 part 1	
+"
 Class {
 	#name : #TailPositions,
 	#superclass : #AoC2022,
@@ -2035,7 +2038,7 @@ TailPositions >> doMovement: aMovement [
 	aMovement = 'D' ifTrue: [  self headDown].
 	aMovement = 'L' ifTrue: [  self headLeft].
 	aMovement = 'R' ifTrue: [  self headRight].
-	self tail: self newTailPosition.
+	self updateTailPosition.
 	self addTailToVisited.
 ]
 
@@ -2092,8 +2095,14 @@ TailPositions >> initialize [
 	super initialize.
 	self visited: Set new.
 	self head: 0@0.
-	self tail: 0@0.
+	self initializeTail.
 	
+]
+
+{ #category : #initialize }
+TailPositions >> initializeTail [
+
+	self tail: 0@0	
 ]
 
 { #category : #private }
@@ -2129,6 +2138,13 @@ TailPositions >> tail [
 TailPositions >> tail: anObject [
 
 	tail := anObject
+]
+
+{ #category : #private }
+TailPositions >> updateTailPosition [
+
+	self tail: self newTailPosition
+
 ]
 
 { #category : #accessing }
