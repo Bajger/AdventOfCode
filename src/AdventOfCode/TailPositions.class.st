@@ -2014,21 +2014,21 @@ D 9
 U 12'
 ]
 
-{ #category : #'private ' }
+{ #category : #private }
 TailPositions >> addTailToVisited [ 
 
 	self visited add: self tail
 	
 ]
 
-{ #category : #'private ' }
+{ #category : #'api actions' }
 TailPositions >> compute [
 
 	self processMoves.
 	^ self visited size
 ]
 
-{ #category : #'private ' }
+{ #category : #private }
 TailPositions >> doMovement: aMovement [
 
 	aMovement = 'U' ifTrue: [  self headUp].
@@ -2051,34 +2051,34 @@ TailPositions >> head: anObject [
 	head := anObject
 ]
 
-{ #category : #'private ' }
+{ #category : #private }
 TailPositions >> headDown [
 	
 	self head: self head + (0@(-1))
 	
 ]
 
-{ #category : #'private ' }
+{ #category : #private }
 TailPositions >> headLeft [
 	
 	self head: self head + ((-1)@0)
 	
 ]
 
-{ #category : #'private ' }
+{ #category : #private }
 TailPositions >> headRight [
 	
 	self head: self head + (1@0)
 	
 ]
 
-{ #category : #'private ' }
+{ #category : #private }
 TailPositions >> headUp [
 	
 	self head: self head + (0@1)
 ]
 
-{ #category : #'private ' }
+{ #category : #private }
 TailPositions >> incrementForDif: aDif [
 	aDif = 0 ifTrue: [ ^ 0 ].
 	^ aDif > 0 
@@ -2096,7 +2096,7 @@ TailPositions >> initialize [
 	
 ]
 
-{ #category : #'private ' }
+{ #category : #private }
 TailPositions >> newTailPosition [
 	
 	(self head distanceTo: self tail) >= 2 ifTrue: [ 
@@ -2110,7 +2110,7 @@ TailPositions >> newTailPosition [
 	^ self tail
 ]
 
-{ #category : #'private ' }
+{ #category : #private }
 TailPositions >> processMoves [
 	|lines|
 	lines := (self input splitOn: Character cr) collect: #substrings.
