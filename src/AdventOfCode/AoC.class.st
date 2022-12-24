@@ -4,8 +4,16 @@ Class {
 	#instVars : [
 		'input'
 	],
+	#classInstVars : [
+		'announcer'
+	],
 	#category : #'AdventOfCode-common'
 }
+
+{ #category : #accessing }
+AoC class >> announcer [
+  ^ announcer ifNil: [ announcer := Announcer new ]
+]
 
 { #category : #executing }
 AoC class >> aocSolutionClasses [

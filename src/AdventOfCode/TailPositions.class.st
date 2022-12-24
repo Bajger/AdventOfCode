@@ -2032,12 +2032,19 @@ TailPositions >> compute [
 ]
 
 { #category : #private }
-TailPositions >> doMovement: aMovement [
+TailPositions >> doHeadMovement: aMovement [
 
 	aMovement = 'U' ifTrue: [  self headUp].
 	aMovement = 'D' ifTrue: [  self headDown].
 	aMovement = 'L' ifTrue: [  self headLeft].
 	aMovement = 'R' ifTrue: [  self headRight].
+
+]
+
+{ #category : #private }
+TailPositions >> doMovement: aMovement [
+
+	self doHeadMovement: aMovement.
 	self updateTailPosition.
 	self addTailToVisited.
 ]
@@ -2108,15 +2115,21 @@ TailPositions >> initializeTail [
 { #category : #private }
 TailPositions >> newTailPosition [
 	
-	(self head distanceTo: self tail) >= 2 ifTrue: [ 
+	^ self newTailPositionFrom: self head to: self tail
+]
+
+{ #category : #private }
+TailPositions >> newTailPositionFrom: headPosition to: tailPosition [
+	
+	(headPosition distanceTo: tailPosition) >= 2 ifTrue: [ 
 		|difX difY newX newY|
-		difX := self head x - (self tail x).
-		difY := self head y - (self tail y).	
-		newX := self tail x + (self incrementForDif: difX).
-		newY := self tail y + (self incrementForDif: difY).
+		difX := headPosition x - (tailPosition x).
+		difY := headPosition y - (tailPosition y).	
+		newX := tailPosition x + (self incrementForDif: difX).
+		newY := tailPosition y + (self incrementForDif: difY).
 		^ newX@newY
 	].
-	^ self tail
+	^ tailPosition
 ]
 
 { #category : #private }
