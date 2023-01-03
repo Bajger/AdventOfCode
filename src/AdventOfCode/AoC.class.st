@@ -1,3 +1,6 @@
+"
+Common class for AoC solutions providing reading input from File and accessing solution using #day:part: method. 
+"
 Class {
 	#name : #AoC,
 	#superclass : #Object,
@@ -37,9 +40,37 @@ AoC class >> day: adventDay part: partNumber [
 ]
 
 { #category : #'private-constants' }
+AoC class >> getInputFile [
+
+	| repository file |
+	repository := IceLibgitRepository repositories
+		              detect: [ :each | each name = 'AdventOfCode' ]
+		              ifNone: [ self error: 'Cannot find AdventOfCode local repository.' ].
+	file := repository location / 'input' / self solutionYearString / self solutionDayFileName.
+	file exists ifFalse: [ 
+		self error:
+			('Could not find input in: {1}.' format: { file pathString }) ].
+	^ file
+]
+
+{ #category : #'private-constants' }
 AoC class >> getInputString [
-	"empty by default"
-	^ ''
+	"subclasses are responsible for gathering input from file for solution"
+	^ self getInputFile contents withInternalLineEndings
+]
+
+{ #category : #executing }
+AoC class >> solutionDayFileName [
+
+	|indexOfDay|
+	indexOfDay := (((self aocSolutionClasses indexOf: self) / 2) ceiling).
+	^ 'day-{1}.txt' format: {indexOfDay asTwoCharacterString}
+]
+
+{ #category : #executing }
+AoC class >> solutionYearString [
+
+	self subclassResponsibility
 ]
 
 { #category : #initialization }

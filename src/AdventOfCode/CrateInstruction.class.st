@@ -3,7 +3,7 @@ AoC 2022 - Day 5 - instruction to move stacks
 "
 Class {
 	#name : #CrateInstruction,
-	#superclass : #AoC2022,
+	#superclass : #Object,
 	#instVars : [
 		'amount',
 		'from',

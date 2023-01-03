@@ -15,3 +15,9 @@ AoC2021 class >> aocSolutionClasses [
 		BinaryDiagnostic.
 	}
 ]
+
+{ #category : #executing }
+AoC2021 class >> solutionYearString [
+
+	^ '2021'
+]

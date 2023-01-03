@@ -36,3 +36,9 @@ AoC2019 class >> aocSolutionClasses [
 		UniversalOrbitMap. OrbitalTransfers.
 	}
 ]
+
+{ #category : #executing }
+AoC2019 class >> solutionYearString [
+
+	^ '2019'
+]
