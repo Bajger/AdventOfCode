@@ -7,20 +7,15 @@ Class {
 	#category : #'AdventOfCode-Tests-AoC2021'
 }
 
-{ #category : #test }
+{ #category : #tests }
 SonarSweepTest >> testCompute [
 	
 	|aSonarSweep|
 	aSonarSweep := SonarSweep new.
-	aSonarSweep input: '1
-	2
-	3
-	4
-	3'.
-	self assert: aSonarSweep compute equals: 3.
+	self assert: aSonarSweep compute equals: 1233.
 ]
 
-{ #category : #test }
+{ #category : #tests }
 SonarSweepTest >> testComputeAocSample [
 	
 	|aSonarSweep|
@@ -38,7 +33,7 @@ SonarSweepTest >> testComputeAocSample [
 	self assert: aSonarSweep compute equals: 7.
 ]
 
-{ #category : #test }
+{ #category : #tests }
 SonarSweepTest >> testComputeSample1 [
 	
 	|aSonarSweep|
@@ -51,7 +46,7 @@ SonarSweepTest >> testComputeSample1 [
 	self assert: aSonarSweep compute equals: 3.
 ]
 
-{ #category : #test }
+{ #category : #tests }
 SonarSweepTest >> testComputeSample2 [
 	
 	|aSonarSweep|
@@ -63,7 +58,7 @@ SonarSweepTest >> testComputeSample2 [
 	self assert: aSonarSweep compute equals: 3.
 ]
 
-{ #category : #test }
+{ #category : #tests }
 SonarSweepTest >> testComputeSample3 [
 	
 	|aSonarSweep|

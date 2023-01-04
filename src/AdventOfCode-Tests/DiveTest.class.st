@@ -12,6 +12,14 @@ DiveTest >> testCompute [
 	
 	|aSonarSweep|
 	aSonarSweep := Dive new.
+	self assert: aSonarSweep compute equals: 1580000.
+]
+
+{ #category : #tests }
+DiveTest >> testComputeSample [
+	
+	|aSonarSweep|
+	aSonarSweep := Dive new.
 	aSonarSweep input: 'forward 5
 down 5
 forward 8
