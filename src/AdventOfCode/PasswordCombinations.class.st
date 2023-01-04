@@ -13,12 +13,6 @@ Class {
 	#category : #'AdventOfCode-AoC2019'
 }
 
-{ #category : #'private-constants' }
-PasswordCombinations class >> getInputString [
-
-	^ '359282-820401'
-]
-
 { #category : #private }
 PasswordCombinations >> addCurrentToBag [
 

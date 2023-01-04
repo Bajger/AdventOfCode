@@ -20,6 +20,12 @@ AmpComputer class >> newWith: inputStringProgram [
 		yourself
 ]
 
+{ #category : #executing }
+AmpComputer class >> solutionDayFileName [
+
+	^ 'day-07.txt'
+]
+
 { #category : #initialize }
 AmpComputer >> initialize [
 	super initialize.

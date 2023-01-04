@@ -34,6 +34,7 @@ AoC2019 class >> aocSolutionClasses [
 		PasswordCombinations. ExclusivePasswordCombinations.
 		TESTDiagnostic. TESTDiagnosticThermalRadiators.
 		UniversalOrbitMap. OrbitalTransfers.
+		AmplificationCircuit.
 	}
 ]
 
