@@ -1,3 +1,6 @@
+"
+Visualization of Rope tail positions - AoC2022 day 9 part 2
+"
 Class {
 	#name : #AoCSnakeVisualization,
 	#superclass : #Object,

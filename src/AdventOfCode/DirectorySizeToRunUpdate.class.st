@@ -1,3 +1,6 @@
+"
+Aoc 2022 - day 7 part 2
+"
 Class {
 	#name : #DirectorySizeToRunUpdate,
 	#superclass : #DeviceDirectorySize,
