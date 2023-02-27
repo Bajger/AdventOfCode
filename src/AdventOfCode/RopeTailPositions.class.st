@@ -7,6 +7,12 @@ Class {
 	#category : #'AdventOfCode-AoC2022'
 }
 
+{ #category : #private }
+RopeTailPositions >> addTailToVisited [ 
+
+	self visited add: self tail last	
+]
+
 { #category : #initialization }
 RopeTailPositions >> announcePositionChanged: newPosition at: index [
 
@@ -26,7 +32,7 @@ RopeTailPositions >> announceTailChanged: newPosition [
 			yourself)
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #private }
 RopeTailPositions >> boundingBoxOfRope [
 
 	^ Rectangle encompassing: self headMovemenentPoints
