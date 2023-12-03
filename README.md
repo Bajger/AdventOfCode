@@ -2,7 +2,7 @@
 My own implemented solutions using [Pharo](https://pharo.org) Smalltalk for [Advent of Code](https://adventofcode.com) coding challenge.
 
 ## How to load
-You can load this project into [stable Pharo 9.0](https://pharo.org/download) (P8 tested as well) image using: 
+You can load this project into [Pharo 12.0](https://pharo.org/download) (older versions might work as well) image using: 
 ```
 Metacello new
 	repository: 'github://Bajger/AdventOfCode/src';
@@ -14,6 +14,7 @@ Metacello new
 AoC2019 - day 1 to 7 (part 1)  
 AoC2021 - day 1 to 3  
 AoC2022 - day 9  
+AoC2023 - Just started...
 
 ## How to execute
 Each year is represented by `AoC<year nr.>` class, like this: `AoC2019`.  
