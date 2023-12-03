@@ -2,23 +2,25 @@
 2019 - day 3 part 1
 "
 Class {
-	#name : #CrossedWiresIntersection,
-	#superclass : #AoC2019,
+	#name : 'CrossedWiresIntersection',
+	#superclass : 'AoC2019',
 	#instVars : [
 		'firstWire',
 		'secondWire'
 	],
-	#category : #'AdventOfCode-AoC2019'
+	#category : 'AdventOfCode-AoC2019',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2019'
 }
 
-{ #category : #execution }
+{ #category : 'execution' }
 CrossedWiresIntersection >> addIntersectionBetween: firstWireSegment and: secondWireSegment to: resultColl [
 	| aPointOrNil |
 	aPointOrNil := firstWireSegment intersectionWith: secondWireSegment.
 	aPointOrNil 	ifNotNil: [ :intPoint | resultColl add: intPoint ] 
 ]
 
-{ #category : #execution }
+{ #category : 'execution' }
 CrossedWiresIntersection >> addMovesForWire: aWire withSteps: aWireStepAssocs [
 	aWireStepAssocs do: [:wireAssocMovement |
 		wireAssocMovement key = #U ifTrue: [ self moveUp: wireAssocMovement value on: aWire ].
@@ -28,7 +30,7 @@ CrossedWiresIntersection >> addMovesForWire: aWire withSteps: aWireStepAssocs [
 		 ]
 ]
 
-{ #category : #execution }
+{ #category : 'execution' }
 CrossedWiresIntersection >> addMovesForWires [
 	| wireStrings |
 	wireStrings := self input substrings.
@@ -37,36 +39,36 @@ CrossedWiresIntersection >> addMovesForWires [
 
 ]
 
-{ #category : #execution }
+{ #category : 'execution' }
 CrossedWiresIntersection >> compute [ 
 
 	self addMovesForWires.
 	^ self getClosestDistance: (self handleIntersectionBug:  self getIntersections)
 ]
 
-{ #category : #execution }
+{ #category : 'execution' }
 CrossedWiresIntersection >> doSegmentAction: aBlock  lineSegment: aSegment on: aWire [
 
 	^ aBlock  value: aSegment
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CrossedWiresIntersection >> firstWire [
 	^ firstWire
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CrossedWiresIntersection >> firstWire: anObject [
 	firstWire := anObject
 ]
 
-{ #category : #execution }
+{ #category : 'execution' }
 CrossedWiresIntersection >> getClosestDistance: intersections [
 
 	^ (intersections collect: [ :aPoint |  aPoint abs x + aPoint abs y]) min
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 CrossedWiresIntersection >> getFirstIntersection: intersectionsColl [
 
 	intersectionsColl ifNotEmpty: [ 
@@ -75,7 +77,7 @@ CrossedWiresIntersection >> getFirstIntersection: intersectionsColl [
 	^ nil 
 ]
 
-{ #category : #execution }
+{ #category : 'execution' }
 CrossedWiresIntersection >> getIntersections [
 	| intersections |
 	intersections := OrderedCollection new.
@@ -91,7 +93,7 @@ CrossedWiresIntersection >> getIntersections [
 	^ intersections
 ]
 
-{ #category : #initialize }
+{ #category : 'initialize' }
 CrossedWiresIntersection >> getNewWire [
 
 	^ PathShape new
@@ -99,7 +101,7 @@ CrossedWiresIntersection >> getNewWire [
 		yourself
 ]
 
-{ #category : #execution }
+{ #category : 'execution' }
 CrossedWiresIntersection >> getWireSteps: aWireString [
 
 	^ (aWireString substrings: ',') collect: [:wireStepString |
@@ -107,7 +109,7 @@ CrossedWiresIntersection >> getWireSteps: aWireString [
 		 ]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 CrossedWiresIntersection >> handleIntersectionBug: intersections [
 
 "this is because of bug in LineSegment>>intersectionWith: method, which returns nil (no intersection), if line segments overlap in same direction"
@@ -116,7 +118,7 @@ CrossedWiresIntersection >> handleIntersectionBug: intersections [
 	^ intersections 
 ]
 
-{ #category : #initialize }
+{ #category : 'initialize' }
 CrossedWiresIntersection >> initialize [ 
 	super initialize.
 	self firstWire: self getNewWire.
@@ -124,45 +126,45 @@ CrossedWiresIntersection >> initialize [
 	
 ]
 
-{ #category : #execution }
+{ #category : 'execution' }
 CrossedWiresIntersection >> moveDown: aStep on: aWire [
 	|lastPoint|
 	lastPoint := aWire vertices last.
 	aWire addVertex: (Point x: lastPoint x y: lastPoint y - aStep)
 ]
 
-{ #category : #execution }
+{ #category : 'execution' }
 CrossedWiresIntersection >> moveLeft: aStep on: aWire [
 	|lastPoint|
 	lastPoint := aWire vertices last.
 	aWire addVertex: (Point x: lastPoint x - aStep  y: lastPoint y)
 ]
 
-{ #category : #execution }
+{ #category : 'execution' }
 CrossedWiresIntersection >> moveRight: aStep on: aWire [
 	|lastPoint|
 	lastPoint := aWire vertices last.
 	aWire addVertex: (Point x: lastPoint x + aStep  y: lastPoint y)
 ]
 
-{ #category : #execution }
+{ #category : 'execution' }
 CrossedWiresIntersection >> moveUp: aStep on: aWire [
 	|lastPoint|
 	lastPoint := aWire vertices last.
 	aWire addVertex: (Point x: lastPoint x y: lastPoint y + aStep)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CrossedWiresIntersection >> secondWire [
 	^ secondWire
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CrossedWiresIntersection >> secondWire: anObject [
 	secondWire := anObject
 ]
 
-{ #category : #execution }
+{ #category : 'execution' }
 CrossedWiresIntersection >> segmentsDo: aBlock on: aWire [
 
 ^ aWire segmentsDo: [:point1 :point2 |

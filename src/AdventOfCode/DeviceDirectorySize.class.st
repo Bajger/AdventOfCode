@@ -2,36 +2,38 @@
 AoC 2022 - Day 7 part 1
 "
 Class {
-	#name : #DeviceDirectorySize,
-	#superclass : #AoC2022,
+	#name : 'DeviceDirectorySize',
+	#superclass : 'AoC2022',
 	#instVars : [
 		'currentDirectory',
 		'lineNumber',
 		'termLines'
 	],
-	#category : #'AdventOfCode-AoC2022'
+	#category : 'AdventOfCode-AoC2022',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2022'
 }
 
-{ #category : #'api actions' }
+{ #category : 'api actions' }
 DeviceDirectorySize >> compute [ 
 	
 	[(DeviceCommand on: self) execute] whileTrue.
 	^ self sizesUpTo100k
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DeviceDirectorySize >> currentDirectory [
 
 	^ currentDirectory
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DeviceDirectorySize >> currentDirectory: anObject [
 
 	currentDirectory := anObject
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 DeviceDirectorySize >> initialize [ 
 
 	super initialize.
@@ -39,26 +41,26 @@ DeviceDirectorySize >> initialize [
 	self lineNumber: 1.
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 DeviceDirectorySize >> initializeTermLines [
 
 	self termLines: (self input splitOn: (Character cr)).
 	^ self termLines
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DeviceDirectorySize >> lineNumber [
 
 	^ lineNumber
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DeviceDirectorySize >> lineNumber: anObject [
 
 	lineNumber := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DeviceDirectorySize >> nextTermLine [
 
 	lineNumber := lineNumber +1.
@@ -67,13 +69,13 @@ DeviceDirectorySize >> nextTermLine [
 	
 ]
 
-{ #category : #'api actions' }
+{ #category : 'api actions' }
 DeviceDirectorySize >> root [
 
 	^ self currentDirectory findRoot
 ]
 
-{ #category : #'api actions' }
+{ #category : 'api actions' }
 DeviceDirectorySize >> sizesUpTo100k [
 	|dirs|
 	dirs := OrderedCollection withAll: self root allSubDirs.
@@ -81,20 +83,20 @@ DeviceDirectorySize >> sizesUpTo100k [
 	^ (dirs select: [:aDir | aDir sizeOnDevice <= 100000 ] thenCollect: [:matchingDir | matchingDir sizeOnDevice  ]) sum
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DeviceDirectorySize >> termLine [
 
 	^ self termLines at: self lineNumber
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DeviceDirectorySize >> termLines [
 
 	^ termLines ifNil: [ self initializeTermLines ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DeviceDirectorySize >> termLines: anObject [
 
 	termLines := anObject

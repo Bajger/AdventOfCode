@@ -2,62 +2,64 @@
 2019 - day 4 part 1
 "
 Class {
-	#name : #PasswordCombinations,
-	#superclass : #AoC2019,
+	#name : 'PasswordCombinations',
+	#superclass : 'AoC2019',
 	#instVars : [
 		'evaluatedNumber',
 		'currentDigitIndex',
 		'adjacentAlreadySame',
 		'bagOfSameDigits'
 	],
-	#category : #'AdventOfCode-AoC2019'
+	#category : 'AdventOfCode-AoC2019',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2019'
 }
 
-{ #category : #private }
+{ #category : 'private' }
 PasswordCombinations >> addCurrentToBag [
 
 	self bagOfSameDigits add: self currentDigit
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PasswordCombinations >> adjacentAlreadySame [
 	^ adjacentAlreadySame
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PasswordCombinations >> adjacentAlreadySame: anObject [
 	adjacentAlreadySame := anObject
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 PasswordCombinations >> adjacentDigitsAreSame [
 
 	^ self bagOfSameDigits size > 1
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 PasswordCombinations >> adjacentDigitsDecreasing [
 	^ self bagOfSameDigits isNotEmpty
 		and: [ self currentDigit < self bagOfSameDigits anyOne ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PasswordCombinations >> bagOfSameDigits [
 	^ bagOfSameDigits
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PasswordCombinations >> bagOfSameDigits: anObject [
 	bagOfSameDigits := anObject
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 PasswordCombinations >> canAddSameToBag [
 	^ self bagOfSameDigits isEmpty
 		or: [ self bagOfSameDigits anyOne = self currentDigit ]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 PasswordCombinations >> compute [
  	^ self getPasswordInterval count: [:currentNumber |
 			self evaluatedNumber: currentNumber.
@@ -65,23 +67,23 @@ PasswordCombinations >> compute [
 	]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 PasswordCombinations >> currentDigit [
 
 	^ self evaluatedNumber decimalDigitAt: self currentDigitIndex
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PasswordCombinations >> currentDigitIndex [
 	^ currentDigitIndex
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PasswordCombinations >> currentDigitIndex: anObject [
 	currentDigitIndex := anObject
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 PasswordCombinations >> evaluateAdjacentCriteria [
 
 	self canAddSameToBag ifFalse: [
@@ -94,17 +96,17 @@ PasswordCombinations >> evaluateAdjacentCriteria [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PasswordCombinations >> evaluatedNumber [
 	^ evaluatedNumber
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PasswordCombinations >> evaluatedNumber: anObject [
 	evaluatedNumber := anObject
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 PasswordCombinations >> getPasswordInterval [
 	|stringTuple|
 	stringTuple :=  self input substrings: '-'.
@@ -114,7 +116,7 @@ PasswordCombinations >> getPasswordInterval [
 
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 PasswordCombinations >> numberMeetsPasswordCriteria [
 	
 	self resetAdjacentCriteria.
@@ -126,7 +128,7 @@ PasswordCombinations >> numberMeetsPasswordCriteria [
 	^ self adjacentAlreadySame
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 PasswordCombinations >> resetAdjacentCriteria [
 
 	self adjacentAlreadySame: false.
@@ -134,13 +136,13 @@ PasswordCombinations >> resetAdjacentCriteria [
 	
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 PasswordCombinations >> resetBag [
 
 	self bagOfSameDigits: Bag new
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 PasswordCombinations >> setAdjacentAlreadySame [
 		
 	self adjacentAlreadySame: (self adjacentAlreadySame or: [ self adjacentDigitsAreSame])

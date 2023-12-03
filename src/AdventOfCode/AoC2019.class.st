@@ -20,12 +20,14 @@ Internal Representation and Key Implementation Points.
     Implementation Points
 "
 Class {
-	#name : #AoC2019,
-	#superclass : #AoC,
-	#category : #'AdventOfCode-AoC2019'
+	#name : 'AoC2019',
+	#superclass : 'AoC',
+	#category : 'AdventOfCode-AoC2019',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2019'
 }
 
-{ #category : #executing }
+{ #category : 'executing' }
 AoC2019 class >> aocSolutionClasses [
 	^ 
 	{	SumOfFuel. SumOfFuelWithAddedFuel.
@@ -38,7 +40,7 @@ AoC2019 class >> aocSolutionClasses [
 	}
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 AoC2019 class >> solutionYearString [
 
 	^ '2019'

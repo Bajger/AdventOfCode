@@ -2,15 +2,17 @@
 AoC 2022 - Day 8 part 1
 "
 Class {
-	#name : #TreeVisibility,
-	#superclass : #AoC2022,
+	#name : 'TreeVisibility',
+	#superclass : 'AoC2022',
 	#instVars : [
 		'grid'
 	],
-	#category : #'AdventOfCode-AoC2022'
+	#category : 'AdventOfCode-AoC2022',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2022'
 }
 
-{ #category : #'api actions' }
+{ #category : 'api actions' }
 TreeVisibility >> compute [
 	|lines|
 	lines := self input substrings.
@@ -20,13 +22,13 @@ TreeVisibility >> compute [
 	^ self countVisible 
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TreeVisibility >> countVisible [
 
 	^ self grid count: #isVisible
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TreeVisibility >> fillGridFrom: inputLines [
 
 	inputLines withIndexDo: [: line :idx| 
@@ -34,19 +36,19 @@ TreeVisibility >> fillGridFrom: inputLines [
 	]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TreeVisibility >> grid [
 
 	^ grid
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TreeVisibility >> grid: anObject [
 
 	grid := anObject
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TreeVisibility >> initializeGridFrom: inputLines [
 
 	|rowCount columnCount|
@@ -55,14 +57,14 @@ TreeVisibility >> initializeGridFrom: inputLines [
 	self grid: (Array2D rows: rowCount  columns: columnCount).
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TreeVisibility >> isEdgeTreeAt: aPosition [
 
 	^ aPosition x = 1 or: [aPosition x = (self grid rowCount) or: 
 		[ aPosition y = 1 or: [ aPosition y = (self grid columnCount ) ]]]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TreeVisibility >> isInnerVisibleTreeAt: aPosition [
 	|treeHeight result|
 	treeHeight := (self grid at: aPosition x at: aPosition y) height.
@@ -75,7 +77,7 @@ TreeVisibility >> isInnerVisibleTreeAt: aPosition [
 	^ result 
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TreeVisibility >> setVisibleTreesInGrid [
 
 	self grid indicesDo: [ :row :column |
@@ -85,13 +87,13 @@ TreeVisibility >> setVisibleTreesInGrid [
 	]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TreeVisibility >> treeClass [
 
 	^ ElfTree 
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TreeVisibility >> visibleFromBottomAt: aPosition treeHeight: aHeight [
 
 	^ ((aPosition x + 1) to: self grid rowCount) allSatisfy: [:rowIdx | 
@@ -101,7 +103,7 @@ TreeVisibility >> visibleFromBottomAt: aPosition treeHeight: aHeight [
 	]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TreeVisibility >> visibleFromLeftAt: aPosition treeHeight: aHeight [
 
 	^ ((aPosition y - 1) to: 1 by: -1) allSatisfy: [:colIdx | 
@@ -111,7 +113,7 @@ TreeVisibility >> visibleFromLeftAt: aPosition treeHeight: aHeight [
 	]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TreeVisibility >> visibleFromRightAt: aPosition treeHeight: aHeight [
 
 	^ ((aPosition y + 1) to: self grid columnCount) allSatisfy: [:colIdx | 
@@ -121,7 +123,7 @@ TreeVisibility >> visibleFromRightAt: aPosition treeHeight: aHeight [
 	]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TreeVisibility >> visibleFromTopAt: aPosition treeHeight: aHeight [
 
 	^ ((aPosition x - 1) to: 1 by: -1) allSatisfy: [:rowIdx | 

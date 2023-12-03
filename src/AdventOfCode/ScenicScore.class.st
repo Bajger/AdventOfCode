@@ -3,12 +3,14 @@ AoC 2022 - Day 8 part 2
 
 "
 Class {
-	#name : #ScenicScore,
-	#superclass : #TreeVisibility,
-	#category : #'AdventOfCode-AoC2022'
+	#name : 'ScenicScore',
+	#superclass : 'TreeVisibility',
+	#category : 'AdventOfCode-AoC2022',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2022'
 }
 
-{ #category : #'api actions' }
+{ #category : 'api actions' }
 ScenicScore >> compute [
 	|lines|
 	lines := self input substrings.
@@ -18,7 +20,7 @@ ScenicScore >> compute [
 	^ self highestScenicScore 
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 ScenicScore >> distanceBottomFrom: aPosition treeHeight: treeHeight [
 
 	|resultIndex|
@@ -30,7 +32,7 @@ ScenicScore >> distanceBottomFrom: aPosition treeHeight: treeHeight [
 	^  resultIndex - (aPosition x)
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 ScenicScore >> distanceLeftFrom: aPosition treeHeight: treeHeight [
 
 	|resultIndex|
@@ -42,7 +44,7 @@ ScenicScore >> distanceLeftFrom: aPosition treeHeight: treeHeight [
 	^ aPosition y - resultIndex
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 ScenicScore >> distanceRightFrom: aPosition treeHeight: treeHeight [
 
 	|resultIndex|
@@ -54,7 +56,7 @@ ScenicScore >> distanceRightFrom: aPosition treeHeight: treeHeight [
 	^ resultIndex - (aPosition y)
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 ScenicScore >> distanceTopFrom: aPosition treeHeight: treeHeight [
 
 	|resultIndex|
@@ -66,13 +68,13 @@ ScenicScore >> distanceTopFrom: aPosition treeHeight: treeHeight [
 	^ aPosition x - resultIndex
 ]
 
-{ #category : #'api actions' }
+{ #category : 'api actions' }
 ScenicScore >> highestScenicScore [
 	
 	^ self grid maxValue: #scenicScore
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 ScenicScore >> scenicScoreAt: aPosition [
 
 	|treeHeight result|
@@ -86,7 +88,7 @@ ScenicScore >> scenicScoreAt: aPosition [
 	^ result 
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 ScenicScore >> setScenicScoresInGrid [
 
 	self grid indicesDo: [ :row :column |
@@ -98,7 +100,7 @@ ScenicScore >> setScenicScoresInGrid [
 	]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 ScenicScore >> treeClass [ 
 
 	^ ScenicTree 

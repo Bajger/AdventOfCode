@@ -2,34 +2,36 @@
 Common class for AoC solutions providing reading input from File and accessing solution using #day:part: method. 
 "
 Class {
-	#name : #AoC,
-	#superclass : #Object,
+	#name : 'AoC',
+	#superclass : 'Object',
 	#instVars : [
 		'input'
 	],
 	#classInstVars : [
 		'announcer'
 	],
-	#category : #'AdventOfCode-common'
+	#category : 'AdventOfCode-common',
+	#package : 'AdventOfCode',
+	#tag : 'common'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AoC class >> announcer [
   ^ announcer ifNil: [ announcer := Announcer new ]
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 AoC class >> aocSolutionClasses [
 
 	self shouldNotImplement 
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 AoC class >> day: adventDay [
 	^ Array with: (self day: adventDay part: 1)  with:  (self day: adventDay part: 2)
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 AoC class >> day: adventDay part: partNumber [
  	|aocSolutionClass| 
 	aocSolutionClass := self aocSolutionClasses 
@@ -39,7 +41,7 @@ AoC class >> day: adventDay part: partNumber [
 	^ aocSolutionClass new compute
 ]
 
-{ #category : #'private-constants' }
+{ #category : 'private-constants' }
 AoC class >> getInputFile [
 
 	| repository file |
@@ -53,13 +55,13 @@ AoC class >> getInputFile [
 	^ file
 ]
 
-{ #category : #'private-constants' }
+{ #category : 'private-constants' }
 AoC class >> getInputString [
 	"subclasses are responsible for gathering input from file for solution"
 	^ self getInputFile contents withInternalLineEndings
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 AoC class >> solutionDayFileName [
 
 	|indexOfDay|
@@ -67,24 +69,24 @@ AoC class >> solutionDayFileName [
 	^ 'day-{1}.txt' format: {indexOfDay asTwoCharacterString}
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 AoC class >> solutionYearString [
 
 	self subclassResponsibility
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 AoC >> initialize [ 
 	self input: self class getInputString 
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AoC >> input [
 	^ input
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AoC >> input: anObject [
 	input := anObject
 ]

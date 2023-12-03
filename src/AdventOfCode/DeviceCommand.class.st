@@ -2,28 +2,30 @@
 AoC 2022 - Day 7 part 1 - device filesystem command
 "
 Class {
-	#name : #DeviceCommand,
-	#superclass : #Object,
+	#name : 'DeviceCommand',
+	#superclass : 'Object',
 	#instVars : [
 		'device'
 	],
-	#category : #'AdventOfCode-AoC2022'
+	#category : 'AdventOfCode-AoC2022',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2022'
 }
 
-{ #category : #'private - testing' }
+{ #category : 'private - testing' }
 DeviceCommand class >> matchCommand: cmdString [
 
 	^ false
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 DeviceCommand class >> newFrom: aTermLine [
 	|aDeviceClass|
 	aDeviceClass :=	self subclasses detect: [: aClass | aClass matchCommand: aTermLine substrings second ].
 	^ aDeviceClass new 
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 DeviceCommand class >> on: aDevice [
 
 	^ (self newFrom: aDevice termLine)
@@ -31,25 +33,25 @@ DeviceCommand class >> on: aDevice [
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DeviceCommand >> device [
 
 	^ device
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DeviceCommand >> device: anObject [
 
 	device := anObject
 ]
 
-{ #category : #execution }
+{ #category : 'execution' }
 DeviceCommand >> execute [
 
 	self subclassResponsibility
 ]
 
-{ #category : #execution }
+{ #category : 'execution' }
 DeviceCommand >> shouldProceed [
 
 	^ self device lineNumber < self device termLines size

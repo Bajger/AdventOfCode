@@ -2,17 +2,19 @@
 AoC 2022 - Day 5 - instruction to move stacks
 "
 Class {
-	#name : #CrateInstruction,
-	#superclass : #Object,
+	#name : 'CrateInstruction',
+	#superclass : 'Object',
 	#instVars : [
 		'amount',
 		'from',
 		'to'
 	],
-	#category : #'AdventOfCode-AoC2022'
+	#category : 'AdventOfCode-AoC2022',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2022'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 CrateInstruction class >> from: instructionLineString [
 
 	|pairArray |
@@ -23,31 +25,31 @@ CrateInstruction class >> from: instructionLineString [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CrateInstruction >> amount [
 
 	^ amount
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CrateInstruction >> amount: anObject [
 
 	amount := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CrateInstruction >> from [
 
 	^ from
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CrateInstruction >> from: anObject [
 
 	from := anObject
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 CrateInstruction >> initializeWith: pairArray [
 
 	pairArray pairsDo: [:cmd :numberStr |
@@ -57,7 +59,7 @@ CrateInstruction >> initializeWith: pairArray [
 	 ]
 ]
 
-{ #category : #'api actions' }
+{ #category : 'api actions' }
 CrateInstruction >> rearrangeOn: stackArray [
 
 	self amount timesRepeat: [ 
@@ -68,13 +70,13 @@ CrateInstruction >> rearrangeOn: stackArray [
 	]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CrateInstruction >> to [
 
 	^ to
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CrateInstruction >> to: anObject [
 
 	to := anObject

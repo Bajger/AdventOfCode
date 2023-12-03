@@ -2,27 +2,29 @@
 AoC 2022 - Day 7 part 1 - device file
 "
 Class {
-	#name : #DeviceFile,
-	#superclass : #DeviceFSReference,
+	#name : 'DeviceFile',
+	#superclass : 'DeviceFSReference',
 	#instVars : [
 		'size'
 	],
-	#category : #'AdventOfCode-AoC2022'
+	#category : 'AdventOfCode-AoC2022',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2022'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DeviceFile >> size [
 
 	^ size
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DeviceFile >> size: anObject [
 
 	size := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DeviceFile >> sizeOnDevice [
 
 	^ size

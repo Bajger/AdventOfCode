@@ -2,12 +2,14 @@
 AoC 2022 - Day 3 part 2
 "
 Class {
-	#name : #ThreeElfItems,
-	#superclass : #RucksackItems,
-	#category : #'AdventOfCode-AoC2022'
+	#name : 'ThreeElfItems',
+	#superclass : 'RucksackItems',
+	#category : 'AdventOfCode-AoC2022',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2022'
 }
 
-{ #category : #'api actions' }
+{ #category : 'api actions' }
 ThreeElfItems >> compute [
 	|ruckSacks priorities |
 	ruckSacks := self input substrings.

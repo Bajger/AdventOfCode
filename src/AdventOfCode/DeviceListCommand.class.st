@@ -2,18 +2,20 @@
 AoC 2022 - Day 7 part 1 - device command to list directory contents
 "
 Class {
-	#name : #DeviceListCommand,
-	#superclass : #DeviceCommand,
-	#category : #'AdventOfCode-AoC2022'
+	#name : 'DeviceListCommand',
+	#superclass : 'DeviceCommand',
+	#category : 'AdventOfCode-AoC2022',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2022'
 }
 
-{ #category : #'private - testing' }
+{ #category : 'private - testing' }
 DeviceListCommand class >> matchCommand: cmdString [
 
 	^ cmdString = 'ls'
 ]
 
-{ #category : #execution }
+{ #category : 'execution' }
 DeviceListCommand >> execute [
 	
 	[ self shouldProceed  ]
@@ -29,7 +31,7 @@ DeviceListCommand >> execute [
 
 ]
 
-{ #category : #execution }
+{ #category : 'execution' }
 DeviceListCommand >> getOrCreateDir: lineTokens [
 
 	|aDir|
@@ -40,7 +42,7 @@ DeviceListCommand >> getOrCreateDir: lineTokens [
 	
 ]
 
-{ #category : #execution }
+{ #category : 'execution' }
 DeviceListCommand >> getOrCreateFile: lineTokens [
 
 	|aFile|
@@ -52,19 +54,19 @@ DeviceListCommand >> getOrCreateFile: lineTokens [
 	
 ]
 
-{ #category : #execution }
+{ #category : 'execution' }
 DeviceListCommand >> isAnotherCommand: aToken [
 
 	^ aToken = '$'
 ]
 
-{ #category : #execution }
+{ #category : 'execution' }
 DeviceListCommand >> isDir: aToken [
 
 	^ aToken = 'dir'
 ]
 
-{ #category : #execution }
+{ #category : 'execution' }
 DeviceListCommand >> isFile: aToken [
 
 	^ aToken isAllDigits 

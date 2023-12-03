@@ -2,12 +2,14 @@
 AoC 2022 - Day 5 part 2 - instruction to move multiple crates at once
 "
 Class {
-	#name : #CrateMover9001,
-	#superclass : #CrateInstruction,
-	#category : #'AdventOfCode-AoC2022'
+	#name : 'CrateMover9001',
+	#superclass : 'CrateInstruction',
+	#category : 'AdventOfCode-AoC2022',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2022'
 }
 
-{ #category : #'api actions' }
+{ #category : 'api actions' }
 CrateMover9001 >> rearrangeOn: stackArray [
 	
 	|fromStack toStack intermediator|

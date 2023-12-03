@@ -2,12 +2,14 @@
 AoC 2021 solutions
 "
 Class {
-	#name : #AoC2021,
-	#superclass : #AoC,
-	#category : #'AdventOfCode-AoC2021'
+	#name : 'AoC2021',
+	#superclass : 'AoC',
+	#category : 'AdventOfCode-AoC2021',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2021'
 }
 
-{ #category : #executing }
+{ #category : 'executing' }
 AoC2021 class >> aocSolutionClasses [
 	^ 
 	{	SonarSweep. SonarSweep3measures.
@@ -16,7 +18,7 @@ AoC2021 class >> aocSolutionClasses [
 	}
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 AoC2021 class >> solutionYearString [
 
 	^ '2021'

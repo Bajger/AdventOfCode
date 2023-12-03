@@ -2,12 +2,14 @@
 AoC 2021 - day 1 part 2
 "
 Class {
-	#name : #SonarSweep3measures,
-	#superclass : #SonarSweep,
-	#category : #'AdventOfCode-AoC2021'
+	#name : 'SonarSweep3measures',
+	#superclass : 'SonarSweep',
+	#category : 'AdventOfCode-AoC2021',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2021'
 }
 
-{ #category : #'private ' }
+{ #category : 'private ' }
 SonarSweep3measures >> getSonarData [
 
 	|threeMeasuresColl sonarData|

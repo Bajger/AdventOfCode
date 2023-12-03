@@ -2,18 +2,20 @@
 AoC 2022 - Day 2 part 1
 "
 Class {
-	#name : #RockPaperScissors,
-	#superclass : #AoC2022,
-	#category : #'AdventOfCode-AoC2022'
+	#name : 'RockPaperScissors',
+	#superclass : 'AoC2022',
+	#category : 'AdventOfCode-AoC2022',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2022'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RockPaperScissors class >> shapeLetters [
 
 	^ #($A $B $C)
 ]
 
-{ #category : #'api actions' }
+{ #category : 'api actions' }
 RockPaperScissors >> compute [
 	|scores|
 	scores := self selectedShapes pairsCollect: [:oppShape :elfShape |
@@ -22,7 +24,7 @@ RockPaperScissors >> compute [
 	^ scores sum
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 RockPaperScissors >> roundScoreFor: opponentShape and: elfShape [
 	
 	
@@ -41,7 +43,7 @@ RockPaperScissors >> roundScoreFor: opponentShape and: elfShape [
 	
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 RockPaperScissors >> selectedShapeScore: aCharacter [ 
 	
 	|score|
@@ -54,7 +56,7 @@ RockPaperScissors >> selectedShapeScore: aCharacter [
 	^ score
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 RockPaperScissors >> selectedShapes [
 
 	^ self input substrings collect: #anyOne

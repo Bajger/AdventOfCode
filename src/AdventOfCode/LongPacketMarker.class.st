@@ -2,12 +2,14 @@
 AoC 2022 - Day 6 part 2
 "
 Class {
-	#name : #LongPacketMarker,
-	#superclass : #PacketMarker,
-	#category : #'AdventOfCode-AoC2022'
+	#name : 'LongPacketMarker',
+	#superclass : 'PacketMarker',
+	#category : 'AdventOfCode-AoC2022',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2022'
 }
 
-{ #category : #private }
+{ #category : 'private' }
 LongPacketMarker >> packetSize [
 
 	^ 14

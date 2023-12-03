@@ -2,12 +2,14 @@
 2019 - day 1 part 2
 "
 Class {
-	#name : #SumOfFuelWithAddedFuel,
-	#superclass : #SumOfFuel,
-	#category : #'AdventOfCode-AoC2019'
+	#name : 'SumOfFuelWithAddedFuel',
+	#superclass : 'SumOfFuel',
+	#category : 'AdventOfCode-AoC2019',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2019'
 }
 
-{ #category : #private }
+{ #category : 'private' }
 SumOfFuelWithAddedFuel >> fuelForMass: aNumber [
 	|aFuel|
 	aFuel := super fuelForMass: aNumber.

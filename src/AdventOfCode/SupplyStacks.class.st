@@ -2,16 +2,18 @@
 AoC 2022 - Day 5 part 1
 "
 Class {
-	#name : #SupplyStacks,
-	#superclass : #AoC2022,
+	#name : 'SupplyStacks',
+	#superclass : 'AoC2022',
 	#instVars : [
 		'crateStacks',
 		'instructions'
 	],
-	#category : #'AdventOfCode-AoC2022'
+	#category : 'AdventOfCode-AoC2022',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2022'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SupplyStacks >> compute [ 
 	
 	self setupStacksAndInstructions.
@@ -19,51 +21,51 @@ SupplyStacks >> compute [
 	^ String withAll: (self crateStacks collect: #top)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SupplyStacks >> crateStacks [
 
 	^ crateStacks
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SupplyStacks >> crateStacks: anObject [
 
 	crateStacks := anObject
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SupplyStacks >> getInstructionFrom: aLine [ 
 	
 	^ CrateInstruction from: aLine
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 SupplyStacks >> initialize [
 	
 	super initialize.
 	self instructions: OrderedCollection new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SupplyStacks >> initializeStacks: amount [
 
 	self crateStacks: (Array new: amount).
 	1 to: self crateStacks size do: [:idx | self crateStacks at: idx put: Stack new ].
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SupplyStacks >> instructions [
 
 	^ instructions
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 SupplyStacks >> instructions: anObject [
 
 	instructions := anObject
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SupplyStacks >> setupInstructions: instructionsString [
 
 	self instructions: 
@@ -72,7 +74,7 @@ SupplyStacks >> setupInstructions: instructionsString [
 	)
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SupplyStacks >> setupStacks: stackLineString [
 	
 	|stackLines stackIndices|
@@ -89,7 +91,7 @@ SupplyStacks >> setupStacks: stackLineString [
 	]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SupplyStacks >> setupStacksAndInstructions [
 
 	|stacksAndInstructions|
@@ -98,7 +100,7 @@ SupplyStacks >> setupStacksAndInstructions [
 	self setupInstructions: stacksAndInstructions second.
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 SupplyStacks >> stackIndicesFrom: stackIndexLine [
  
 ^ (stackIndexLine findTokens: Character separators) collect: [:aToken | stackIndexLine indexOfSubCollection: aToken]

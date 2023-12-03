@@ -2,8 +2,8 @@
 Visualization of Rope tail positions - AoC2022 day 9 part 2
 "
 Class {
-	#name : #AoCSnakeVisualization,
-	#superclass : #Object,
+	#name : 'AoCSnakeVisualization',
+	#superclass : 'Object',
 	#instVars : [
 		'announcer',
 		'canvas',
@@ -13,16 +13,18 @@ Class {
 		'grid',
 		'sequence'
 	],
-	#category : #'AdventOfCode-AoC2022'
+	#category : 'AdventOfCode-AoC2022',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2022'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 AoCSnakeVisualization class >> from: tailPositions [
 
 	^ self new initializeFrom: tailPositions; yourself 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AoCSnakeVisualization >> addGridPoint: aPoint [
 	|aShape|
 	aShape := self baseShape copy.
@@ -31,7 +33,7 @@ AoCSnakeVisualization >> addGridPoint: aPoint [
 	self canvas add: aShape
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AoCSnakeVisualization >> addHeadPoint: aPoint [
 	|aShape aComposite|
 	aShape := self baseShape copy.
@@ -46,7 +48,7 @@ AoCSnakeVisualization >> addHeadPoint: aPoint [
 	^ aComposite 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AoCSnakeVisualization >> addMoveTo: aPoint at: index [
 	|aShape transition|
 	aShape := self shapes at: index.
@@ -65,7 +67,7 @@ AoCSnakeVisualization >> addMoveTo: aPoint at: index [
 	self sequence add: transition.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AoCSnakeVisualization >> addTailPoint: aPoint at: index [
 	|aShape aComposite|
 	aShape := self baseShape copy.
@@ -80,7 +82,7 @@ AoCSnakeVisualization >> addTailPoint: aPoint at: index [
 	^ aComposite
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AoCSnakeVisualization >> addTailTracePoint: aPoint [
 	|aShape aComposite|
 	aShape := self baseShape copy.
@@ -95,7 +97,7 @@ AoCSnakeVisualization >> addTailTracePoint: aPoint [
 	^ aComposite
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AoCSnakeVisualization >> addTailTraceTo: aPoint [
 	| transition |
 	
@@ -108,19 +110,19 @@ AoCSnakeVisualization >> addTailTraceTo: aPoint [
 	self sequence add: transition.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AoCSnakeVisualization >> announcer [
 
 	^ announcer
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AoCSnakeVisualization >> announcer: anObject [
 
 	announcer := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AoCSnakeVisualization >> baseShape [
 
 	^ baseShape ifNil: [ baseShape :=
@@ -132,31 +134,31 @@ AoCSnakeVisualization >> baseShape [
 	]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AoCSnakeVisualization >> canvas [
 
 	^ canvas
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AoCSnakeVisualization >> canvas: anObject [
 
 	canvas := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AoCSnakeVisualization >> grid [
 
 	^ grid
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AoCSnakeVisualization >> grid: anObject [
 
 	grid := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AoCSnakeVisualization >> gridPoint: aPoint [
 	|aShape|
 	aShape := self baseShape copy.
@@ -165,13 +167,13 @@ AoCSnakeVisualization >> gridPoint: aPoint [
 	^ aShape
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AoCSnakeVisualization >> gridPosition: aPoint [
 
 	^ ((aPoint x) * (self baseShape width)) @ ((aPoint y * self baseShape height * (-1)))
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 AoCSnakeVisualization >> initializeAnnouncer [
 
 	self announcer: self model class announcer.
@@ -179,7 +181,7 @@ AoCSnakeVisualization >> initializeAnnouncer [
 	self announcer when: TailNodeChanged send: #traceTail: to: self.
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 AoCSnakeVisualization >> initializeCanvas [
 
 	self canvas: RSCanvas new.
@@ -187,7 +189,7 @@ AoCSnakeVisualization >> initializeCanvas [
 	self canvas color: Color black.
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 AoCSnakeVisualization >> initializeFrom: ropeTailObject [
 
 	self initializeCanvas.
@@ -199,7 +201,7 @@ AoCSnakeVisualization >> initializeFrom: ropeTailObject [
 
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 AoCSnakeVisualization >> initializeGridFrom: boundingRectangle [
 	|aComposite|
 	aComposite := RSComposite new.
@@ -213,7 +215,7 @@ AoCSnakeVisualization >> initializeGridFrom: boundingRectangle [
 	self grid: aComposite.
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 AoCSnakeVisualization >> initializeRopeFrom: tailPositions [
 
 	self shapes add: (self addHeadPoint: tailPositions head).
@@ -223,7 +225,7 @@ AoCSnakeVisualization >> initializeRopeFrom: tailPositions [
 	self shapes do: [:shape| self canvas pushBack: shape].
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 AoCSnakeVisualization >> initializeShapes [
 
 	self initializeGridFrom: self model boundingBoxOfRope.
@@ -232,19 +234,19 @@ AoCSnakeVisualization >> initializeShapes [
 	self canvas pushBack: self grid.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AoCSnakeVisualization >> model [
 
 	^ model
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AoCSnakeVisualization >> model: anObject [
 
 	model := anObject
 ]
 
-{ #category : #'api actions' }
+{ #category : 'api actions' }
 AoCSnakeVisualization >> open [
 
 	self canvas open.
@@ -252,38 +254,38 @@ AoCSnakeVisualization >> open [
 	self canvas addAnimation: sequence.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AoCSnakeVisualization >> sequence [
 
 	^ sequence
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AoCSnakeVisualization >> sequence: anObject [
 
 	sequence := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AoCSnakeVisualization >> shapes [
 
 	^ shapes
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AoCSnakeVisualization >> shapes: anObject [
 
 	shapes := anObject
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 AoCSnakeVisualization >> traceTail: aTailNodeChanged [
 
 	self addTailTraceTo:  aTailNodeChanged tailPoint
 	
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 AoCSnakeVisualization >> updatePosition: aNodepositionChanged [
 
 	self addMoveTo: aNodepositionChanged newPosition at: aNodepositionChanged nodeIndex

@@ -2,12 +2,14 @@
 AoC 2022 - Day 4 part 1
 "
 Class {
-	#name : #CampCleanup,
-	#superclass : #AoC2022,
-	#category : #'AdventOfCode-AoC2022'
+	#name : 'CampCleanup',
+	#superclass : 'AoC2022',
+	#category : 'AdventOfCode-AoC2022',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2022'
 }
 
-{ #category : #private }
+{ #category : 'private' }
 CampCleanup >> assignedSectionPairs [
 
 	^ self input substrings collect: [:line | 
@@ -18,13 +20,13 @@ CampCleanup >> assignedSectionPairs [
 	
 ]
 
-{ #category : #'api actions' }
+{ #category : 'api actions' }
 CampCleanup >> compute [ 
 
 	^ self assignedSectionPairs count: [:sectionPair | sectionPair first mutuallyContains: sectionPair second ]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 CampCleanup >> intervalFrom: aString [ 
 	
 	|range|

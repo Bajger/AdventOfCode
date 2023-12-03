@@ -2,12 +2,14 @@
 AoC 2022 - Day 6 part 1
 "
 Class {
-	#name : #PacketMarker,
-	#superclass : #AoC2022,
-	#category : #'AdventOfCode-AoC2022'
+	#name : 'PacketMarker',
+	#superclass : 'AoC2022',
+	#category : 'AdventOfCode-AoC2022',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2022'
 }
 
-{ #category : #'api actions' }
+{ #category : 'api actions' }
 PacketMarker >> compute [
 
 	self packetSize to: self input size do: [ :idx | 
@@ -18,7 +20,7 @@ PacketMarker >> compute [
 	self error: 'Start of packet not found'
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 PacketMarker >> packetSize [
 
 	^ 4

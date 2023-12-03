@@ -2,16 +2,18 @@
 AoC 2022 - Day 7 part 1 - device directory
 "
 Class {
-	#name : #DeviceDirectory,
-	#superclass : #DeviceFSReference,
+	#name : 'DeviceDirectory',
+	#superclass : 'DeviceFSReference',
 	#instVars : [
 		'contents',
 		'parent'
 	],
-	#category : #'AdventOfCode-AoC2022'
+	#category : 'AdventOfCode-AoC2022',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2022'
 }
 
-{ #category : #'api actions' }
+{ #category : 'api actions' }
 DeviceDirectory >> allSubDirs [
 
 	|aColl|
@@ -20,7 +22,7 @@ DeviceDirectory >> allSubDirs [
 	^ aColl 
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 DeviceDirectory >> allSubDirsTo: aColl [
 
 	|dirs|
@@ -31,45 +33,45 @@ DeviceDirectory >> allSubDirsTo: aColl [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DeviceDirectory >> contents [
 
 	^ contents
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DeviceDirectory >> contents: anObject [
 
 	contents := anObject
 ]
 
-{ #category : #'api actions' }
+{ #category : 'api actions' }
 DeviceDirectory >> find: aReferenceName [
 	aReferenceName = '/' ifTrue: [ ^ self findRoot]. 
 	^ self contents detect: [ :aRef | aRef name = aReferenceName ] ifNone: [  ]
 ]
 
-{ #category : #'api actions' }
+{ #category : 'api actions' }
 DeviceDirectory >> findRoot [
 	
 	(self name = '/' and: [ self parent isNil ]) ifTrue: [ ^ self ].
 	^ self parent findRoot 
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 DeviceDirectory >> initialize [
 	
 	self contents: OrderedCollection new.
 	
 ]
 
-{ #category : #'api actions' }
+{ #category : 'api actions' }
 DeviceDirectory >> isDirectory [ 
 
 	^ true
 ]
 
-{ #category : #'api actions' }
+{ #category : 'api actions' }
 DeviceDirectory >> makeDirectory: aDirName [
 
 	|aDir| 
@@ -79,7 +81,7 @@ DeviceDirectory >> makeDirectory: aDirName [
 	^ aDir
 ]
 
-{ #category : #'api actions' }
+{ #category : 'api actions' }
 DeviceDirectory >> makeFile: fileName [
 
 	|aFile|
@@ -88,19 +90,19 @@ DeviceDirectory >> makeFile: fileName [
 	^ aFile
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DeviceDirectory >> parent [
 
 	^ parent
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DeviceDirectory >> parent: anObject [
 
 	parent := anObject
 ]
 
-{ #category : #'api actions' }
+{ #category : 'api actions' }
 DeviceDirectory >> sizeOnDevice [
 
 	^ self contents sum: #sizeOnDevice

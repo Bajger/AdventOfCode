@@ -2,18 +2,20 @@
 AoC 2022 - Day 9 part 2
 "
 Class {
-	#name : #RopeTailPositions,
-	#superclass : #TailPositions,
-	#category : #'AdventOfCode-AoC2022'
+	#name : 'RopeTailPositions',
+	#superclass : 'TailPositions',
+	#category : 'AdventOfCode-AoC2022',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2022'
 }
 
-{ #category : #private }
+{ #category : 'private' }
 RopeTailPositions >> addTailToVisited [ 
 
 	self visited add: self tail last	
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 RopeTailPositions >> announcePositionChanged: newPosition at: index [
 
 	self class announcer announce: 
@@ -23,7 +25,7 @@ RopeTailPositions >> announcePositionChanged: newPosition at: index [
 			yourself)
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 RopeTailPositions >> announceTailChanged: newPosition [
 
 	self class announcer announce: 
@@ -32,20 +34,20 @@ RopeTailPositions >> announceTailChanged: newPosition [
 			yourself)
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 RopeTailPositions >> boundingBoxOfRope [
 
 	^ Rectangle encompassing: self headMovemenentPoints
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 RopeTailPositions >> doHeadMovement: aMovement [
 	
 	super doHeadMovement: aMovement.
 	self announcePositionChanged: self head at: 1.
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 RopeTailPositions >> headMovemenentPoints [
 	|lines points|
 	points := Set new.
@@ -59,7 +61,7 @@ RopeTailPositions >> headMovemenentPoints [
 	^ points asOrderedCollection 
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 RopeTailPositions >> initializeTail [ 
 
 	|tailArray|
@@ -68,13 +70,13 @@ RopeTailPositions >> initializeTail [
 	self tail: tailArray
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 RopeTailPositions >> updateTailPosition [
 	
 	1 to: self tail size do: [ :idx | self updateTailPositionAt: idx ].
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 RopeTailPositions >> updateTailPositionAt: index [
 
 	| start end newTailPos |

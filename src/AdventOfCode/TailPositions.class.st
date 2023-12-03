@@ -2,31 +2,33 @@
 AoC 2022 - Day 9 part 1	
 "
 Class {
-	#name : #TailPositions,
-	#superclass : #AoC2022,
+	#name : 'TailPositions',
+	#superclass : 'AoC2022',
 	#instVars : [
 		'head',
 		'tail',
 		'visited'
 	],
-	#category : #'AdventOfCode-AoC2022'
+	#category : 'AdventOfCode-AoC2022',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2022'
 }
 
-{ #category : #private }
+{ #category : 'private' }
 TailPositions >> addTailToVisited [ 
 
 	self visited add: self tail
 	
 ]
 
-{ #category : #'api actions' }
+{ #category : 'api actions' }
 TailPositions >> compute [
 
 	self processMoves.
 	^ self visited size
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TailPositions >> doHeadMovement: aMovement [
 
 	aMovement = 'U' ifTrue: [  self headUp].
@@ -36,7 +38,7 @@ TailPositions >> doHeadMovement: aMovement [
 
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TailPositions >> doMovement: aMovement [
 
 	self doHeadMovement: aMovement.
@@ -44,46 +46,46 @@ TailPositions >> doMovement: aMovement [
 	self addTailToVisited.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TailPositions >> head [
 
 	^ head
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TailPositions >> head: anObject [
 
 	head := anObject
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TailPositions >> headDown [
 	
 	self head: self head + (0@(-1))
 	
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TailPositions >> headLeft [
 	
 	self head: self head + ((-1)@0)
 	
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TailPositions >> headRight [
 	
 	self head: self head + (1@0)
 	
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TailPositions >> headUp [
 	
 	self head: self head + (0@1)
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TailPositions >> incrementForDif: aDif [
 	aDif = 0 ifTrue: [ ^ 0 ].
 	^ aDif > 0 
@@ -91,7 +93,7 @@ TailPositions >> incrementForDif: aDif [
 			ifFalse: [ aDif max: -1 ]
 ]
 
-{ #category : #initialize }
+{ #category : 'initialize' }
 TailPositions >> initialize [
 
 	super initialize.
@@ -101,19 +103,19 @@ TailPositions >> initialize [
 	
 ]
 
-{ #category : #initialize }
+{ #category : 'initialize' }
 TailPositions >> initializeTail [
 
 	self tail: 0@0	
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TailPositions >> newTailPosition [
 	
 	^ self newTailPositionFrom: self head to: self tail
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TailPositions >> newTailPositionFrom: headPosition to: tailPosition [
 	
 	(headPosition distanceTo: tailPosition) >= 2 ifTrue: [ 
@@ -127,7 +129,7 @@ TailPositions >> newTailPositionFrom: headPosition to: tailPosition [
 	^ tailPosition
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TailPositions >> processMoves [
 	|lines|
 	lines := (self input splitOn: Character cr) collect: #substrings.
@@ -136,32 +138,32 @@ TailPositions >> processMoves [
 	].
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TailPositions >> tail [
 
 	^ tail
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TailPositions >> tail: anObject [
 
 	tail := anObject
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TailPositions >> updateTailPosition [
 
 	self tail: self newTailPosition
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TailPositions >> visited [
 
 	^ visited
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TailPositions >> visited: anObject [
 
 	visited := anObject

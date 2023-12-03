@@ -2,21 +2,23 @@
 2019 - day 2 part 2
 "
 Class {
-	#name : #FindNounAndVerb,
-	#superclass : #RestoreIntcodeProgram,
+	#name : 'FindNounAndVerb',
+	#superclass : 'RestoreIntcodeProgram',
 	#instVars : [
 		'noun',
 		'verb'
 	],
-	#category : #'AdventOfCode-AoC2019'
+	#category : 'AdventOfCode-AoC2019',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2019'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 FindNounAndVerb >> answer [
 	^ 100 * self noun + self verb
 ]
 
-{ #category : #'private ' }
+{ #category : 'private ' }
 FindNounAndVerb >> compute [
 	0 to: 99 do: [ :aNoun | 
 		0 to: 99 do: [ :aVerb | 
@@ -28,43 +30,43 @@ FindNounAndVerb >> compute [
 	^ nil
 ]
 
-{ #category : #'private ' }
+{ #category : 'private ' }
 FindNounAndVerb >> isOutput19690720 [
 	
 	^ super compute = 19690720
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 FindNounAndVerb >> noun [
 	^ noun
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 FindNounAndVerb >> noun: anObject [
 	noun := anObject
 ]
 
-{ #category : #'private ' }
+{ #category : 'private ' }
 FindNounAndVerb >> resetComputerMemory [
 	
 	self intcodeProgram: nil
 	
 ]
 
-{ #category : #'private ' }
+{ #category : 'private ' }
 FindNounAndVerb >> restoreGravityAssistProgram [
 	
 	self intcodeProgram at: 2 put: self noun.
 	self intcodeProgram at: 3 put: self verb.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 FindNounAndVerb >> verb [
 	^ verb
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 FindNounAndVerb >> verb: anObject [
 	verb := anObject
 ]

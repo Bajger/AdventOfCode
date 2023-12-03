@@ -2,28 +2,30 @@
 2019 - day 5 part 1
 "
 Class {
-	#name : #TESTDiagnostic,
-	#superclass : #RestoreIntcodeProgram,
+	#name : 'TESTDiagnostic',
+	#superclass : 'RestoreIntcodeProgram',
 	#instVars : [
 		'programInput',
 		'programOutput'
 	],
-	#category : #'AdventOfCode-AoC2019'
+	#category : 'AdventOfCode-AoC2019',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2019'
 }
 
-{ #category : #'api actions' }
+{ #category : 'api actions' }
 TESTDiagnostic >> compute [ 
 	self processOpcodesOfProgram.
 	^ self programOutput 
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TESTDiagnostic >> generateOpcode [
 
 	^ TESTOpCode on: self
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TESTDiagnostic >> initialize [ 
 	super initialize.
 	self programInput: 1.
@@ -32,28 +34,28 @@ TESTDiagnostic >> initialize [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TESTDiagnostic >> programInput [
 	^ programInput
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TESTDiagnostic >> programInput: anObject [
 	programInput := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TESTDiagnostic >> programOutput [
 	^ programOutput
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TESTDiagnostic >> programOutput: anObject [
 	programOutput := anObject.
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TESTDiagnostic >> setProgramOutput: aValue [
 	(aValue isZero or: [ self programOutput isZero ])
 		ifFalse: [ self

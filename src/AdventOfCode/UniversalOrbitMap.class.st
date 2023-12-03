@@ -2,27 +2,29 @@
 2019 - day 6 part 1
 "
 Class {
-	#name : #UniversalOrbitMap,
-	#superclass : #AoC2019,
+	#name : 'UniversalOrbitMap',
+	#superclass : 'AoC2019',
 	#instVars : [
 		'objectsInSpace'
 	],
-	#category : #'AdventOfCode-AoC2019'
+	#category : 'AdventOfCode-AoC2019',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2019'
 }
 
-{ #category : #'api actions' }
+{ #category : 'api actions' }
 UniversalOrbitMap >> compute [ 
 	self processOrbitMap.
 	^ self objectsInSpace sumNumbers: #amountOfAllOrbits
 ]
 
-{ #category : #'api - accessing' }
+{ #category : 'api - accessing' }
 UniversalOrbitMap >> getOrCreateObjectNamed: aName [
 
  ^ self objectsInSpace detect: [:obj | obj name = aName ] ifNone:  [self objectsInSpace add: (ObjectInSpace named: aName)]
 ]
 
-{ #category : #initialize }
+{ #category : 'initialize' }
 UniversalOrbitMap >> initialize [ 
 
 	super initialize.
@@ -30,17 +32,17 @@ UniversalOrbitMap >> initialize [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 UniversalOrbitMap >> objectsInSpace [
 	^ objectsInSpace
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 UniversalOrbitMap >> objectsInSpace: anObject [
 	objectsInSpace := anObject
 ]
 
-{ #category : #'api - accessing' }
+{ #category : 'api - accessing' }
 UniversalOrbitMap >> processOrbitMap [
 
 	self input substrings do: [:aRow | 

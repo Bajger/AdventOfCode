@@ -4,55 +4,57 @@ AoC2021 - day 7: Modification of original intcode computer
  - uses program input as input #2
 "
 Class {
-	#name : #AmpComputer,
-	#superclass : #TESTDiagnostic,
+	#name : 'AmpComputer',
+	#superclass : 'TESTDiagnostic',
 	#instVars : [
 		'phaseConsumed',
 		'phaseSetting'
 	],
-	#category : #'AdventOfCode-AoC2019'
+	#category : 'AdventOfCode-AoC2019',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2019'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 AmpComputer class >> newWith: inputStringProgram [
 	^ self basicNew
 		initializeWith: inputStringProgram;
 		yourself
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 AmpComputer class >> solutionDayFileName [
 
 	^ 'day-07.txt'
 ]
 
-{ #category : #initialize }
+{ #category : 'initialize' }
 AmpComputer >> initialize [
 	super initialize.
 	self phaseConsumed: false.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AmpComputer >> phaseConsumed [
 	^ phaseConsumed
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AmpComputer >> phaseConsumed: anObject [
 	phaseConsumed := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AmpComputer >> phaseSetting [
 	^ phaseSetting
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AmpComputer >> phaseSetting: anObject [
 	phaseSetting := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AmpComputer >> programInput [ 
 
 	self phaseConsumed ifTrue: [ ^ self rawProgramInput ].
@@ -61,13 +63,13 @@ AmpComputer >> programInput [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AmpComputer >> rawProgramInput [ 
 
  ^ super programInput
 ]
 
-{ #category : #'private ' }
+{ #category : 'private ' }
 AmpComputer >> resetInOut [
 	
 	self phaseConsumed: false.

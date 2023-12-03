@@ -2,22 +2,24 @@
 AoC2021 - day 4 part 1 - class for board functionality
 "
 Class {
-	#name : #BingoBoard,
-	#superclass : #Object,
+	#name : 'BingoBoard',
+	#superclass : 'Object',
 	#instVars : [
 		'matrix',
 		'winningScore'
 	],
-	#category : #'AdventOfCode-AoC2021'
+	#category : 'AdventOfCode-AoC2021',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2021'
 }
 
-{ #category : #actions }
+{ #category : 'actions' }
 BingoBoard >> assignWinningScore: aNumber [
 
 	self winningScore: (self matrix select: [:assoc | assoc value not] thenCollect: [:assoc | assoc key ]) sum * aNumber
 ]
 
-{ #category : #initialize }
+{ #category : 'initialize' }
 BingoBoard >> initialize [ 
 	super initialize.
 	self matrix: (Array2D new: 5 element: (0->false)).
@@ -25,25 +27,25 @@ BingoBoard >> initialize [
 	
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 BingoBoard >> isAllMarkedAtColumn: aRow [
 
 	^ (self matrix atColumn: aRow) allSatisfy: [:assoc | assoc value]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 BingoBoard >> isAllMarkedAtRow: aRow [
 
 	^ (self matrix atRow: aRow) allSatisfy: [:assoc | assoc value]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BingoBoard >> isWinner [
 
 	^ self winningScore isZero not
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 BingoBoard >> markNumber: aNumber [
 
 	self matrix withIndicesDo: [:assoc :aRow :aColumn |
@@ -55,31 +57,31 @@ BingoBoard >> markNumber: aNumber [
 	 ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BingoBoard >> matrix [
 
 	^ matrix
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BingoBoard >> matrix: anObject [
 
 	matrix := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BingoBoard >> rowAt: aRow columnAt: aColumn put: aNumber [
 
 	(self matrix at: aRow at: aColumn) key: aNumber
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BingoBoard >> winningScore [
 
 	^ winningScore
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BingoBoard >> winningScore: anObject [
 
 	winningScore := anObject

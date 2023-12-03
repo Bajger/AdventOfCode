@@ -1,6 +1,6 @@
-Extension { #name : #Interval }
+Extension { #name : 'Interval' }
 
-{ #category : #'*AdventOfCode' }
+{ #category : '*AdventOfCode' }
 Interval >> mutuallyContains: anInterval [
 
 	^ (self includesAll: anInterval) or: [ anInterval includesAll: self ]

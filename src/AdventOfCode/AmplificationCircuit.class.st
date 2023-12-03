@@ -2,26 +2,28 @@
 AoC2019 - Day 7 part 1
 "
 Class {
-	#name : #AmplificationCircuit,
-	#superclass : #AoC2019,
+	#name : 'AmplificationCircuit',
+	#superclass : 'AoC2019',
 	#instVars : [
 		'amplifiers',
 		'maxThrusterSignal'
 	],
-	#category : #'AdventOfCode-AoC2019'
+	#category : 'AdventOfCode-AoC2019',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2019'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AmplificationCircuit >> amplifiers [
 	^ amplifiers
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AmplificationCircuit >> amplifiers: anObject [
 	amplifiers := anObject
 ]
 
-{ #category : #'actions api' }
+{ #category : 'actions api' }
 AmplificationCircuit >> compute [
 
 	(0 to: 4) permutationsDo: [:aSettingArray |
@@ -32,7 +34,7 @@ AmplificationCircuit >> compute [
 	^ self maxThrusterSignal 
 ]
 
-{ #category : #initialize }
+{ #category : 'initialize' }
 AmplificationCircuit >> initialize [ 
 	
 	super initialize.
@@ -41,13 +43,13 @@ AmplificationCircuit >> initialize [
 	self initializeAmplifiers.
 ]
 
-{ #category : #initialize }
+{ #category : 'initialize' }
 AmplificationCircuit >> initializeAmplifiers [
 
 	self initializeAmpsWithProgram: self input
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 AmplificationCircuit >> initializeAmpsWithProgram: codeProgramString [
 
 	($A to: $E) do: [:ampId |
@@ -59,29 +61,29 @@ AmplificationCircuit >> initializeAmpsWithProgram: codeProgramString [
 	self amplifiers first setInputSignal: 0.
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 AmplificationCircuit >> lastAmpOutput [
 	^ self amplifiers last outputSignal
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AmplificationCircuit >> maxThrusterSignal [
 	^ maxThrusterSignal 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AmplificationCircuit >> maxThrusterSignal: aValue [
 
 	maxThrusterSignal := aValue
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 AmplificationCircuit >> resetAmps [
 
 	self amplifiers do: [:amp | amp resetAmpWith: self input].
 ]
 
-{ #category : #'actions api' }
+{ #category : 'actions api' }
 AmplificationCircuit >> runCircuitForPhaseSettings: aSettingArray [
 
 	aSettingArray withIndexDo: [:aSetting :idx |
@@ -94,14 +96,14 @@ AmplificationCircuit >> runCircuitForPhaseSettings: aSettingArray [
 	
 ]
 
-{ #category : #'actions api' }
+{ #category : 'actions api' }
 AmplificationCircuit >> setMaxThrusterSignal: aValue [
 
 	self maxThrusterSignal < aValue ifTrue: [ maxThrusterSignal := aValue ].	
 	
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 AmplificationCircuit >> variationsOf: nrOfMembers usingRange: anInterval do: aBlock [
 	
 	|variations|
@@ -109,7 +111,7 @@ AmplificationCircuit >> variationsOf: nrOfMembers usingRange: anInterval do: aBl
 	^ self variationsOf: nrOfMembers  usingRange: anInterval on: variations  do: aBlock 
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 AmplificationCircuit >> variationsOf: nrOfMembers usingRange: anInterval on: aColl do: aBlock [
 
 	aColl size = nrOfMembers ifTrue: [ aBlock value: aColl. aColl removeLast. ^ aColl ].

@@ -2,16 +2,18 @@
 AoC2021 - Day 4 part 1
 "
 Class {
-	#name : #GiantSquid,
-	#superclass : #AoC2021,
+	#name : 'GiantSquid',
+	#superclass : 'AoC2021',
 	#instVars : [
 		'boards',
 		'callNumbers'
 	],
-	#category : #'AdventOfCode-AoC2021'
+	#category : 'AdventOfCode-AoC2021',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2021'
 }
 
-{ #category : #'private ' }
+{ #category : 'private ' }
 GiantSquid >> addBoardFrom: aStringOfNumbers [
 
 	|numbers aBoard aNumbers |
@@ -28,31 +30,31 @@ GiantSquid >> addBoardFrom: aStringOfNumbers [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GiantSquid >> boards [
 
 	^ boards
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GiantSquid >> boards: anObject [
 
 	boards := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GiantSquid >> callNumbers [
 
 	^ callNumbers
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GiantSquid >> callNumbers: anObject [
 
 	callNumbers := anObject
 ]
 
-{ #category : #'api actions' }
+{ #category : 'api actions' }
 GiantSquid >> compute [
 
 	self parseInput.
@@ -65,7 +67,7 @@ GiantSquid >> compute [
 	self error: 'Could not find a winning board'.
 ]
 
-{ #category : #initialize }
+{ #category : 'initialize' }
 GiantSquid >> initialize [ 
 	super initialize.
 	self boards: OrderedCollection new.
@@ -73,13 +75,13 @@ GiantSquid >> initialize [
 
 ]
 
-{ #category : #'private ' }
+{ #category : 'private ' }
 GiantSquid >> parseCallNumbersFrom: aStringOfNumbers [
 
 	self callNumbers: ((aStringOfNumbers splitOn: $,) collect: #asNumber)	
 ]
 
-{ #category : #'private ' }
+{ #category : 'private ' }
 GiantSquid >> parseInput [
 	|inputArrays|
 	inputArrays := self input splitOn: (Array with: Character cr with: Character cr).

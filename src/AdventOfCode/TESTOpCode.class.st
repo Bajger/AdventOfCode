@@ -2,15 +2,17 @@
 2019 - day 5 - OP code class
 "
 Class {
-	#name : #TESTOpCode,
-	#superclass : #OpCode,
+	#name : 'TESTOpCode',
+	#superclass : 'OpCode',
 	#instVars : [
 		'stepForNextOpcode'
 	],
-	#category : #'AdventOfCode-AoC2019'
+	#category : 'AdventOfCode-AoC2019',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2019'
 }
 
-{ #category : #private }
+{ #category : 'private' }
 TESTOpCode >> implicitStepForNextCode [
 
 	(#(1 2 7 8) includes: self opcode) ifTrue: [ ^ super stepForNextCode].
@@ -18,13 +20,13 @@ TESTOpCode >> implicitStepForNextCode [
 	^ 2
 ]
 
-{ #category : #initialize }
+{ #category : 'initialize' }
 TESTOpCode >> initialize [
 	super initialize.
 	self stepForNextCode: 0.
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TESTOpCode >> isImmediateModeAt: paramNumber [
 "
 based on scheme, C,B,A parameters are +2,+3,+4 
@@ -39,14 +41,14 @@ DE - two-digit opcode,      02 == opcode 2
 	^ (super opcode decimalDigitAt: paramNumber + 2) = 1
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TESTOpCode >> jumpIf: aBool [
 	aBool
 		ifFalse: [ ^ self ].
 	self setStepForNextCode
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TESTOpCode >> opcode [
 
 	|fiveDigitsCode|
@@ -56,14 +58,14 @@ TESTOpCode >> opcode [
 	]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TESTOpCode >> parameterAt: index [
 
 	(self isImmediateModeAt: index) ifTrue: [^ self rawValueOf: index].
 	^ super parameterAt: index
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TESTOpCode >> performOperation [ 
 
 	super performOperation.
@@ -77,32 +79,32 @@ TESTOpCode >> performOperation [
 	self opcode = 8 ifTrue: [ 	self storeResult: (self firstParameter = self secondParameter) asBit].
 ]
 
-{ #category : #'api - accessing' }
+{ #category : 'api - accessing' }
 TESTOpCode >> setStepForNextCode [
 
 	self stepForNextCode: (self secondParameter + 1 - (self codeComputer sequenceIndex))
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TESTOpCode >> shouldHalt [ 
 
 	^ super shouldHalt or: [ self opcode = 4 and: [self codeComputer programOutput isZero not ]]
 ]
 
-{ #category : #'api - accessing' }
+{ #category : 'api - accessing' }
 TESTOpCode >> stepForNextCode [
 
 	stepForNextOpcode isZero ifTrue: [ ^ self implicitStepForNextCode  ].
 	^ stepForNextOpcode 
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TESTOpCode >> stepForNextCode: aStep [
 
 	stepForNextOpcode := aStep
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 TESTOpCode >> storeResult: aResult [
 	
 	"if opcode is 03, use 1st parameter, otherwise 3rd parameter in case of other opcodes"

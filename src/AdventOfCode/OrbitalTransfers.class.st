@@ -2,12 +2,14 @@
 2019 - day 6 part 2
 "
 Class {
-	#name : #OrbitalTransfers,
-	#superclass : #UniversalOrbitMap,
-	#category : #'AdventOfCode-AoC2019'
+	#name : 'OrbitalTransfers',
+	#superclass : 'UniversalOrbitMap',
+	#category : 'AdventOfCode-AoC2019',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2019'
 }
 
-{ #category : #'api actions' }
+{ #category : 'api actions' }
 OrbitalTransfers >> compute [ 
 	|santa you ancestor|
 	self processOrbitMap.

@@ -2,12 +2,14 @@
 2019 - day 5 part 2
 "
 Class {
-	#name : #TESTDiagnosticThermalRadiators,
-	#superclass : #TESTDiagnostic,
-	#category : #'AdventOfCode-AoC2019'
+	#name : 'TESTDiagnosticThermalRadiators',
+	#superclass : 'TESTDiagnostic',
+	#category : 'AdventOfCode-AoC2019',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2019'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 TESTDiagnosticThermalRadiators >> initialize [ 
 	super initialize.
 	self programInput: 5.

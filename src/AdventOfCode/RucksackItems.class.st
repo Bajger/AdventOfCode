@@ -2,15 +2,17 @@
 AoC 2022 - Day 3 part 1
 "
 Class {
-	#name : #RucksackItems,
-	#superclass : #AoC2022,
+	#name : 'RucksackItems',
+	#superclass : 'AoC2022',
 	#instVars : [
 		'itemsBag'
 	],
-	#category : #'AdventOfCode-AoC2022'
+	#category : 'AdventOfCode-AoC2022',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2022'
 }
 
-{ #category : #'api actions' }
+{ #category : 'api actions' }
 RucksackItems >> compute [
 	|priorities|
 	priorities := self input substrings collect: [: rucksackItems|
@@ -21,7 +23,7 @@ RucksackItems >> compute [
 	^ priorities sum
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 RucksackItems >> findSharedItemIn: itemArrays [ 
 	
 	|sets sharedItems|
@@ -32,7 +34,7 @@ RucksackItems >> findSharedItemIn: itemArrays [
 	^ sharedItems anyOne 
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 RucksackItems >> getCompartmentsFrom: ruckSack [ 
 	
 	|fstCompartment sndCompartment halfIndex|
@@ -42,14 +44,14 @@ RucksackItems >> getCompartmentsFrom: ruckSack [
 	^ { fstCompartment. sndCompartment. }
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 RucksackItems >> initialize [ 
 
 	super initialize.
 	itemsBag := Character alphabet, (Character alphabet asUppercase).
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 RucksackItems >> priorityOf: anItem [
 
 	^ itemsBag indexOf: anItem 

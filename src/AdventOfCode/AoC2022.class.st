@@ -3,12 +3,14 @@ AoC 2022 solutions
 
 "
 Class {
-	#name : #AoC2022,
-	#superclass : #AoC,
-	#category : #'AdventOfCode-AoC2022'
+	#name : 'AoC2022',
+	#superclass : 'AoC',
+	#category : 'AdventOfCode-AoC2022',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2022'
 }
 
-{ #category : #executing }
+{ #category : 'executing' }
 AoC2022 class >> aocSolutionClasses [
 	^ 
 	{	ElfCalories. ElfCaloriesTopThree.
@@ -23,7 +25,7 @@ AoC2022 class >> aocSolutionClasses [
 	}
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 AoC2022 class >> solutionYearString [
 
 	^ '2022'

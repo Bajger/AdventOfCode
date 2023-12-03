@@ -2,16 +2,18 @@
 2019 - day 2 part 1
 "
 Class {
-	#name : #RestoreIntcodeProgram,
-	#superclass : #AoC2019,
+	#name : 'RestoreIntcodeProgram',
+	#superclass : 'AoC2019',
 	#instVars : [
 		'sequenceIndex',
 		'intcodeProgram'
 	],
-	#category : #'AdventOfCode-AoC2019'
+	#category : 'AdventOfCode-AoC2019',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2019'
 }
 
-{ #category : #execution }
+{ #category : 'execution' }
 RestoreIntcodeProgram >> compute [ 
 	self restoreGravityAssistProgram.
 	self processOpcodesOfProgram.
@@ -19,41 +21,41 @@ RestoreIntcodeProgram >> compute [
 
 ]
 
-{ #category : #'private ' }
+{ #category : 'private ' }
 RestoreIntcodeProgram >> generateOpcode [
 
 	^ OpCode on: self
 ]
 
-{ #category : #'private ' }
+{ #category : 'private ' }
 RestoreIntcodeProgram >> goToEnd [
 	self sequenceIndex: self intcodeProgram size
 ]
 
-{ #category : #'private ' }
+{ #category : 'private ' }
 RestoreIntcodeProgram >> goToNextOpcodeFrom: previousOpcode [
 
 	self sequenceIndex: self sequenceIndex + previousOpcode stepForNextCode
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RestoreIntcodeProgram >> intcodeProgram [
 	intcodeProgram ifNil: [ self setIntcodeProgram].
 	^ intcodeProgram 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RestoreIntcodeProgram >> intcodeProgram: anObject [
 	intcodeProgram := anObject
 ]
 
-{ #category : #'private ' }
+{ #category : 'private ' }
 RestoreIntcodeProgram >> isAtTheEnd [
 	
 	^ self sequenceIndex >= self intcodeProgram size
 ]
 
-{ #category : #'private ' }
+{ #category : 'private ' }
 RestoreIntcodeProgram >> processOpcode [
 
 	|opcode |
@@ -62,7 +64,7 @@ RestoreIntcodeProgram >> processOpcode [
 	^ opcode 
 ]
 
-{ #category : #'private ' }
+{ #category : 'private ' }
 RestoreIntcodeProgram >> processOpcodesOfProgram [
 	self sequenceIndex: 1.
 	[ | opcode |
@@ -74,24 +76,24 @@ RestoreIntcodeProgram >> processOpcodesOfProgram [
 	^ self intcodeProgram
 ]
 
-{ #category : #'private ' }
+{ #category : 'private ' }
 RestoreIntcodeProgram >> restoreGravityAssistProgram [
 	
 	self intcodeProgram at: 2 put: 12.
 	self intcodeProgram at: 3 put: 2.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RestoreIntcodeProgram >> sequenceIndex [
 	^ sequenceIndex
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RestoreIntcodeProgram >> sequenceIndex: anObject [
 	sequenceIndex := anObject
 ]
 
-{ #category : #'private ' }
+{ #category : 'private ' }
 RestoreIntcodeProgram >> setIntcodeProgram [
 	
 	self intcodeProgram:  ((self input substrings: ',') collect: #asNumber)

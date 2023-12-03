@@ -2,18 +2,20 @@
 AoC 2022 - Day 7 part 1 - device command to chamge directory
 "
 Class {
-	#name : #DeviceCdCommand,
-	#superclass : #DeviceCommand,
-	#category : #'AdventOfCode-AoC2022'
+	#name : 'DeviceCdCommand',
+	#superclass : 'DeviceCommand',
+	#category : 'AdventOfCode-AoC2022',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2022'
 }
 
-{ #category : #'private - testing' }
+{ #category : 'private - testing' }
 DeviceCdCommand class >> matchCommand: cmdString [
 
 	^ cmdString = 'cd'
 ]
 
-{ #category : #execution }
+{ #category : 'execution' }
 DeviceCdCommand >> changeDirTo: changeDirName [
 	changeDirName = '/' ifTrue: [^ self device currentDirectory: self device currentDirectory findRoot ]. 
 	changeDirName = '..' ifTrue: [ self device currentDirectory: self device currentDirectory parent ]
@@ -26,7 +28,7 @@ DeviceCdCommand >> changeDirTo: changeDirName [
 	]
 ]
 
-{ #category : #execution }
+{ #category : 'execution' }
 DeviceCdCommand >> execute [
 
 	| changeDirName |

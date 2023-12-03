@@ -2,15 +2,17 @@
 AoC 2022 - Day 7 part 1 - device file reference
 "
 Class {
-	#name : #DeviceFSReference,
-	#superclass : #Object,
+	#name : 'DeviceFSReference',
+	#superclass : 'Object',
 	#instVars : [
 		'name'
 	],
-	#category : #'AdventOfCode-AoC2022'
+	#category : 'AdventOfCode-AoC2022',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2022'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 DeviceFSReference class >> named: refName [
 
 	^ self new 
@@ -18,19 +20,19 @@ DeviceFSReference class >> named: refName [
 		yourself 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 DeviceFSReference >> isDirectory [
 
 	^ false 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DeviceFSReference >> name [
 
 	^ name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DeviceFSReference >> name: anObject [
 
 	name := anObject

@@ -2,23 +2,25 @@
 2019 - day 6 - Object in Space
 "
 Class {
-	#name : #ObjectInSpace,
-	#superclass : #Object,
+	#name : 'ObjectInSpace',
+	#superclass : 'Object',
 	#instVars : [
 		'orbits',
 		'name',
 		'orbitHops'
 	],
-	#category : #'AdventOfCode-AoC2019'
+	#category : 'AdventOfCode-AoC2019',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2019'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 ObjectInSpace class >> named: aName [
 
 	^ self new name: aName; yourself 
 ]
 
-{ #category : #'api - accessing' }
+{ #category : 'api - accessing' }
 ObjectInSpace >> allOrbitHops [
 	
 	|hops| 
@@ -27,13 +29,13 @@ ObjectInSpace >> allOrbitHops [
 	^ hops
 ]
 
-{ #category : #'api - accessing' }
+{ #category : 'api - accessing' }
 ObjectInSpace >> amountOfAllOrbits [
 	
 	^ self orbitsRecursivelyDo: self amountOfOrbitsBlock from: 0
 ]
 
-{ #category : #'private ' }
+{ #category : 'private ' }
 ObjectInSpace >> amountOfOrbitsBlock [
 
 	^ [ :amount | amount + 1 ]
@@ -41,64 +43,64 @@ ObjectInSpace >> amountOfOrbitsBlock [
 	
 ]
 
-{ #category : #'api - accessing' }
+{ #category : 'api - accessing' }
 ObjectInSpace >> findCommonOrbitAncestorOf: anotherObject [
 
 	^ self orbitHops at: (self orbitHops indexOfAnyOf: anotherObject orbitHops) ifAbsent: [ nil ]
 	
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 ObjectInSpace >> hash [
 	^ self name hash
 ]
 
-{ #category : #'api - accessing' }
+{ #category : 'api - accessing' }
 ObjectInSpace >> hopsToObject: anAncestorObject [
 
 	^ self orbitHops indexOf: anAncestorObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ObjectInSpace >> name [
 	^ name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ObjectInSpace >> name: anObject [
 	name := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ObjectInSpace >> orbitHops [
 
 	orbitHops ifNil: [ self orbitHops: self allOrbitHops  ].
 	^orbitHops 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ObjectInSpace >> orbitHops: aColl [
 
 	orbitHops := aColl
 ]
 
-{ #category : #'private ' }
+{ #category : 'private ' }
 ObjectInSpace >> orbitHopsBlock [
 
 	^ [ :collOfObjects :aObject| collOfObjects add: aObject; yourself]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ObjectInSpace >> orbits [
 	^ orbits
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ObjectInSpace >> orbits: anObject [
 	orbits := anObject
 ]
 
-{ #category : #'private ' }
+{ #category : 'private ' }
 ObjectInSpace >> orbitsRecursivelyDo: aBlock from: aParameter [
 
 
@@ -106,7 +108,7 @@ ObjectInSpace >> orbitsRecursivelyDo: aBlock from: aParameter [
 	^ self orbits orbitsRecursivelyDo: aBlock from: (aBlock cull: aParameter cull: self orbits)
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ObjectInSpace >> printOn: stream [
 	super printOn: stream.
 	stream nextPut: $(.

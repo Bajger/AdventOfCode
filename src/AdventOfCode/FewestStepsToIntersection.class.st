@@ -2,15 +2,17 @@
 2019 - day 3 part 2
 "
 Class {
-	#name : #FewestStepsToIntersection,
-	#superclass : #CrossedWiresIntersection,
+	#name : 'FewestStepsToIntersection',
+	#superclass : 'CrossedWiresIntersection',
 	#instVars : [
 		'wireDistance'
 	],
-	#category : #'AdventOfCode-AoC2019'
+	#category : 'AdventOfCode-AoC2019',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2019'
 }
 
-{ #category : #private }
+{ #category : 'private' }
 FewestStepsToIntersection >> addIntersectionBetween: firstWireSegment and: secondWireSegment to: resultColl [
 	| aPointOrNil |
 	aPointOrNil := firstWireSegment intersectionWith: secondWireSegment.
@@ -23,27 +25,27 @@ FewestStepsToIntersection >> addIntersectionBetween: firstWireSegment and: secon
 			resultColl add: {intPoint. wireDistances first.  wireDistances last.} ]
 ]
 
-{ #category : #execution }
+{ #category : 'execution' }
 FewestStepsToIntersection >> compute [ 
 
 	self addMovesForWires.
 	^ self getClosestLengthOfWires: (self handleIntersectionBug: self getIntersections).
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 FewestStepsToIntersection >> doSegmentAction: aBlock  lineSegment: aSegment on: aWire [
 
 	self updateWireDistance: aWire byStep: aSegment length.
 	^ super doSegmentAction: aBlock  lineSegment: aSegment on: aWire
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 FewestStepsToIntersection >> getClosestLengthOfWires: intersections [
 
 	^ (intersections collect: [ :aPointColl |  aPointColl second + aPointColl last]) min
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 FewestStepsToIntersection >> getFirstIntersection: intersectionsColl [
 
 	intersectionsColl ifNotEmpty: [ 
@@ -52,14 +54,14 @@ FewestStepsToIntersection >> getFirstIntersection: intersectionsColl [
 	^ nil 
 ]
 
-{ #category : #initialize }
+{ #category : 'initialize' }
 FewestStepsToIntersection >> getWireDistance: aWire [
 
 	^ self wireDistance at: aWire
 	
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 FewestStepsToIntersection >> getWireDistancesToIntersection: intPoint firstWireEnd: firstWireSegmentEnd secondWireEnd: secondWireSegmentEnd [ 
 	^ 
 	{  
@@ -68,37 +70,37 @@ FewestStepsToIntersection >> getWireDistancesToIntersection: intPoint firstWireE
 	}
 ]
 
-{ #category : #initialize }
+{ #category : 'initialize' }
 FewestStepsToIntersection >> initialize [ 
 	super initialize.
 	self wireDistance: IdentityDictionary new.
 ]
 
-{ #category : #initialize }
+{ #category : 'initialize' }
 FewestStepsToIntersection >> initializeWireDistance: aWire [ 
 
 	self wireDistance at: aWire put: 0.
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 FewestStepsToIntersection >> segmentsDo: aBlock on: aWire [
 
 	self initializeWireDistance: aWire.
 	^ super segmentsDo: aBlock on: aWire.
 ]
 
-{ #category : #initialize }
+{ #category : 'initialize' }
 FewestStepsToIntersection >> updateWireDistance: aWire byStep: aStep [
 
 	self wireDistance at: aWire put: (self wireDistance at: aWire) + aStep.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 FewestStepsToIntersection >> wireDistance [
 	^ wireDistance
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 FewestStepsToIntersection >> wireDistance: anObject [
 	wireDistance := anObject
 ]

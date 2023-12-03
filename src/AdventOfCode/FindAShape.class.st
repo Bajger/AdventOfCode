@@ -2,12 +2,14 @@
 AoC 2022 - Day 2 part 2
 "
 Class {
-	#name : #FindAShape,
-	#superclass : #RockPaperScissors,
-	#category : #'AdventOfCode-AoC2022'
+	#name : 'FindAShape',
+	#superclass : 'RockPaperScissors',
+	#category : 'AdventOfCode-AoC2022',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2022'
 }
 
-{ #category : #'api actions' }
+{ #category : 'api actions' }
 FindAShape >> compute [
 	|scores|
 	scores := self selectedShapes pairsCollect: [:oppShape :elfShape |
@@ -18,7 +20,7 @@ FindAShape >> compute [
 	^ scores sum
 ]
 
-{ #category : #'api actions' }
+{ #category : 'api actions' }
 FindAShape >> findMatchingShapeFor: oppShape and: elfShape [
 	
 	| increment idx |

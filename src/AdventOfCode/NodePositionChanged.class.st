@@ -1,32 +1,34 @@
 Class {
-	#name : #NodePositionChanged,
-	#superclass : #Announcement,
+	#name : 'NodePositionChanged',
+	#superclass : 'Announcement',
 	#instVars : [
 		'newPosition',
 		'nodeIndex'
 	],
-	#category : #'AdventOfCode-AoC2022'
+	#category : 'AdventOfCode-AoC2022',
+	#package : 'AdventOfCode',
+	#tag : 'AoC2022'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NodePositionChanged >> newPosition [
 
 	^ newPosition
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NodePositionChanged >> newPosition: anObject [
 
 	newPosition := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NodePositionChanged >> nodeIndex [
 
 	^ nodeIndex
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 NodePositionChanged >> nodeIndex: anObject [
 
 	nodeIndex := anObject
