@@ -14,7 +14,8 @@ Metacello new
 AoC2019 - day 1 to 7 (part 1)  
 AoC2021 - day 1 to 3  
 AoC2022 - day 9  
-AoC2023 - Just started...
+AoC2024 - day 1 part 1
+
 
 ## How to execute
 Each year is represented by `AoC<year nr.>` class, like this: `AoC2019`.  
