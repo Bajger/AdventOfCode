@@ -2,19 +2,21 @@
 A RangesOverlapTest is a test class for testing the behavior of RangesOverlap
 "
 Class {
-	#name : #RangesOverlapTest,
-	#superclass : #TestCase,
-	#category : #'AdventOfCode-Tests-AoC2022'
+	#name : 'RangesOverlapTest',
+	#superclass : 'TestCase',
+	#category : 'AdventOfCode-Tests-AoC2022',
+	#package : 'AdventOfCode-Tests',
+	#tag : 'AoC2022'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 RangesOverlapTest >> testCompute [
 	|overlap|
 	overlap := RangesOverlap new.
 	self assert: overlap compute equals: 881.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 RangesOverlapTest >> testComputeSample [
 
 	|overlap|

@@ -2,12 +2,14 @@
 A DeviceCommandTest is a test class for testing the behavior of DeviceCommand
 "
 Class {
-	#name : #DeviceCommandTest,
-	#superclass : #TestCase,
-	#category : #'AdventOfCode-Tests-AoC2022'
+	#name : 'DeviceCommandTest',
+	#superclass : 'TestCase',
+	#category : 'AdventOfCode-Tests-AoC2022',
+	#package : 'AdventOfCode-Tests',
+	#tag : 'AoC2022'
 }
 
-{ #category : #test }
+{ #category : 'test' }
 DeviceCommandTest >> testShouldProceed [
 
 	|aDevice command|

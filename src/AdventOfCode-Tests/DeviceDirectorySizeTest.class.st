@@ -2,12 +2,14 @@
 A DeviceDirectorySizeTest is a test class for testing the behavior of DeviceDirectorySize
 "
 Class {
-	#name : #DeviceDirectorySizeTest,
-	#superclass : #TestCase,
-	#category : #'AdventOfCode-Tests-AoC2022'
+	#name : 'DeviceDirectorySizeTest',
+	#superclass : 'TestCase',
+	#category : 'AdventOfCode-Tests-AoC2022',
+	#package : 'AdventOfCode-Tests',
+	#tag : 'AoC2022'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 DeviceDirectorySizeTest >> testCompute [
 
 	|aDevice  |
@@ -15,7 +17,7 @@ DeviceDirectorySizeTest >> testCompute [
 	self assert: aDevice compute equals: 1206825.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 DeviceDirectorySizeTest >> testComputeSample [
 
 		|aDevice lines |

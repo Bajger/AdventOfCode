@@ -2,12 +2,14 @@
 A LifeSupportRatingTest is a test class for testing the behavior of LifeSupportRating
 "
 Class {
-	#name : #LifeSupportRatingTest,
-	#superclass : #TestCase,
-	#category : #'AdventOfCode-Tests-AoC2021'
+	#name : 'LifeSupportRatingTest',
+	#superclass : 'TestCase',
+	#category : 'AdventOfCode-Tests-AoC2021',
+	#package : 'AdventOfCode-Tests',
+	#tag : 'AoC2021'
 }
 
-{ #category : #test }
+{ #category : 'test' }
 LifeSupportRatingTest >> testCompute [
 
 	|lifeSupport|
@@ -27,7 +29,7 @@ LifeSupportRatingTest >> testCompute [
 	self assert: lifeSupport compute equals: 230.
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 LifeSupportRatingTest >> testFindCO2RatingFrom [
 
 	|lifeSupport|
@@ -47,7 +49,7 @@ LifeSupportRatingTest >> testFindCO2RatingFrom [
 	self assert: (lifeSupport findCO2RatingFrom: lifeSupport diagnosticNumbers) equals: 10.
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 LifeSupportRatingTest >> testFindOxygenRatingFrom [
 
 		|lifeSupport|
@@ -67,7 +69,7 @@ LifeSupportRatingTest >> testFindOxygenRatingFrom [
 	self assert: (lifeSupport findOxygenRatingFrom: lifeSupport diagnosticNumbers) equals: 23.
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 LifeSupportRatingTest >> testGetCO2BitFilter [
 
 	|lifeSupport|
@@ -80,7 +82,7 @@ LifeSupportRatingTest >> testGetCO2BitFilter [
 	self assert: (lifeSupport getCO2BitFilter value: lifeSupport diagnosticNumbers value: 1) equals: 1.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 LifeSupportRatingTest >> testGetOxygenBitFilter [
 
 	|lifeSupport|
@@ -93,7 +95,7 @@ LifeSupportRatingTest >> testGetOxygenBitFilter [
 	self assert: (lifeSupport getOxygenBitFilter value: lifeSupport diagnosticNumbers value: 1) equals: 0.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 LifeSupportRatingTest >> testLeastCommonBitAtFrom [
 
 	|lifeSupport|
@@ -106,7 +108,7 @@ LifeSupportRatingTest >> testLeastCommonBitAtFrom [
 	self assert: (lifeSupport leastCommonBitAt: 2 from: lifeSupport diagnosticNumbers) equals: 0.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 LifeSupportRatingTest >> testLeastCommonBitAtFromWhenEqual [
 
 	|lifeSupport|

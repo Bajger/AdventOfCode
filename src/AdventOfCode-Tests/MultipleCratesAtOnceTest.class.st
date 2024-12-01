@@ -2,12 +2,14 @@
 A MultipleCratesAtOnceTest is a test class for testing the behavior of MultipleCratesAtOnce
 "
 Class {
-	#name : #MultipleCratesAtOnceTest,
-	#superclass : #TestCase,
-	#category : #'AdventOfCode-Tests-AoC2022'
+	#name : 'MultipleCratesAtOnceTest',
+	#superclass : 'TestCase',
+	#category : 'AdventOfCode-Tests-AoC2022',
+	#package : 'AdventOfCode-Tests',
+	#tag : 'AoC2022'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 MultipleCratesAtOnceTest >> testComputeSample [
 
 	|stacks|

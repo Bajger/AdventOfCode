@@ -2,12 +2,14 @@
 A ThreeElfItemsTest is a test class for testing the behavior of ThreeElfItems
 "
 Class {
-	#name : #ThreeElfItemsTest,
-	#superclass : #TestCase,
-	#category : #'AdventOfCode-Tests-AoC2022'
+	#name : 'ThreeElfItemsTest',
+	#superclass : 'TestCase',
+	#category : 'AdventOfCode-Tests-AoC2022',
+	#package : 'AdventOfCode-Tests',
+	#tag : 'AoC2022'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 ThreeElfItemsTest >> testCompute [
 
 	|threeElves|
@@ -16,7 +18,7 @@ ThreeElfItemsTest >> testCompute [
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ThreeElfItemsTest >> testComputeSample [
 
 	|threeElves|

@@ -2,12 +2,14 @@
 A DeviceCdCommandTest is a test class for testing the behavior of DeviceCdCommand
 "
 Class {
-	#name : #DeviceCdCommandTest,
-	#superclass : #TestCase,
-	#category : #'AdventOfCode-Tests-AoC2022'
+	#name : 'DeviceCdCommandTest',
+	#superclass : 'TestCase',
+	#category : 'AdventOfCode-Tests-AoC2022',
+	#package : 'AdventOfCode-Tests',
+	#tag : 'AoC2022'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 DeviceCdCommandTest >> testExecute [
 
 	|aDevice command aDir|

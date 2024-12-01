@@ -2,12 +2,14 @@
 A DeviceDirectoryTest is a test class for testing the behavior of DeviceDirectory
 "
 Class {
-	#name : #DeviceDirectoryTest,
-	#superclass : #TestCase,
-	#category : #'AdventOfCode-Tests-AoC2022'
+	#name : 'DeviceDirectoryTest',
+	#superclass : 'TestCase',
+	#category : 'AdventOfCode-Tests-AoC2022',
+	#package : 'AdventOfCode-Tests',
+	#tag : 'AoC2022'
 }
 
-{ #category : #test }
+{ #category : 'test' }
 DeviceDirectoryTest >> testAllSubDirs [
 
 	|aDevice lines dirs|
@@ -29,7 +31,7 @@ dir e
 	self assert: (dirs collect: #name) asArray equals:{'a'. 'd'.'e'.}.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 DeviceDirectoryTest >> testSizeOfRoot [
 
 		|aDevice lines |
@@ -62,7 +64,7 @@ $ ls
 	self assert: aDevice root sizeOnDevice equals: 48381165.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 DeviceDirectoryTest >> testSizeOnDevice [
 
 		|aDevice command lines |
@@ -79,7 +81,7 @@ dir d'.
 	self assert: aDevice currentDirectory sizeOnDevice equals: 30.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 DeviceDirectoryTest >> testSizeOnDeviceInHiearchy [
 
 		|aDevice command lines |

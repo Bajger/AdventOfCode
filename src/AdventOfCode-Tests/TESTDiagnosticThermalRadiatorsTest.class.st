@@ -1,10 +1,12 @@
 Class {
-	#name : #TESTDiagnosticThermalRadiatorsTest,
-	#superclass : #TESTDiagnosticTest,
-	#category : #'AdventOfCode-Tests-AoC2019'
+	#name : 'TESTDiagnosticThermalRadiatorsTest',
+	#superclass : 'TESTDiagnosticTest',
+	#category : 'AdventOfCode-Tests-AoC2019',
+	#package : 'AdventOfCode-Tests',
+	#tag : 'AoC2019'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 TESTDiagnosticThermalRadiatorsTest >> testImmediateModeInput8Output1 [
 	|aProgram|
 	aProgram := TESTDiagnosticThermalRadiators new 
@@ -17,7 +19,7 @@ TESTDiagnosticThermalRadiatorsTest >> testImmediateModeInput8Output1 [
 	self assert: aProgram compute equals: 0.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TESTDiagnosticThermalRadiatorsTest >> testImmediateModeInputLessThan8Output1 [
 	|aProgram|
 	aProgram := TESTDiagnosticThermalRadiators new 
@@ -32,7 +34,7 @@ TESTDiagnosticThermalRadiatorsTest >> testImmediateModeInputLessThan8Output1 [
 	]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TESTDiagnosticThermalRadiatorsTest >> testJumpIfImmediateMode [
 	|aProgram|
 	aProgram := TESTDiagnosticThermalRadiators new 
@@ -47,7 +49,7 @@ TESTDiagnosticThermalRadiatorsTest >> testJumpIfImmediateMode [
 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TESTDiagnosticThermalRadiatorsTest >> testJumpIfPositionMode [
 	|aProgram|
 	aProgram := TESTDiagnosticThermalRadiators new 
@@ -62,7 +64,7 @@ TESTDiagnosticThermalRadiatorsTest >> testJumpIfPositionMode [
 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TESTDiagnosticThermalRadiatorsTest >> testLargeExample [
 	|aProgram|
 	aProgram := TESTDiagnosticThermalRadiators new 
@@ -80,7 +82,7 @@ TESTDiagnosticThermalRadiatorsTest >> testLargeExample [
 	self assert: aProgram compute equals: 1001.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TESTDiagnosticThermalRadiatorsTest >> testPositionModeInput8Output1 [
 	|aProgram|
 	aProgram := TESTDiagnosticThermalRadiators new 
@@ -93,7 +95,7 @@ TESTDiagnosticThermalRadiatorsTest >> testPositionModeInput8Output1 [
 	self assert: aProgram compute equals: 0.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TESTDiagnosticThermalRadiatorsTest >> testPositionModeInputLessThan8Output1 [
 	|aProgram|
 	aProgram := TESTDiagnosticThermalRadiators new 
@@ -108,7 +110,7 @@ TESTDiagnosticThermalRadiatorsTest >> testPositionModeInputLessThan8Output1 [
 	]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TESTDiagnosticThermalRadiatorsTest >> testPuzzleInputInstruction [
 
 	self assert: (TESTDiagnosticThermalRadiators new compute) equals: 7616021.

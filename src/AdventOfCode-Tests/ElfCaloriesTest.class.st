@@ -2,12 +2,14 @@
 An ElfCaloriesTest is a test class for testing the behavior of ElfCalories
 "
 Class {
-	#name : #ElfCaloriesTest,
-	#superclass : #TestCase,
-	#category : #'AdventOfCode-Tests-AoC2022'
+	#name : 'ElfCaloriesTest',
+	#superclass : 'TestCase',
+	#category : 'AdventOfCode-Tests-AoC2022',
+	#package : 'AdventOfCode-Tests',
+	#tag : 'AoC2022'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 ElfCaloriesTest >> sampleInput [
 ^ '1000
 2000
@@ -26,14 +28,14 @@ ElfCaloriesTest >> sampleInput [
 '
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ElfCaloriesTest >> testCompute [
 	|elfCalories|
 	elfCalories := ElfCalories new.
 	self assert: elfCalories compute equals: 75501.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ElfCaloriesTest >> testComputeSample [
 	|elfCalories|
 	elfCalories := ElfCalories new.

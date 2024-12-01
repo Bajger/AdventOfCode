@@ -2,12 +2,14 @@
 An AoCSnakeVisualizationTest is a test class for testing the behavior of AoCSnakeVisualization
 "
 Class {
-	#name : #AoCSnakeVisualizationTest,
-	#superclass : #TestCase,
-	#category : #'AdventOfCode-Tests-AoC2022'
+	#name : 'AoCSnakeVisualizationTest',
+	#superclass : 'TestCase',
+	#category : 'AdventOfCode-Tests-AoC2022',
+	#package : 'AdventOfCode-Tests',
+	#tag : 'AoC2022'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 AoCSnakeVisualizationTest >> testOpen [
 
 	|aString tailPositions|
@@ -15,7 +17,7 @@ AoCSnakeVisualizationTest >> testOpen [
 	(AoCSnakeVisualization from: tailPositions) open.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AoCSnakeVisualizationTest >> testOpenSample [
 
 	|aString tailPositions|
@@ -32,7 +34,7 @@ R 2'.
 	(AoCSnakeVisualization from: tailPositions) open.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AoCSnakeVisualizationTest >> testOpenSample2 [
 
 	|aString tailPositions|

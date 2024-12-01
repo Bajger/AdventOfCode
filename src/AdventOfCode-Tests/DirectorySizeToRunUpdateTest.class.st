@@ -2,12 +2,14 @@
 A DirectorySizeToRunUpdateTest is a test class for testing the behavior of DirectorySizeToRunUpdate
 "
 Class {
-	#name : #DirectorySizeToRunUpdateTest,
-	#superclass : #TestCase,
-	#category : #'AdventOfCode-Tests-AoC2022'
+	#name : 'DirectorySizeToRunUpdateTest',
+	#superclass : 'TestCase',
+	#category : 'AdventOfCode-Tests-AoC2022',
+	#package : 'AdventOfCode-Tests',
+	#tag : 'AoC2022'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 DirectorySizeToRunUpdateTest >> testCompute [
 	|aDevice|
 	aDevice := DirectorySizeToRunUpdate new.
@@ -15,7 +17,7 @@ DirectorySizeToRunUpdateTest >> testCompute [
 	self assert: aDevice compute equals: 9608311.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 DirectorySizeToRunUpdateTest >> testComputeSample [
 
 		|aDevice lines |
@@ -47,7 +49,7 @@ $ ls
 	self assert: aDevice compute equals: 24933642.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 DirectorySizeToRunUpdateTest >> testRequiredFreeSpace [
 
 		|aDevice lines |

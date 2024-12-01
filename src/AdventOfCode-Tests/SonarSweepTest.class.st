@@ -2,12 +2,14 @@
 A SonarSweepTest is a test class for testing the behavior of SonarSweep
 "
 Class {
-	#name : #SonarSweepTest,
-	#superclass : #TestCase,
-	#category : #'AdventOfCode-Tests-AoC2021'
+	#name : 'SonarSweepTest',
+	#superclass : 'TestCase',
+	#category : 'AdventOfCode-Tests-AoC2021',
+	#package : 'AdventOfCode-Tests',
+	#tag : 'AoC2021'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 SonarSweepTest >> testCompute [
 	
 	|aSonarSweep|
@@ -15,7 +17,7 @@ SonarSweepTest >> testCompute [
 	self assert: aSonarSweep compute equals: 1233.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 SonarSweepTest >> testComputeAocSample [
 	
 	|aSonarSweep|
@@ -33,7 +35,7 @@ SonarSweepTest >> testComputeAocSample [
 	self assert: aSonarSweep compute equals: 7.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 SonarSweepTest >> testComputeSample1 [
 	
 	|aSonarSweep|
@@ -46,7 +48,7 @@ SonarSweepTest >> testComputeSample1 [
 	self assert: aSonarSweep compute equals: 3.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 SonarSweepTest >> testComputeSample2 [
 	
 	|aSonarSweep|
@@ -58,7 +60,7 @@ SonarSweepTest >> testComputeSample2 [
 	self assert: aSonarSweep compute equals: 3.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 SonarSweepTest >> testComputeSample3 [
 	
 	|aSonarSweep|

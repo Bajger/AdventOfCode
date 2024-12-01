@@ -2,19 +2,21 @@
 A PacketMarkerTest is a test class for testing the behavior of PacketMarker
 "
 Class {
-	#name : #PacketMarkerTest,
-	#superclass : #TestCase,
-	#category : #'AdventOfCode-Tests-AoC2022'
+	#name : 'PacketMarkerTest',
+	#superclass : 'TestCase',
+	#category : 'AdventOfCode-Tests-AoC2022',
+	#package : 'AdventOfCode-Tests',
+	#tag : 'AoC2022'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 PacketMarkerTest >> testCompute [
 	| marker|
 	marker := PacketMarker new.
 	self assert: marker compute equals: 1100.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 PacketMarkerTest >> testComputeSamples [
 	|inputs marker|
 	marker := PacketMarker new.

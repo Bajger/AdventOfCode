@@ -2,12 +2,14 @@
 A CrateInstructionTest is a test class for testing the behavior of CrateInstruction
 "
 Class {
-	#name : #CrateInstructionTest,
-	#superclass : #TestCase,
-	#category : #'AdventOfCode-Tests-AoC2022'
+	#name : 'CrateInstructionTest',
+	#superclass : 'TestCase',
+	#category : 'AdventOfCode-Tests-AoC2022',
+	#package : 'AdventOfCode-Tests',
+	#tag : 'AoC2022'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 CrateInstructionTest >> testFrom [
 	|cmd| 
 	cmd := CrateInstruction from: 'move 2 from 7 to 5'.

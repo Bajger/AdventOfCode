@@ -1,10 +1,12 @@
 Class {
-	#name : #AmplificationCircuitTest,
-	#superclass : #TestCase,
-	#category : #'AdventOfCode-Tests-AoC2019'
+	#name : 'AmplificationCircuitTest',
+	#superclass : 'TestCase',
+	#category : 'AdventOfCode-Tests-AoC2019',
+	#package : 'AdventOfCode-Tests',
+	#tag : 'AoC2019'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 AmplificationCircuitTest >> testAoCSample [
 
 	|aCircuit | 
@@ -25,7 +27,7 @@ AmplificationCircuitTest >> testAoCSample [
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 AmplificationCircuitTest >> testCompute [
 
 	self assert: (AmplificationCircuit new compute) equals: 51679

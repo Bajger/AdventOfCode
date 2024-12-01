@@ -2,12 +2,14 @@
 A BinaryDiagnosticTest is a test class for testing the behavior of BinaryDiagnostic
 "
 Class {
-	#name : #BinaryDiagnosticTest,
-	#superclass : #TestCase,
-	#category : #'AdventOfCode-Tests-AoC2021'
+	#name : 'BinaryDiagnosticTest',
+	#superclass : 'TestCase',
+	#category : 'AdventOfCode-Tests-AoC2021',
+	#package : 'AdventOfCode-Tests',
+	#tag : 'AoC2021'
 }
 
-{ #category : #test }
+{ #category : 'test' }
 BinaryDiagnosticTest >> testCompute [
 	|binaryDiagnostic|
 	binaryDiagnostic := BinaryDiagnostic new.
@@ -26,7 +28,7 @@ BinaryDiagnosticTest >> testCompute [
 	self assert: binaryDiagnostic compute equals: 198.
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 BinaryDiagnosticTest >> testCummulatedGammaAtFrom [
 
 	|binaryDiagnostic|
@@ -41,7 +43,7 @@ BinaryDiagnosticTest >> testCummulatedGammaAtFrom [
 	self assert: binaryDiagnostic gamma equals: (Number readFrom: '00010' base: 2)
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BinaryDiagnosticTest >> testDiagnosticNumbers [	
 	|binaryDiagnostic|
 	binaryDiagnostic := BinaryDiagnostic new.
@@ -50,7 +52,7 @@ BinaryDiagnosticTest >> testDiagnosticNumbers [
 	self assert: binaryDiagnostic diagnosticNumbers asArray equals: #(4 2).
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 BinaryDiagnosticTest >> testGetEpsilonSize [
 	|binaryDiagnostic|
 	binaryDiagnostic := BinaryDiagnostic new gamma: 30; yourself.
@@ -60,13 +62,13 @@ BinaryDiagnosticTest >> testGetEpsilonSize [
 	self assert: (binaryDiagnostic getEpsilonOfsize: 12) equals: 1365.
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 BinaryDiagnosticTest >> testGetMaskForUnusedBits [
 
 	self assert: (BinaryDiagnostic new getMaskForUnusedBits: 5) equals: 31
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BinaryDiagnosticTest >> testMostCommonBitAtFrom [	
 	|binaryDiagnostic|
 	binaryDiagnostic := BinaryDiagnostic new.
@@ -78,7 +80,7 @@ BinaryDiagnosticTest >> testMostCommonBitAtFrom [
 	self assert: (binaryDiagnostic mostCommonBitAt: 2 from: binaryDiagnostic diagnosticNumbers) equals: 1.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BinaryDiagnosticTest >> testMostCommonBitAtFromWhenEqual [
 	|binaryDiagnostic|
 	binaryDiagnostic := BinaryDiagnostic new.

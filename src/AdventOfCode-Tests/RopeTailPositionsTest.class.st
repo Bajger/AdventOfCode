@@ -2,12 +2,14 @@
 A RopeTailPositionsTest is a test class for testing the behavior of RopeTailPositions
 "
 Class {
-	#name : #RopeTailPositionsTest,
-	#superclass : #TestCase,
-	#category : #'AdventOfCode-Tests-AoC2022'
+	#name : 'RopeTailPositionsTest',
+	#superclass : 'TestCase',
+	#category : 'AdventOfCode-Tests-AoC2022',
+	#package : 'AdventOfCode-Tests',
+	#tag : 'AoC2022'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 RopeTailPositionsTest >> testBoundingBoxOfRope [
 
 	|aString tailPositions rect|
@@ -24,7 +26,7 @@ D 9'.
 	self assert: tailPositions boundingBoxOfRope corner y equals: 4.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 RopeTailPositionsTest >> testCompute [
 
 	| tailPositions|
@@ -32,7 +34,7 @@ RopeTailPositionsTest >> testCompute [
 	self assert: tailPositions compute equals: 2661.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 RopeTailPositionsTest >> testComputeAocSample [
 
 	|aString tailPositions |

@@ -2,12 +2,14 @@
 A RucksackItemsTest is a test class for testing the behavior of RucksackItems
 "
 Class {
-	#name : #RucksackItemsTest,
-	#superclass : #TestCase,
-	#category : #'AdventOfCode-Tests-AoC2022'
+	#name : 'RucksackItemsTest',
+	#superclass : 'TestCase',
+	#category : 'AdventOfCode-Tests-AoC2022',
+	#package : 'AdventOfCode-Tests',
+	#tag : 'AoC2022'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 RucksackItemsTest >> testCompute [
 
 	|rucksack|
@@ -17,7 +19,7 @@ RucksackItemsTest >> testCompute [
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 RucksackItemsTest >> testComputeSample [
 
 	|rucksack|
@@ -32,7 +34,7 @@ CrZsJsPPZsGzwwsLwLmpwMDw'.
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 RucksackItemsTest >> testFindSharedItemIn [
 
 	|rucksack|
@@ -44,7 +46,7 @@ RucksackItemsTest >> testFindSharedItemIn [
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 RucksackItemsTest >> testPriorityOf [
 
 	|rucksack|

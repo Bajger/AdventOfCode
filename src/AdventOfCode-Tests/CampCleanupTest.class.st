@@ -2,12 +2,14 @@
 A CampCleanupTest is a test class for testing the behavior of CampCleanup
 "
 Class {
-	#name : #CampCleanupTest,
-	#superclass : #TestCase,
-	#category : #'AdventOfCode-Tests-AoC2022'
+	#name : 'CampCleanupTest',
+	#superclass : 'TestCase',
+	#category : 'AdventOfCode-Tests-AoC2022',
+	#package : 'AdventOfCode-Tests',
+	#tag : 'AoC2022'
 }
 
-{ #category : #test }
+{ #category : 'test' }
 CampCleanupTest >> testAssignedSectionPairs [
 
 	|cleanup|
@@ -22,7 +24,7 @@ CampCleanupTest >> testAssignedSectionPairs [
 	self assert: cleanup assignedSectionPairs anyOne second isInterval.
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 CampCleanupTest >> testCompute [
 
 	|cleanup|
@@ -30,7 +32,7 @@ CampCleanupTest >> testCompute [
 	self assert: cleanup compute equals: 528.
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 CampCleanupTest >> testComputeSample [
 
 	|cleanup|
@@ -44,7 +46,7 @@ CampCleanupTest >> testComputeSample [
 	self assert: cleanup compute equals: 2.
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 CampCleanupTest >> testIntervalFrom [
 
 	|cleanup|
@@ -53,7 +55,7 @@ CampCleanupTest >> testIntervalFrom [
 	self assert: (cleanup intervalFrom: '99-99') isInterval.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 CampCleanupTest >> testmutuallyContains [
 
 	self assert: ((2 to: 8) mutuallyContains: (3 to: 7)).

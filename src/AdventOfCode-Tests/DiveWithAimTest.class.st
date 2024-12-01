@@ -2,12 +2,14 @@
 A DiveWithAimTest is a test class for testing the behavior of DiveWithAim
 "
 Class {
-	#name : #DiveWithAimTest,
-	#superclass : #TestCase,
-	#category : #'AdventOfCode-Tests-AoC2021'
+	#name : 'DiveWithAimTest',
+	#superclass : 'TestCase',
+	#category : 'AdventOfCode-Tests-AoC2021',
+	#package : 'AdventOfCode-Tests',
+	#tag : 'AoC2021'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 DiveWithAimTest >> testCompute [
 	
 	|diveWithAim|

@@ -1,10 +1,12 @@
 Class {
-	#name : #ExclusivePasswordCombinationsTest,
-	#superclass : #PasswordCombinationsTest,
-	#category : #'AdventOfCode-Tests-AoC2019'
+	#name : 'ExclusivePasswordCombinationsTest',
+	#superclass : 'PasswordCombinationsTest',
+	#category : 'AdventOfCode-Tests-AoC2019',
+	#package : 'AdventOfCode-Tests',
+	#tag : 'AoC2019'
 }
 
-{ #category : #running }
+{ #category : 'running' }
 ExclusivePasswordCombinationsTest >> testNumberMeetsPasswordCriteria [
 
 self passInstance evaluatedNumber: 112233.
@@ -32,7 +34,7 @@ self passInstance evaluatedNumber: 134577.
 self assert: self passInstance numberMeetsPasswordCriteria equals: true.
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 ExclusivePasswordCombinationsTest >> testingClass [ 
 
 	^ ExclusivePasswordCombinations

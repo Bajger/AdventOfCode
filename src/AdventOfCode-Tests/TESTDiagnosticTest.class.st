@@ -2,12 +2,14 @@
 A TESTDiagnosticTest is a test class for testing the behavior of TESTDiagnostic
 "
 Class {
-	#name : #TESTDiagnosticTest,
-	#superclass : #TestCase,
-	#category : #'AdventOfCode-Tests-AoC2019'
+	#name : 'TESTDiagnosticTest',
+	#superclass : 'TestCase',
+	#category : 'AdventOfCode-Tests-AoC2019',
+	#package : 'AdventOfCode-Tests',
+	#tag : 'AoC2019'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 TESTDiagnosticTest >> test100243433Instruction [
 	|aProgram|
 	aProgram := TESTDiagnostic new 
@@ -17,7 +19,7 @@ TESTDiagnosticTest >> test100243433Instruction [
 	self assert: (aProgram compute; intcodeProgram) equals: {1002. 4. 3. 4. 99}.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TESTDiagnosticTest >> testInputToOutputInstruction [
 	|aProgram|
 	aProgram := TESTDiagnostic new 
@@ -27,7 +29,7 @@ TESTDiagnosticTest >> testInputToOutputInstruction [
 	self assert: aProgram compute equals: 666.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TESTDiagnosticTest >> testProgramOutputHaltWhenError [
 	| aProgram |
 	aProgram := TESTDiagnostic new
@@ -43,7 +45,7 @@ TESTDiagnosticTest >> testProgramOutputHaltWhenError [
 	self assert: aProgram compute equals: 666.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TESTDiagnosticTest >> testPuzzleInputInstruction [
 
 	self assert: (TESTDiagnostic new compute) equals: 15259545.

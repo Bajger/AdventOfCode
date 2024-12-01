@@ -2,12 +2,14 @@
 A DeviceListCommandTest is a test class for testing the behavior of DeviceListCommand
 "
 Class {
-	#name : #DeviceListCommandTest,
-	#superclass : #TestCase,
-	#category : #'AdventOfCode-Tests-AoC2022'
+	#name : 'DeviceListCommandTest',
+	#superclass : 'TestCase',
+	#category : 'AdventOfCode-Tests-AoC2022',
+	#package : 'AdventOfCode-Tests',
+	#tag : 'AoC2022'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 DeviceListCommandTest >> testExecute [
 
 	|aDevice lines |

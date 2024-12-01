@@ -50,21 +50,22 @@ AoCSnakeVisualization >> addHeadPoint: aPoint [
 
 { #category : 'accessing' }
 AoCSnakeVisualization >> addMoveTo: aPoint at: index [
-	|aShape transition|
+
+	| aShape transition |
 	aShape := self shapes at: index.
-	transition := self canvas transitionAnimation. 
-	transition 
-			duration: 0.05 seconds;
-			when: RSAnimationStartEvent do: [ 
-					aShape propertyAt: #fromPosition put: aShape position.
-			];
-			onStepDo: [:t | | from to |
-					from := aShape propertyAt: #fromPosition.
-					to := (self gridPosition: aPoint).
-					aShape position: (from interpolateTo: to at: t)
-			].
-			"on: aShape set: #position:."
-	self sequence add: transition.
+	transition := self canvas transitionAnimation.
+	transition
+		duration: 0.05 seconds;
+		when: RSAnimationStartEvent
+		do: [ aShape propertyAt: #fromPosition put: aShape position ]
+		for: self;
+		onStepDo: [ :t |
+			| from to |
+			from := aShape propertyAt: #fromPosition.
+			to := self gridPosition: aPoint.
+			aShape position: (from interpolateTo: to at: t) ].
+	"on: aShape set: #position:."
+	self sequence add: transition
 ]
 
 { #category : 'accessing' }
@@ -99,15 +100,15 @@ AoCSnakeVisualization >> addTailTracePoint: aPoint [
 
 { #category : 'accessing' }
 AoCSnakeVisualization >> addTailTraceTo: aPoint [
+
 	| transition |
-	
-	transition := self canvas transitionAnimation. 
-	transition 
-			duration: 0.01 seconds;
-			when: RSAnimationStartEvent do: [ 
-				self addTailTracePoint: aPoint.
-			].
-	self sequence add: transition.
+	transition := self canvas transitionAnimation.
+	transition
+		duration: 0.01 seconds;
+		when: RSAnimationStartEvent
+		do: [ self addTailTracePoint: aPoint ]
+		for: self.
+	self sequence add: transition
 ]
 
 { #category : 'accessing' }

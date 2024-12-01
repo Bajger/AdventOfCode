@@ -1,30 +1,32 @@
 Class {
-	#name : #PasswordCombinationsTest,
-	#superclass : #TestCase,
+	#name : 'PasswordCombinationsTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'passInstance'
 	],
-	#category : #'AdventOfCode-Tests-AoC2019'
+	#category : 'AdventOfCode-Tests-AoC2019',
+	#package : 'AdventOfCode-Tests',
+	#tag : 'AoC2019'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PasswordCombinationsTest >> passInstance [
 	^ passInstance
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PasswordCombinationsTest >> passInstance: anObject [
 	passInstance := anObject
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 PasswordCombinationsTest >> setUp [ 
 	super setUp.
 	self passInstance:  self testingClass new.
 	
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 PasswordCombinationsTest >> testAdjacentDigitsAreSame [
 
 	self passInstance resetAdjacentCriteria.
@@ -46,7 +48,7 @@ PasswordCombinationsTest >> testAdjacentDigitsAreSame [
 	self assert: self passInstance adjacentDigitsAreSame.
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 PasswordCombinationsTest >> testAdjacentDigitsDecreasing [
 
 self passInstance resetAdjacentCriteria.
@@ -66,7 +68,7 @@ self assert: self passInstance adjacentDigitsDecreasing.
 
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 PasswordCombinationsTest >> testCompute [
 
 	self passInstance input: '123455-123456'.
@@ -85,7 +87,7 @@ PasswordCombinationsTest >> testCompute [
 	self assert: self passInstance compute equals: 0.
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 PasswordCombinationsTest >> testCurrentDigit [
 
 self passInstance evaluatedNumber: 123456.
@@ -96,7 +98,7 @@ self passInstance currentDigitIndex: 2.
 self assert: self passInstance currentDigit equals: 5.
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 PasswordCombinationsTest >> testGetPasswordInterval [
 
 self passInstance input: '111111-666666'.
@@ -105,7 +107,7 @@ self assert: self passInstance getPasswordInterval equals: (Interval from: 11111
 
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 PasswordCombinationsTest >> testNumberMeetsPasswordCriteria [
 
 self passInstance evaluatedNumber: 111111.
@@ -118,7 +120,7 @@ self passInstance evaluatedNumber: 123789.
 self deny: self passInstance numberMeetsPasswordCriteria.
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 PasswordCombinationsTest >> testingClass [ 
 	
 	^ PasswordCombinations

@@ -2,12 +2,14 @@
 An ElfCaloriesTopThreeTest is a test class for testing the behavior of ElfCaloriesTopThree
 "
 Class {
-	#name : #ElfCaloriesTopThreeTest,
-	#superclass : #ElfCaloriesTest,
-	#category : #'AdventOfCode-Tests-AoC2022'
+	#name : 'ElfCaloriesTopThreeTest',
+	#superclass : 'ElfCaloriesTest',
+	#category : 'AdventOfCode-Tests-AoC2022',
+	#package : 'AdventOfCode-Tests',
+	#tag : 'AoC2022'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 ElfCaloriesTopThreeTest >> testCompute [
 
 	|elfCalories|
@@ -15,7 +17,7 @@ ElfCaloriesTopThreeTest >> testCompute [
 	self assert: elfCalories compute equals: 215594.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ElfCaloriesTopThreeTest >> testComputeSample [
 
 	|elfCalories|

@@ -2,12 +2,14 @@
 A TailPositionsTest is a test class for testing the behavior of TailPositions
 "
 Class {
-	#name : #TailPositionsTest,
-	#superclass : #TestCase,
-	#category : #'AdventOfCode-Tests-AoC2022'
+	#name : 'TailPositionsTest',
+	#superclass : 'TestCase',
+	#category : 'AdventOfCode-Tests-AoC2022',
+	#package : 'AdventOfCode-Tests',
+	#tag : 'AoC2022'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 TailPositionsTest >> testCompute [
 
 	| tailPositions|
@@ -15,7 +17,7 @@ TailPositionsTest >> testCompute [
 	self assert: tailPositions compute equals: 6284.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TailPositionsTest >> testComputeSample [
 
 	|aString tailPositions|
@@ -32,7 +34,7 @@ R 2'.
 	self assert: tailPositions compute equals: 13.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TailPositionsTest >> testNewTailPosition [
 
 	|tailPosition input|

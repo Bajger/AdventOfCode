@@ -2,12 +2,14 @@
 A DiveTest is a test class for testing the behavior of Dive
 "
 Class {
-	#name : #DiveTest,
-	#superclass : #TestCase,
-	#category : #'AdventOfCode-Tests-AoC2021'
+	#name : 'DiveTest',
+	#superclass : 'TestCase',
+	#category : 'AdventOfCode-Tests-AoC2021',
+	#package : 'AdventOfCode-Tests',
+	#tag : 'AoC2021'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 DiveTest >> testCompute [
 	
 	|aSonarSweep|
@@ -15,7 +17,7 @@ DiveTest >> testCompute [
 	self assert: aSonarSweep compute equals: 1580000.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 DiveTest >> testComputeSample [
 	
 	|aSonarSweep|
@@ -30,7 +32,7 @@ forward 2
 	self assert: aSonarSweep compute equals: 150.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 DiveTest >> testSubmarineCommands [
 	
 	|aDive|

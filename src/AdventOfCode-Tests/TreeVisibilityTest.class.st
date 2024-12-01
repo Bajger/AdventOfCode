@@ -2,19 +2,21 @@
 A TreeVisibilityTest is a test class for testing the behavior of TreeVisibility
 "
 Class {
-	#name : #TreeVisibilityTest,
-	#superclass : #TestCase,
-	#category : #'AdventOfCode-Tests-AoC2022'
+	#name : 'TreeVisibilityTest',
+	#superclass : 'TestCase',
+	#category : 'AdventOfCode-Tests-AoC2022',
+	#package : 'AdventOfCode-Tests',
+	#tag : 'AoC2022'
 }
 
-{ #category : #test }
+{ #category : 'test' }
 TreeVisibilityTest >> testCompute [
 	| treeHouse|
 	treeHouse := TreeVisibility new.
 	self assert: treeHouse compute equals: 1854.
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TreeVisibilityTest >> testComputeSample [
 	|rows treeHouse|
 	rows := '30373
@@ -28,7 +30,7 @@ TreeVisibilityTest >> testComputeSample [
 	self assert: treeHouse compute equals: 21.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TreeVisibilityTest >> testFillGridFrom [
 	|rows treeHouse| 	
 	rows := '123
@@ -45,7 +47,7 @@ TreeVisibilityTest >> testFillGridFrom [
 	self assert: (treeHouse grid at: 4 at: 1) height equals: 0.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 TreeVisibilityTest >> testInitializeGridFrom [
 	|rows treeHouse| 	
 		rows := '123
@@ -61,7 +63,7 @@ self assert: treeHouse grid columnCount equals: 3.
 
 ]
 
-{ #category : #test }
+{ #category : 'test' }
 TreeVisibilityTest >> testIsEdgeTreeAt [
 
 	|rows treeHouse| 	

@@ -1,10 +1,12 @@
 Class {
-	#name : #OrbitalTransfersTest,
-	#superclass : #UniversalOrbitMapTest,
-	#category : #'AdventOfCode-Tests-AoC2019'
+	#name : 'OrbitalTransfersTest',
+	#superclass : 'UniversalOrbitMapTest',
+	#category : 'AdventOfCode-Tests-AoC2019',
+	#package : 'AdventOfCode-Tests',
+	#tag : 'AoC2019'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 OrbitalTransfersTest >> anotherSampleInput [
 ^
 'COM)B
@@ -22,7 +24,7 @@ K)YOU
 I)SAN'
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 OrbitalTransfersTest >> testAllOrbitHops [
 	| aMap com b c l|
 	aMap := OrbitalTransfers new
@@ -43,13 +45,13 @@ OrbitalTransfersTest >> testAllOrbitHops [
 	self assert: (l allOrbitHops includesAll: (#('K' 'J' 'E' 'D' 'C' 'B' 'COM') collect: [:i | aMap getOrCreateObjectNamed: i])) equals: true.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 OrbitalTransfersTest >> testAnotherSampleInput [
 
 	self assert: (OrbitalTransfers new input: self anotherSampleInput; compute) equals: 4.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 OrbitalTransfersTest >> testCommonAncestors [
 	| aMap com b c d i l|
 	aMap := OrbitalTransfers new
@@ -72,7 +74,7 @@ OrbitalTransfersTest >> testCommonAncestors [
 	self assert: (l findCommonOrbitAncestorOf: b) equals: com.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 OrbitalTransfersTest >> testHopsToAncestor [
 	| aMap com b c d i l|
 	aMap := OrbitalTransfers new
@@ -92,7 +94,7 @@ OrbitalTransfersTest >> testHopsToAncestor [
 	self assert: (l hopsToObject: i) equals: 0.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 OrbitalTransfersTest >> testPuzzleInput [
 
 	self assert: (OrbitalTransfers new compute) equals: 511.

@@ -2,12 +2,14 @@
 A FindAShapeTest is a test class for testing the behavior of FindAShape
 "
 Class {
-	#name : #FindAShapeTest,
-	#superclass : #TestCase,
-	#category : #'AdventOfCode-Tests-AoC2022'
+	#name : 'FindAShapeTest',
+	#superclass : 'TestCase',
+	#category : 'AdventOfCode-Tests-AoC2022',
+	#package : 'AdventOfCode-Tests',
+	#tag : 'AoC2022'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 FindAShapeTest >> testCompute [
 
 	|findShape|
@@ -16,7 +18,7 @@ FindAShapeTest >> testCompute [
 	self assert: findShape compute equals: 12429.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 FindAShapeTest >> testComputeSample [
 
 	|findShape|
@@ -28,7 +30,7 @@ C Z'.
 	self assert: findShape compute equals: 12.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 FindAShapeTest >> testFindMatchingShapeForAnd [
 
 	|shapeFind|

@@ -2,19 +2,21 @@
 A RockPaperScissorsTest is a test class for testing the behavior of RockPaperScissors
 "
 Class {
-	#name : #RockPaperScissorsTest,
-	#superclass : #TestCase,
-	#category : #'AdventOfCode-Tests-AoC2022'
+	#name : 'RockPaperScissorsTest',
+	#superclass : 'TestCase',
+	#category : 'AdventOfCode-Tests-AoC2022',
+	#package : 'AdventOfCode-Tests',
+	#tag : 'AoC2022'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 RockPaperScissorsTest >> testCompute [
 	|rpc|
 	rpc := RockPaperScissors new.
 	self assert: rpc compute equals: 9759.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 RockPaperScissorsTest >> testComputeSample [
 
 	|rpc|
@@ -26,7 +28,7 @@ C Z'.
 	self assert: rpc compute equals: 15.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 RockPaperScissorsTest >> testRoundScoreForAnd [
 
 	|rpc|
@@ -44,7 +46,7 @@ RockPaperScissorsTest >> testRoundScoreForAnd [
 	self assert: (rpc roundScoreFor: $C and: $Z) equals: 3.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 RockPaperScissorsTest >> testSelectedShapeScore [
 
 	|rpc|
@@ -57,7 +59,7 @@ RockPaperScissorsTest >> testSelectedShapeScore [
 	self assert: (rpc selectedShapeScore: $Z) equals: 3.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 RockPaperScissorsTest >> testSelectedShapes [
 
 	|rpc|

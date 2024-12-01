@@ -2,19 +2,21 @@
 A LongPacketMarkerTest is a test class for testing the behavior of LongPacketMarker
 "
 Class {
-	#name : #LongPacketMarkerTest,
-	#superclass : #TestCase,
-	#category : #'AdventOfCode-Tests-AoC2022'
+	#name : 'LongPacketMarkerTest',
+	#superclass : 'TestCase',
+	#category : 'AdventOfCode-Tests-AoC2022',
+	#package : 'AdventOfCode-Tests',
+	#tag : 'AoC2022'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 LongPacketMarkerTest >> testCompute [
 	| marker|
 	marker := LongPacketMarker new.
 	self assert: marker compute equals: 2421.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 LongPacketMarkerTest >> testComputeSamples [
 	|inputs marker|
 	marker := LongPacketMarker new.

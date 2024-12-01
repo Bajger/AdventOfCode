@@ -2,12 +2,14 @@
 A SupplyStacksTest is a test class for testing the behavior of SupplyStacks
 "
 Class {
-	#name : #SupplyStacksTest,
-	#superclass : #TestCase,
-	#category : #'AdventOfCode-Tests-AoC2022'
+	#name : 'SupplyStacksTest',
+	#superclass : 'TestCase',
+	#category : 'AdventOfCode-Tests-AoC2022',
+	#package : 'AdventOfCode-Tests',
+	#tag : 'AoC2022'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 SupplyStacksTest >> testCompute [
 
 	|stacks|
@@ -15,7 +17,7 @@ SupplyStacksTest >> testCompute [
 	self assert: stacks compute equals: 'GRTSWNJHH'.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 SupplyStacksTest >> testComputeSample [
 
 	|stacks|
@@ -32,7 +34,7 @@ move 1 from 1 to 2'.
 	self assert: stacks compute equals: 'CMZ'.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 SupplyStacksTest >> testInitializeStacks [
 
 	|stacks|
@@ -43,7 +45,7 @@ SupplyStacksTest >> testInitializeStacks [
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 SupplyStacksTest >> testSetuInstructions [
 
 	|lines stacks|
@@ -58,7 +60,7 @@ move 1 from 1 to 2'.
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 SupplyStacksTest >> testSetupStacks [
 	|stackLines stacks|
 	stackLines := 
@@ -79,7 +81,7 @@ SupplyStacksTest >> testSetupStacks [
 	self assert: stacks crateStacks third pop equals: $P.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 SupplyStacksTest >> testStackIndicesFrom [
 
 	|stacks|
