@@ -12,7 +12,7 @@ Class {
 { #category : 'executing' }
 AoC2024 class >> aocSolutionClasses [
 	^ 
-	{LocationDistance. 	
+	{LocationDistance. SimilarityScore.
 	}
 ]
 
