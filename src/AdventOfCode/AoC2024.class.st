@@ -13,7 +13,7 @@ Class {
 AoC2024 class >> aocSolutionClasses [
 	^ 
 	{LocationDistance. SimilarityScore.
-	 SafeReports.
+	 SafeReports. SafeReportsWithDampener.
 	}
 ]
 
