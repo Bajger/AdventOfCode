@@ -20,6 +20,15 @@ MultiplyNumbers >> compute [
 	^ self sumMultiplications
 ]
 
+{ #category : 'api actions' }
+MultiplyNumbers >> evaluateInstruction: anInstruction [
+	
+	|pair| 
+	pair := (anInstruction splitOn: $,) collect: #asInteger.
+	^ pair first * pair second 
+	
+]
+
 { #category : 'initialization' }
 MultiplyNumbers >> initialize [ 
 
@@ -64,8 +73,6 @@ MultiplyNumbers >> setupInstructions [
 MultiplyNumbers >> sumMultiplications [
 	
 	^ self instructions sumNumbers: [:instruction |
-		|pair| 
-		pair := (instruction splitOn: $,) collect: #asInteger.
-		pair first * pair second 
+		self evaluateInstruction: instruction 
 	]
 ]
