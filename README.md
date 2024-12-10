@@ -14,7 +14,7 @@ Metacello new
 AoC2019 - day 1 to 7 (part 1)  
 AoC2021 - day 1 to 3  
 AoC2022 - day 9  
-AoC2024 - day 3 part 1
+AoC2024 - day 3 part 2
 
 
 ## How to execute
